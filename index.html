@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonrisas del Autismo</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="./images/">
+    <link rel="stylesheet" href="./css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-
     <header>
         <img src="images/logo.png" alt="Logo de Sonrisas del Autismo" class="logo">
         <h1>Sonrisas del Autismo</h1>
         <nav>
             <a href="index.html">Inicio</a>
-            <a href="">Acceder</a>
-            <a href="objetivo.html">Objetivo de la Empresa</a>
-            <a href="acercadenosotros.html">Acerca de Nosotros</a>
+            <a href="../Autism-Proyect/log-reg.php">Acceder</a>
+            <a href="index/objetivo.html">Objetivo de la Empresa</a>
+            <a href="index/acercadenosotros.html">Acerca de Nosotros</a>
         </nav>
     </header>
-
     <section>
         <p>
             Trabajamos de manera integral con las familias de hijos con TEA para que estas personas logren tener 
@@ -28,11 +27,25 @@
             características, y sensibilizamos sobre el tema.
         </p>
     </section>
-
     <footer>
         <p>&copy; 2024 <strong>Sonrisas del Autismo</strong>. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        const backgroundImages = [
+            'images/fondo.jpg',
+            'images/fondo1.jpg',
+            'images/fondo2.jpg'
+        ];
 
-    <script src="js/script.js"></script>
+        let currentImageIndex = 0;
+        const changeInterval = 5000;
+
+        function changeBackgroundImage() {
+            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+            document.body.style.backgroundImage = `url('${backgroundImages[currentImageIndex]}')`;
+        }
+
+        setInterval(changeBackgroundImage, changeInterval);
+    </script>
 </body>
 </html>
