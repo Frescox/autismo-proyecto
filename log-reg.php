@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 if ($user_data['password'] === $user_password) {
                     $_SESSION['user_id'] = $user_data['user_id'];
-                    header('Location: index.html');
+                    header('Location: interfaz_menu.html');
                     die;
                 } else {
                     $_SESSION['status'] = "Contraseña o correo incorrectos.";
