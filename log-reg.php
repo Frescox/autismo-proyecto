@@ -198,6 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </footer>
 
     <script src="./js/logReg.js"></script>
+    <script src="./js/galeria.js"></script>
 </body>
 
 </html>
