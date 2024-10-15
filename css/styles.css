@@ -1,0 +1,134 @@
+body {
+    font-family: "Dosis", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #8EAAF5;
+    background-image: url('../images/fondo2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    text-align: center;
+    color: #FFF2F2;
+}
+
+header {
+    background-color: #F8E48C;
+    color: #8EAAF5;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+}
+
+header img.logo {
+    width: 80px;
+    height: auto;
+    margin-left: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    margin: 5px 10px;
+    text-decoration: none;
+    color: #FFF2F2;
+    padding: 10px 20px;
+    background-color: #8EAAF5;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #F8E48C;
+    color: #8EAAF5;
+    transform: scale(1.1);
+}
+
+nav a:active {
+    background-color: #D4C254;
+    transform: scale(0.95);
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 90%;
+    text-align: left;
+}
+
+section p {
+    color: #171616;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #F8E48C;
+    color: #8EAAF5;
+    text-align: center;
+    padding: 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header img.logo {
+        margin-left: 0;
+    }
+
+    header h1 {
+        font-size: 20px;
+        margin-right: 0;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        padding: 10px 15px;
+    }
+
+    section {
+        max-width: 100%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 18px;
+    }
+
+    nav a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    section p {
+        font-size: 14px;
+    }
+}
+
