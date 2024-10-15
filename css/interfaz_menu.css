@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #8EAAF5;
+    text-align: center;
+    color: #FFF2F2;
+    font-family: "Dosis", sans-serif;
+
+}
+
+header {
+    background-color: #F8E48C;
+    color: #8EAAF5;
+    font-weight: 800;
+    font-size: 60px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    margin: 10px 0;
+    text-align: center;
+
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #FFF2F2;
+}
+
+section {
+    padding: 20px;
+}
+
+footer {
+    background-color: #F8E48C;
+    color: #FFF2F2;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    background-color: #8EAAF5;
+}
+header{
+    font-weight: 700;
+    font-size: 28px;
+}
+footer{
+    padding-left: 1.2%;
+    text-align: left;
+}
+
+main p{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+main {
+    height: 85vh;
+}
+.container-buttons{
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    row-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+}
+.gameTitle{
+    background-color: #FFFFFF;
+    color: #8EAAF5;
+}
+.btnLetters{
+    background-image: url('../images/lettersLogo.png');
+    background-color: #8EAAF5;
+    background-size: 100% 100%; /* Ajusta el tamaño del icono */
+    border: none;
+    width: 10rem; 
+    height: 10rem;
+    cursor: pointer;
+}
+.btnNotes{
+    background-image: url('../images/notepadLogo.png');
+    background-color: #8EAAF5;
+    background-size: 100% 100%; /* Ajusta el tamaño del icono */
+    border: none;
+    width: 10rem; 
+    height: 10rem;
+    cursor: pointer;
+}
+.btnBack{
+    background-image: url('../images/backImage.png');
+    background-color: #F8E48C;
+    background-size: 100% 100%; /* Ajusta el tamaño del icono */
+    background-repeat: no-repeat;
+    border: none;
+    width: 75px; 
+    height: 45px;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    main {
+        height: 70vh;
+    }
+    .btnLetters{
+        width: 8rem; 
+        height: 8rem;
+    }
+    .btnNotes{
+        width: 8rem; 
+        height: 8rem;;
+    }
+}
+
+@media (max-height: 660px) {
+    main {
+        height: 70vh;
+    }
+    .btnLetters{
+        width: 5rem; 
+        height: 5rem;
+    }
+    .btnNotes{
+        width: 5rem; 
+        height: 5rem;;
+    }
+}
