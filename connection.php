@@ -1,8 +1,8 @@
 <?php
 
 $dbhost = "localhost";
-$dbuser = "sonrisas_dev";
-$dbpass = "Proyecto5to";
+$dbuser = "root";
+$dbpass = "";
 $dbname = "sonrisas_db";
 
 if(!$con = new mysqli($dbhost, $dbuser, $dbpass, $dbname)){
