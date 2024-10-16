@@ -22,7 +22,7 @@ body {
 }
 
 .BtnGoBack2 {
-    background-image: url("/images/botones-03.png");
+    background-image: url("./images/botones-03.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -52,7 +52,7 @@ body {
     height: 99%;
     border-radius: 5px;
     font-size: 5vw;
-    background-image: url("/images/background_notePad.png");
+    background-image: url("./images/background_notePad.png");
     background-size: cover;
     background-position: center;
     padding-left: 20px;
