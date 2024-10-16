@@ -57,7 +57,7 @@ main {
 }
 
 .Btnleft{
-    background-image: url("./images/izquierdaa.png");
+    background-image: url("../images/izquierdaa.png");
     top: 42%;
     position: fixed;
     left: 11%;
@@ -79,14 +79,14 @@ main {
 }
 
 .Btnright{
-    background-image: url("./images/botonDerechaa.png");
+    background-image: url("../images/botonDerechaa.png");
     top: 42%;
     left: 11%;
     transform: translate(330%, -50%);
 }
 
 .notePad {
-    background-image: url("./images/background_notePad.png");
+    background-image: url("../images/background_notePad.png");
     background-size: cover;
     width: 40vw; 
     height: 30vh;
@@ -125,7 +125,7 @@ main {
 }
 
 .BtnGoBack1 {
-    background-image: url("./images/botones-03.png");
+    background-image: url("../images/botones-03.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
