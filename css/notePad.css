@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #8EAAF5;
+}
+
+.notePadContainer {
+    display: grid;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 90%;
+    height: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.BtnGoBack2 {
+    background-image: url("/images/botones-03.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 19%;
+    height: 7.5%;
+    position: fixed;
+    z-index: 1;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background-color: transparent;
+    transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.BtnGoBack2:hover {
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.BtnGoBack2:active {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transform: translate(-70%, -50%) scale(0.95);
+}
+
+#textInput {
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    height: 99%;
+    border-radius: 5px;
+    font-size: 5vw;
+    background-image: url("/images/background_notePad.png");
+    background-size: cover;
+    background-position: center;
+    padding-left: 20px;
+    padding-top: 25px;
+    margin-right: 20px;
+    line-height: 2.03em;
+    overflow-y: auto;
+}
+
+footer {
+    background-color: #F8E48C;
+    color: #FFF2F2;
+    text-align: center;
+    padding: 38px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .notePadContainer{
+        width: 90%;
+        height: 80%;
+        background-size: cover;
+        background-repeat: repeat-x;
+    }
+}

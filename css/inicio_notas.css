@@ -1,0 +1,318 @@
+body {
+    font-family: "Dosis", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #8EAAF5;
+    text-align: center;
+    color: #FFF2F2;
+}
+
+header {
+    background-color: #8EAAF5;
+    color: #8EAAF5;
+    font-weight: 800;
+    font-size: 5vw; 
+    padding: 2vh; 
+    display: flex;
+    justify-content: center;
+    
+}
+
+.container_Notes_Created {
+    font-family: "Roboto";
+    font-size: 6vw;
+    color: #FBE48C;
+    font-weight: bold;
+    height: 10vh; 
+    position: fixed;
+}
+
+.notes_Created {
+    margin-top: 20px;
+    padding: 0;
+}
+
+.container_Text {
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    background-color: white;
+    top: 10%;
+    position: fixed;
+    z-index: 10;
+}
+
+.text {
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 7vw;
+    color: #5f8aea;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+main {
+    justify-content: center;
+    display: grid;
+}
+
+.Btnleft{
+    background-image: url("/images/izquierdaa.png");
+    top: 42%;
+    position: fixed;
+    left: 11%;
+    transform: translate(-20%, -50%);
+}
+
+.Btnright, .Btnleft{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 19%;
+    height: 7.5%;
+    position: fixed;
+    border: none;
+    cursor: pointer; 
+    background-color: transparent;
+    transition: filter 0.3s ease, transform 0.2s ease;
+
+}
+
+.Btnright{
+    background-image: url("/images/botonDerechaa.png");
+    top: 42%;
+    left: 11%;
+    transform: translate(330%, -50%);
+}
+
+.notePad {
+    background-image: url("/images/background_notePad.png");
+    background-size: cover;
+    width: 40vw; 
+    height: 30vh;
+    max-height: 270px;
+    min-width: 170px;
+    margin-top: 10vh;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.BtnAdd, .BtnRemove {
+    background-color: #F8E48C;
+    width: 60%;
+    height: 10%;
+    position: fixed;
+    border-radius: 15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-color: #F8E48C;
+    font-family: "Roboto";
+    font-size: 6vw;
+    color: #8EAAF5;
+    font-weight: bold;
+    transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.BtnAdd {
+    top: 70%;
+}
+
+.BtnRemove {
+    top: 82%;
+}
+
+.BtnGoBack1 {
+    background-image: url("/images/botones-03.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 19%;
+    height: 7.5%;
+    top: 95.5%;
+    position: fixed;
+    z-index: 1;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background-color: transparent;
+    transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.newNote{
+    background-color: #8EAAF5;
+    width: 40%;
+    height: 7%;
+    position: fixed;
+    border-radius: 15px;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    border-color: #8EAAF5;
+    font-family: "Roboto";
+    font-size: 6vw;
+    color: #F8E48C;
+    font-weight: bold;
+    transition: filter 0.3s ease, transform 0.2s ease;
+    top: 95%;
+    z-index: 20;
+}
+
+.BtnRemove:hover, .BtnAdd:hover, .Btnleft:hover, .Btnright:hover, .newNote:hover{
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.BtnRemove:active, .BtnAdd:active, .Btnleft:active, .Btnright:active, .newNote:active{
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+.Btnright:active {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transform: translate(350%, -50%) scale(0.95);
+}
+
+.BtnGoBack1:hover {
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.BtnGoBack1:active {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transform: translate(-70%, -50%) scale(0.95);
+}
+
+footer {
+    background-color: #F8E48C;
+    color: #FFF2F2;
+    text-align: center;
+    padding: 5vh;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.preview {
+    margin-top: 2%;
+    position: fixed;
+    width: 45vw;
+    height:45vh;
+    border: 1px solid #ccc;
+    z-index: -1;
+    transform: translate(-50%, 25%);
+    border-color: #8EAAF5;
+    pointer-events: none;
+}
+
+@media only screen and (min-width: 840px) {
+
+
+    .notePad {
+        width: 20vw; 
+        height: 90vh;
+        max-height: 320px;
+        min-width: 170px;
+        top: 31%;
+    }
+
+    .BtnAdd, .BtnRemove {
+        font-size: 20px;
+        width: 40%;
+        height: 10%;
+        font-size: 4.5vw;
+    }
+
+        
+    .container_Notes_Created {
+        font-family: "Roboto";
+        font-size: 3vw;
+        color: #FBE48C;
+        font-weight: bold;
+        height: 10vh; 
+        position: fixed;
+    }
+
+    .text {
+        text-align: center;
+        font-family: "Roboto";
+        font-size: 4vw;
+        color: #5f8aea;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .preview{
+        width: 20vw;
+    }
+
+    .newNote{
+        font-size: 2.5vw;
+        width: 20vw;
+    }
+
+    }
+
+@media only screen and (max-width: 1100px) and (orientation: landscape) {
+        main {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      
+        /* Alinea el iframe a la izquierda */
+        .preview {
+          width: 50%;  /* Ajusta el ancho para la vista horizontal */
+          height: 50vh;
+          margin-left: 30%;  /* Añade espacio a la izquierda */
+          top: 5%;
+        }
+      
+        /* Alinea los botones a la derecha */
+        .BtnAdd, .BtnRemove {
+            width: 35%; 
+            left: 75%;  
+            height: auto;
+            top: unset;  
+            font-size: 5vw;
+        }
+      
+        .BtnAdd {
+            top: 45%;
+        }
+
+        .BtnRemove {
+            top: 65%;
+          }
+
+        .BtnGoBack1{
+            top: 93.7%;
+            left: 15%;
+        }
+
+        footer{
+            padding-top: 4%;
+        }
+
+        .container_Text {
+            height: 13.3%;
+            margin-top: 2%;
+      }
+
+      .text{
+        font-size: 4vw;
+        margin-top: 0%;
+      }
+
+      .notes_Created {
+        margin-top: 0%;
+        z-index: 100;
+        font-size: 3.3vw;
+      }
+
+}
+      
