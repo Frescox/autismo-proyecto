@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (!empty($user_email) && !empty($user_password) && !empty($user_name) && !empty($user_lastname)) {
 
                 $user_date = date("y-m-d");
-                $user_id = random_num(5);
+                $user_id = random_num(5,$con);
                 $verify_token = md5(rand());
                 $query = "INSERT INTO users_sonrisas (user_id, user_name, user_lastname, user_email, password, date,veriftok) 
                           VALUES ('$user_id', '$user_name_hash', '$user_lastname', '$user_email_hash', '$user_password','$user_date','$verify_token')";
