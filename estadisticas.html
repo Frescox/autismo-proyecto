@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/estadisticas.css">
+    <title>Estadísticas</title>
+</head>
+<body>
+    <header>
+        <p>Logo</p>
+        <h1>Administrador</h1>
+    </header>
+    
+    <div class="Title">
+        <h1>Estadísticas</h1>
+    </div>
+    
+    <main>
+        <div class="container-statistics">
+            <div class="statistic-card">
+                <h2>Total de Usuarios</h2>
+                <p id="totalUsuarios">100</p>
+            </div>
+            <div class="statistic-card">
+                <h2>Palabras Añadidas</h2>
+                <p id="totalPalabras">50</p>
+            </div>
+            <div class="statistic-card">
+                <h2>Interacciones Totales</h2>
+                <p id="totalInteracciones">200</p>
+            </div>
+            <div class="statistic-card">
+                <h2>Últimas Actividades</h2>
+                <ul id="actividadesRecientes">
+                    <li>Usuario A añadió 5 palabras.</li>
+                    <li>Usuario B interactuó 3 veces.</li>
+                    <li>Usuario C editó su perfil.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <button class="btnBack" onclick="window.location.href = 'admin.html';"></button>
+    </footer>
+
+    <script src="js/estadisticas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+</body>
+</html>
