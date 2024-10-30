@@ -232,7 +232,7 @@ function checkAndSaveNotesToDB() {
             saveNotes_DB(); // Se llama a la función para guardar en la base de datos
             // Se actualiza el timestamp en localStorage
             localStorage.setItem('notesTimestamp', currentTime);
-            localStorage.clean();
+            localStorage.clear();
         }
     }
 }
