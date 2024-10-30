@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <header>
         <img src="./images/logo.png" alt="Logo de Sonrisas del Autismo" class="logo">
-        <h1>Sonrisas del Autismo</h1>
+        <h1>Sonrisas del Autismo, A.C.</h1>
         <nav>
             <a href="./index.html">Regresar</a>
         </nav>
