@@ -1,54 +1,66 @@
+* {
+    font-family: "Dosis", sans-serif;
+}
+
 body {
     font-family: "Dosis", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #8EAAF5;
+    background-color: white;
     text-align: center;
-    color: #FFF2F2;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 header {
     background-color: #8EAAF5;
-    color: #8EAAF5;
-    font-weight: 800;
     font-size: 5vw; 
     padding: 2vh; 
     display: flex;
     justify-content: center;
-    
+    z-index: -1;
+    width: 100%;    
+    height:  7vh;
 }
 
 .container_Notes_Created {
-    font-family: "Roboto";
     font-size: 6vw;
     color: #FBE48C;
     font-weight: bold;
-    height: 10vh; 
-    position: fixed;
+    height: 5vh; 
+    z-index: 1;
+    background-color: transparent;
+    width: 100%;
+    padding: 1%;
+    display: flex;            
+    justify-content: center;   
+    align-items: center;     
 }
 
-.notes_Created {
-    margin-top: 20px;
-    padding: 0;
+.notes_Created{
+    display: flex;
 }
 
 .container_Text {
     width: 100%;
     height: 10%;
     position: absolute;
-    background-color: white;
-    top: 10%;
-    position: fixed;
-    z-index: 10;
+    background-color: transparent;
+    top: 11%;
+    z-index: -1;
+    display: flex;
+    justify-content: space-between; /* Separa los elementos */
+    align-items: center;
+    padding: 1vh;
 }
 
 .text {
     text-align: center;
-    font-family: "Roboto";
-    font-size: 7vw;
+    font-family: "Dosis", sans-serif;
+    font-size: 6vw;
     color: #5f8aea;
     font-weight: bold;
-    margin-top: 20px;
+    padding-left: 5%;
 }
 
 main {
@@ -56,263 +68,318 @@ main {
     display: grid;
 }
 
-.Btnleft{
+.Btnleft {
     background-image: url("../images/izquierdaa.png");
-    top: 42%;
-    position: fixed;
-    left: 11%;
-    transform: translate(-20%, -50%);
+    top: 50%;
+    position: absolute;
+    left: 3%;
+    transform: translate(-20%, 10%);
 }
 
-.Btnright, .Btnleft{
+.Btnright, .Btnleft {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     width: 19%;
-    height: 7.5%;
-    position: fixed;
+    height: 5%;
     border: none;
     cursor: pointer; 
     background-color: transparent;
     transition: filter 0.3s ease, transform 0.2s ease;
-
+    z-index: 10;
 }
 
-.Btnright{
-    background-image: url("../images/botonDerechaa.png");
-    top: 42%;
-    left: 11%;
-    transform: translate(330%, -50%);
+.containerNotes {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap; 
+    width: 80vw; 
+    height: 50vh;
+    margin-top: 20vh;
+    margin-left: 10%;
+    position: absolute;
+    background-color: transparent; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 10px;
 }
 
-.notePad {
-    background-image: url("../images/background_notePad.png");
-    background-size: cover;
-    width: 40vw; 
-    height: 30vh;
-    max-height: 270px;
-    min-width: 170px;
-    margin-top: 10vh;
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: filter 0.3s ease, transform 0.2s ease;
-}
 
-.BtnAdd, .BtnRemove {
-    background-color: #F8E48C;
-    width: 60%;
-    height: 10%;
-    position: fixed;
-    border-radius: 15px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-color: #F8E48C;
-    font-family: "Roboto";
-    font-size: 6vw;
-    color: #8EAAF5;
+.label {
+    background-color: rgb(107, 156, 229);
+    color:  #F8E48C;
+    font-family: "Dosis", sans-serif;
     font-weight: bold;
-    transition: filter 0.3s ease, transform 0.2s ease;
+    width: 50vw;
+    height: 20vh;
+    justify-content: center;
+    padding-top: 20%;
+    margin-left: 23%;
+    margin-top: 5%;
+    font-size: 4vw;
+    border-radius: 20px;
+    filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.5));
+    z-index: 0;
 }
 
-.BtnAdd {
-    top: 70%;
+.hidden {
+    display: none;
 }
 
-.BtnRemove {
-    top: 82%;
+.pared{
+    background-color: #8EAAF5;
+    width: 15vw;
+    height: 66vh;
+    left: 88%;
+    top:22%;
+    position: fixed;
+}
+
+.note {
+    position: absolute;
+    width: clamp(300px, 70vw, 600px); /* Ajusta según lo necesites */
+    height: clamp(300px, 52vh, 600px); /* Ajusta según lo necesites */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgreen;
+    border-radius: 20px;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transform: translateX(100%);
+    opacity: 0.5;
+    justify-content: center;   
+    align-items: center;  
+}
+
+.note.active {
+    transform: translateX(0);
+    opacity: 1;
+    
+}
+
+.hidden-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none; 
+}
+
+.hidden-right {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.textInput {
+    font-family: "Dosis", sans-serif;
+    border-radius: 20px;
+    font-size: clamp(2rem, 5vw, 2.4rem); /* Ajusta según lo necesites */
+    background-image: url("../images/image.png");
+    background-size: auto;
+    background-repeat: repeat;
+    line-height: clamp(20px, 6vh, 5.9vh); /* Ajusta según lo necesites */
+    overflow-y: auto;
+    width: clamp(300px, 70vw, 600px); /* Ajusta según lo necesites */
+    height: clamp(300px, 52vh, 600px); /* Ajusta según lo necesites */
+    max-width: 150%;
+    max-height: 150%;
+    padding-top: 1%;
+    padding-left: 6.5%;
+    padding-right: 6.5%;
+    opacity: 0.8;
+    
+}
+
+.textInput::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.Btnright {
+    background-image: url("../images/botonDerechaa.png");
+    top: 50%;
+    left: 19%;
+    position: absolute;
+    transform: translate(330%, 10%);
 }
 
 .BtnGoBack1 {
+    display: flex;
     background-image: url("../images/botones-03.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     width: 19%;
-    height: 7.5%;
-    top: 95.5%;
-    position: fixed;
+    height: 60%;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
     z-index: 1;
-    left: 20%;
-    transform: translate(-50%, -50%);
+    transform: translate(30%, 40%);
     border: none;
     background-color: transparent;
     transition: filter 0.3s ease, transform 0.2s ease;
 }
 
-.newNote{
-    background-color: #8EAAF5;
-    width: 40%;
-    height: 7%;
-    position: fixed;
+.newNote {
+    display: flex;
+    background-color: #F8E48C;
+    width: 35vw;
+    height: 8vh;
     border-radius: 15px;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    border-color: #8EAAF5;
-    font-family: "Roboto";
-    font-size: 6vw;
-    color: #F8E48C;
+    border-color: #F8E48C;
+    font-family: "Dosis", sans-serif;
+    font-size: 4vw;
+    color: #8EAAF5;
     font-weight: bold;
     transition: filter 0.3s ease, transform 0.2s ease;
-    top: 95%;
     z-index: 20;
+    transform: translate(-30%, 0%) ;
+    align-items: center;
+    justify-content: center;
 }
 
-.BtnRemove:hover, .BtnAdd:hover, .Btnleft:hover, .Btnright:hover, .newNote:hover{
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+.save{
+    display: flex;
+    background-image: url("../images/cheque.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 8%;
+    height: 20%;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    z-index: 1;
+    left: 80%;
+    transform: translate(100%, 120%);
+    border: none;
+    background-color: transparent;
+    transition: filter 0.3s ease, transform 0.1s ease;
 }
 
-.BtnRemove:active, .BtnAdd:active, .Btnleft:active, .Btnright:active, .newNote:active{
+.noSave{
+    display: flex;
+    background-image: url("../images/rechazado.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 8%;
+    height: 20%;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    z-index: 1;
+    left: 80%;
+    transform: translate(100%, 210%);
+    border: none;
+    background-color: transparent;
+    transition: filter 0.3s ease, transform 0.1s ease;
+}
+
+
+.BtnGoBack1:hover, .Btnleft:hover, .Btnright:hover, .newNote:hover, .save:hover, .noSave:hover {
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+}
+
+.save:active{
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    transform: translate(-50%, -50%) scale(0.95);
+    transform: translate(100%, 120%) scale(0.8);
+}
+
+.noSave:active {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transform: translate(100%, 210%) scale(0.8);
+}
+
+.newNote:active {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transform: translate(-30%, 0%) scale(0.95);
+}
+
+.BtnGoBack1:active{
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transform: translate(0%, 40%) scale(0.95);
 }
 
 .Btnright:active {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    transform: translate(350%, -50%) scale(0.95);
+    transform: translate(345%, 10%) scale(0.95);
 }
 
-.BtnGoBack1:hover {
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
-}
-
-.BtnGoBack1:active {
+.Btnleft:active {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    transform: translate(-70%, -50%) scale(0.95);
+    transform: translate(-30%, 10%) scale(0.95);
 }
 
 footer {
+    display: flex;
     background-color: #F8E48C;
-    color: #FFF2F2;
     text-align: center;
-    padding: 5vh;
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    height:  10vh;
     width: 100%;
 }
 
-.fade-out {
-    opacity: 0;
-    transform: translateY(10px);
+.container_numberNote{
+    display: flex;
+    position: absolute;
+    top:  10%;
+    z-index: 100;
+    color:  #8EAAF5;
+    font-family: "Dosis";
+    font-weight: bold;
+    font-size: 5vw;
+    left: 60%;
+    width: 40vw;
+    height: 8vh;
+    align-items: center;
 }
 
-.preview {
-    margin-top: 2%;
-    position: fixed;
-    width: 45vw;
-    height:45vh;
-    border: 1px solid #ccc;
-    z-index: -1;
-    transform: translate(-50%, 25%);
-    border-color: #8EAAF5;
-    pointer-events: none;
-}
-
-@media only screen and (min-width: 840px) {
-
-
-    .notePad {
-        width: 20vw; 
-        height: 90vh;
-        max-height: 320px;
-        min-width: 170px;
-        top: 31%;
-    }
-
-    .BtnAdd, .BtnRemove {
-        font-size: 20px;
-        width: 40%;
-        height: 10%;
-        font-size: 4.5vw;
-    }
-
-        
+/*@media only screen and (min-width: 840px) {
     .container_Notes_Created {
-        font-family: "Roboto";
+        font-family: "Dosis", sans-serif;
         font-size: 3vw;
         color: #FBE48C;
         font-weight: bold;
-        height: 10vh; 
         position: fixed;
     }
 
     .text {
         text-align: center;
-        font-family: "Roboto";
+        font-family: "Dosis", sans-serif;
         font-size: 4vw;
         color: #5f8aea;
         font-weight: bold;
         margin-top: 20px;
     }
-
-    .preview{
-        width: 20vw;
+    
+    .textInput {
+        font-family: "Dosis", sans-serif;
+        font-size: 2vw;
+        line-height: 3.9vh;
+        overflow-y: auto;
+        background-size: contain;
+        background-repeat: repeat;
+        padding-top: 0.5%;
+        padding-left: 4%;
+        padding-right: 6.5%;
     }
-
-    .newNote{
+    .newNote {
         font-size: 2.5vw;
         width: 20vw;
     }
 
+    .note {
+        margin-top: 13%;
     }
 
-@media only screen and (max-width: 1100px) and (orientation: landscape) {
-        main {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-      
-        /* Alinea el iframe a la izquierda */
-        .preview {
-          width: 50%;  /* Ajusta el ancho para la vista horizontal */
-          height: 50vh;
-          margin-left: 30%;  /* Añade espacio a la izquierda */
-          top: 5%;
-        }
-      
-        /* Alinea los botones a la derecha */
-        .BtnAdd, .BtnRemove {
-            width: 35%; 
-            left: 75%;  
-            height: auto;
-            top: unset;  
-            font-size: 5vw;
-        }
-      
-        .BtnAdd {
-            top: 45%;
-        }
+    .Btnright, .Btnleft {
+        height: 7.5%;
+    }
 
-        .BtnRemove {
-            top: 65%;
-          }
-
-        .BtnGoBack1{
-            top: 93.7%;
-            left: 15%;
-        }
-
-        footer{
-            padding-top: 4%;
-        }
-
-        .container_Text {
-            height: 13.3%;
-            margin-top: 2%;
-      }
-
-      .text{
-        font-size: 4vw;
-        margin-top: 0%;
-      }
-
-      .notes_Created {
-        margin-top: 0%;
-        z-index: 100;
-        font-size: 3.3vw;
-      }
-
-}
-      
+    .container_numberNote{
+        position: fixed;
+        top:  87vh;
+    }
+}*/
