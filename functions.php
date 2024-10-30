@@ -5,7 +5,7 @@ function check_login($con) {
 
 
         $id = $_SESSION['user_id'];
-        $query = "SELECT * FROM users WHERE user_id = '$id' LIMIT 1";
+        $query = "SELECT * FROM users_sonrisas WHERE user_id = '$id' LIMIT 1";
 
         $result = mysqli_query($con, $query);
         if($result && mysqli_num_rows($result) > 0) {
@@ -25,7 +25,7 @@ function check_perm($con) {
     if(isset($_SESSION['user_id'])) {
 
         $id = $_SESSION['user_id'];
-        $query = "SELECT user_perm,isverified FROM users WHERE user_id = '$id' LIMIT 1";
+        $query = "SELECT user_perm,isverified FROM users_sonrisas WHERE user_id = '$id' LIMIT 1";
 
         $result = mysqli_query($con, $query);
         if($result && mysqli_num_rows($result) > 0) {
@@ -36,19 +36,23 @@ function check_perm($con) {
     
 }
 
-function random_num($length){
+function random_num($length, $con) {
+    do {
+        $text = "";
+        if ($length < 5) {
+            $length = 5;
+        }
+        $len = rand(4, $length);
 
-    $text = "";
-    if($length<5);
-    {
-        $length=5;
-    }
-    $len = rand(4, $length);
+        for ($i = 0; $i < $len; $i++) {
+            $text .= rand(0, 9);
+        }
 
-    for($i = 0; $i < $len; $i++){
+        // Verificar si el ID ya existe en la base de datos
+        $query = "SELECT user_id FROM users_sonrisas WHERE user_id = '$text' LIMIT 1";
+        $result = mysqli_query($con, $query);
+    } while (mysqli_num_rows($result) > 0);
 
-        $text .= rand(0,9);
-    }
     return $text;
 }
 

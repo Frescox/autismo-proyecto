@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/configuracion.css">
+    <title>Menú</title>
+</head>
+<body>
+    <header>
+        <p>Logo</p>
+        <h1>Administrador</h1>
+    </header>
+    <main>
+        <div class="Title">
+            <h1>Configuración de App</h1>
+        </div>
+        <div class="container-buttons">
+            <div class="button-container">
+                <div class="button-background">
+                    <button id="btnColorInterfaz1" class="color-button"></button>
+                </div>
+                <p>Color del Interfaz 1</p>
+                <input type="color" id="colorPickerInterfaz1">
+            </div>
+            <div class="button-container">
+                <div class="button-background">
+                    <button id="btnColorInterfaz2" class="color-button"></button>
+                </div>
+                <p>Color del Interfaz 2</p>
+                <input type="color" id="colorPickerInterfaz2">
+            </div>
+            <div class="button-container">
+                <div class="button-background">
+                    <button id="btnColorTitulos" class="color-button"></button>
+                </div>
+                <p>Color de Títulos</p>
+                <input type="color" id="colorPickerTitulos">
+            </div>
+            <div class="button-container">
+                <div class="button-background">
+                    <button id="btnColorTextos" class="color-button"></button>
+                </div>
+                <p>Color de Textos</p>
+                <input type="color" id="colorPickerTextos">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <button class="btnBack" onclick="window.location.href = 'admin.html';"></button>
+        <div class="footer-switch">
+            <p>Fondo</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+
+    <script src="js/configuracion.js"></script>
+</body>
+</html>

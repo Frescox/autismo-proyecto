@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #8EAAF5;
+    text-align: center;
+    color: #FFF2F2;
+    font-family: "Dosis", sans-serif;
+}
+
+header {
+    background-color: #F8E48C;
+    color: #8EAAF5;
+    font-weight: 800;
+    font-size: 60px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer {
+    background-color: #F8E48C;
+    color: #FFF2F2;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1.2%;
+    padding-right: 1.2%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: #8EAAF5;
+}
+
+header {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+main p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+main {
+    height: 85vh;
+}
+
+.container-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+.Title {
+    background-color: #FFFFFF;
+    color: #8EAAF5;
+}
+
+.empty-space {
+    background-color: #FFFFFF;
+    width: 90%;
+    height: 80%;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.btnBack {
+    background-image: url('../images/botones-03.png');
+    background-color: #F8E48C;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: none;
+    width: 75px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.btnAdd {
+    background-color: #FFCC80;
+    color: #8EAAF5;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 1.2%;
+}
+
+@media (max-width: 1024px) {
+    header {
+        font-size: 4vw;
+    }
+    .admin-icon {
+        width: 10vw;
+        height: 10vw;
+    }
+    button {
+        width: 12vw;
+        height: 12vw;
+    }
+    .btnBack {
+        width: 10vw;
+        height: 6vw;
+    }
+}
+
+@media (max-width: 767px) {
+    header {
+        font-size: 5vw;
+    }
+    .admin-icon {
+        width: 12vw;
+        height: 12vw;
+    }
+    button {
+        width: 15vw;
+        height: 15vw;
+    }
+    .btnBack {
+        width: 12vw;
+        height: 8vw;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 6vw;
+        padding: 5px 0;
+    }
+    footer {
+        padding: 5px 0;
+        font-size: 0.9rem;
+    }
+    .container-buttons {
+        padding: 1rem;
+    }
+    button {
+        width: 70%;
+        height: auto;
+    }
+    .btnBack {
+        width: 20vw;
+        height: 10vw;
+    }
+    p {
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+    .admin-info {
+        gap: 5px;
+    }
+    .admin-icon {
+        width: 15vw;
+        height: 15vw;
+    }
+}

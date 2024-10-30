@@ -12,13 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // Registro de usuario
     if ($form_type == 'register') {
         $user_name = $_POST['user_name'];
-        $user_name_hash = encryptData($user_name);
+        $user_name_enc = encryptData($user_name);
+
+        $user_lastname = $_POST['user_lastname'];
+        $user_lastname_enc = encryptData($user_lastname);
 
         $user_email = $_POST['user_email'];
         $user_email_hash = md5($user_email);
 
         $user_password = md5($_POST['password']);
-        $user_lastname = md5($_POST['user_lastname']);
+        
 
         $query = "SELECT user_email FROM users_sonrisas WHERE user_email = '$user_email_hash' LIMIT 1";
         $result = mysqli_query($con, $query);
@@ -28,10 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (!empty($user_email) && !empty($user_password) && !empty($user_name) && !empty($user_lastname)) {
 
                 $user_date = date("y-m-d");
-                $user_id = random_num(5);
-                $verify_token = md5(rand());
-                $query = "INSERT INTO users_sonrisas (user_id, user_name, user_lastname, user_email, password, date,veriftok) 
-                          VALUES ('$user_id', '$user_name_hash', '$user_lastname', '$user_email_hash', '$user_password','$user_date','$verify_token')";
+                $user_id = random_num(5,$con);
+                $query = "INSERT INTO users_sonrisas (user_id, user_name, user_lastname, user_email, password, date) 
+                          VALUES ('$user_id', '$user_name_enc', '$user_lastname_enc', '$user_email_hash', '$user_password','$user_date')";
 
                 $query_run = mysqli_query($con, $query);
                 if ($query_run) {
@@ -92,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <header>
         <img src="./images/logo.png" alt="Logo de Sonrisas del Autismo" class="logo">
-        <h1>Sonrisas del Autismo</h1>
+        <h1>Sonrisas del Autismo, A.C.</h1>
         <nav>
             <a href="./index.html">Regresar</a>
         </nav>

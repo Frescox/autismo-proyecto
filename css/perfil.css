@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #8EAAF5;
+    text-align: center;
+    color: #FFF2F2;
+    font-family: "Dosis", sans-serif;
+}
+
+header {
+    background-color: #F8E48C;
+    color: #8EAAF5;
+    font-weight: 800;
+    font-size: 60px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer {
+    background-color: #F8E48C;
+    color: #FFF2F2;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: #8EAAF5;
+}
+
+header {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+footer {
+    padding-left: 1.2%;
+    text-align: left;
+}
+
+main p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+main {
+    height: 85vh;
+}
+
+.container-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    flex-wrap: wrap;
+}
+
+.Title {
+    background-color: #FFFFFF;
+    color: #8EAAF5;
+}
+
+.btnPersonalData, .btnAddPhotos, .btnScore, .btnDeleteAccount {
+    background-color: #8EAAF5;
+    background-size: 100% 100%;
+    border: none;
+    width: 10rem;
+    height: 10rem;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+.btnPersonalData {
+    background-image: url('../images/icono 11.svg');
+}
+
+.btnAddPhotos {
+    background-image: url('../images/icono 09.svg');
+}
+
+.btnScore {
+    background-image: url('../images/icono 12.svg');
+}
+
+.btnDeleteAccount {
+    background-image: url('../images/icono 10.svg');
+}
+
+.btnBack {
+    background-image: url('../images/botones-03.png');
+    background-color: #F8E48C;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: none;
+    width: 75px;
+    height: 45px;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    main {
+        height: 70vh;
+    }
+    .btnPersonalData, .btnAddPhotos, .btnScore, .btnDeleteAccount {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+
+@media (max-height: 660px) {
+    main {
+        height: 70vh;
+    }
+    .btnPersonalData, .btnAddPhotos, .btnScore, .btnDeleteAccount {
+        width: 5rem;
+        height: 5rem;
+    }
+}

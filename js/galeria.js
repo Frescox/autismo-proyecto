@@ -1,7 +1,12 @@
 const backgroundImages = [
-    './images/fondo.jpg',
-    './images/fondo1.jpg',
-    './images/fondo2.jpg'
+    './images/fondo1.jpeg',
+    './images/fondo2.jpeg',
+    './images/fondo4.jpeg',
+    './images/fondo5.jpeg',
+    './images/fondo6.jpeg',
+    './images/fondo7.jpeg',
+    './images/fondo8.jpeg',
+    './images/fondo9.jpeg',
 ];
 
 let currentImageIndex = 0;
@@ -12,5 +17,8 @@ function changeBackgroundImage() {
     document.body.style.backgroundImage = `url('${backgroundImages[currentImageIndex]}')`;
 }
 
-setInterval(changeBackgroundImage, changeInterval);
+// Ejecuta la función una vez al cargar la página
+changeBackgroundImage();
 
+// Cambia la imagen en intervalos definidos
+setInterval(changeBackgroundImage, changeInterval);
