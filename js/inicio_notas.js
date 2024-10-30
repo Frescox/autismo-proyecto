@@ -175,12 +175,16 @@ function loadNotes() {
             numberNote.innerHTML = "No hay notas disponibles";
             left.style.display = 'none';
             right.style.display = 'none';
+            newNote.style.display = 'block';
+            back.style.display = 'block';
         }
     } else {
         // Si no hay notas guardadas
         numberNote.innerHTML = "No hay notas disponibles";
         right.style.display = 'none';
         left.style.display = 'none';
+        newNote.style.display = 'block';
+        back.style.display = 'block';
     }
 }
 
@@ -218,6 +222,7 @@ function saveNotes_DB() {
 
 }
 
+
 function checkAndSaveNotesToDB() {
     const lastSavedTimestamp = localStorage.getItem('notesTimestamp');
     const currentTime = Date.now();
@@ -230,8 +235,7 @@ function checkAndSaveNotesToDB() {
         // Si han pasado más de 6 horas, se procede a guardar en la base de datos
         if (hoursSinceLastSave >= 6) {
             saveNotes_DB(); // Se llama a la función para guardar en la base de datos
-            // Se actualiza el timestamp en localStorage
-            localStorage.setItem('notesTimestamp', currentTime);
+
             localStorage.clear();
         }
     }
