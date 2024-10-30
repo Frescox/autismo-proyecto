@@ -9,7 +9,7 @@ $error = "";
 $user_id = $_SESSION['user_id'];
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $form_type = $_POST['form_type']; // Identificar si es login o register
+    $form_type = $_POST['form_type'];
 
     // Inicio de sesión
     if ($form_type == 'control-parental') {
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 if ($user_password == $user_data['password']) {
                     
-                    header('Location: interfaz_menu.html');
+                    header('Location: admin.html');
                     die;
                 } else {
                     $_SESSION['status'] = "Contraseña incorrecta.";
