@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background-color: #F8E48C;
+    background-color:#F8E48C;
     color: #8EAAF5;
     font-weight: 800;
     font-size: 60px;
@@ -51,8 +51,10 @@ html,body{
     background-color: #8EAAF5;
 }
 header{
-    /* font-weight: 700; */
     font-size: 28px;
+    font-weight: 800 !important; 
+    text-align: start;
+    display: inline-block;
 }
 footer{
     padding-left: 1.2%;
@@ -73,6 +75,12 @@ main {
 .offcanvas-body{
     text-align: left;
 }
+
+#img-thumbnail{
+    height: 80px;
+    width: 80px;
+    background-color: transparent;
+}
 #btnConf{
     background-color: #F8E48C;
     display: inline-block;
@@ -91,13 +99,11 @@ main {
 }
 #gameTitle h1{
     display: inline-block;
-    /* margin-left: ; */
-    /* padding-right: 20px; */
 }
 #btnLetters{
     background-image: url('../images/lettersLogo.png');
-    background-color: #8EAAF5;
-    background-size: 100% 100%; /* Ajusta el tamaño del icono */
+    background-color: transparent;
+    background-size: 100% 100%; 
     border: none;
     width: 10rem; 
     height: 10rem;
@@ -105,8 +111,8 @@ main {
 }
 #btnNotes{
     background-image: url('../images/notepadLogo.png');
-    background-color: #8EAAF5;
-    background-size: 100% 100%; /* Ajusta el tamaño del icono */
+    background-color: transparent;
+    background-size: 100% 100%; 
     border: none;
     width: 10rem; 
     height: 10rem;
@@ -114,8 +120,8 @@ main {
 }
 #btnBack{
     background-image: url('../images/backImage.png');
-    background-color: #F8E48C;
-    background-size: 100% 100%; /* Ajusta el tamaño del icono */
+    background-color: transparent;
+    background-size: 100% 100%; 
     background-repeat: no-repeat;
     border: none;
     width: 75px; 
@@ -148,5 +154,11 @@ main {
     .btnNotes{
         width: 5rem; 
         height: 5rem;;
+    }
+}
+@media (max-width: 660px) {
+    .offcanvas{
+        /* background-color: red; */
+        max-width: 50vw;
     }
 }
