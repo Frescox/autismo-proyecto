@@ -4,33 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/inicio_notas.css">
-    <script type="module" src="./js/inicio_notas.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Notes</title>
 </head>
-<body>
-    <header>
-        <label class="container_Notes_Created">
+<body id = "body">
+    <header id = "header">
+        <div class="container_Notes_Created">
             <p class="notes_Created">Notas creadas</p>
-        </label>
+        </div>
         <label class="container_Text">
-            <p class="text">Hola mi nombre es...</p>
+            <p class="text">Hola</p>
+            <button id="newNote" class="newNote" >Nueva Nota</button>
         </label>
     </header>
 
-    <main>
-        <div class="prewievNotes">
-            <iframe id="notePreview" class="preview" src="notePad.html"></iframe>
+    <main id = "main">
+        <button id="previousNote" class="Btnleft"></button>
+        <button id="save" class="save"></button>
+        <button id="noSave" class="noSave"></button>
+        <div  id = "containerNotes" class="containerNotes">
+            <label class = "label" id = "label">
+                No hay notas creadas
+            </label>
+            <div id = "note" class = "note">
+                <textTarea id="textInput" class = "textInput" placeholder="¡Escribe tus notas!" rows="5"></textTarea>
+            </div>
         </div>
-        <button id= "upDateNote" class="BtnAdd">Editar nota</button>
-        <button id = "removeBtn" class="BtnRemove" >Borrar nota</button>
-        <button id = "BtnGoBack1" class="BtnGoBack1"></button>
+        <button id="nextNote" class="Btnright"></button>
     </main>
 
-    <footer></footer>
-    
+    <footer id = "footer">
+        <div id = "footer1">
+            <button id="BtnGoBack1" class="BtnGoBack1" onclick="window.location.href = 'interfaz_menu.html';"></button>
+        </div>
+        <label class="container_numberNote">
+            <p id = "numberNote" class="numberNote">No hay notas</p>
+        </label>    
+    </footer>
+
+    <script src="./js/inicio_notas.js"></script>
 </body>
 </html>
