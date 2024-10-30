@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #8EAAF5;
+    text-align: center;
+    color: #FFF2F2;
+    font-family: "Dosis", sans-serif;
+}
+
+header {
+    background-color: #F8E48C;
+    color: #8EAAF5;
+    font-weight: 800;
+    font-size: 60px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer {
+    background-color: #F8E48C;
+    color: #FFF2F2;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: #8EAAF5;
+}
+
+header {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+footer {
+    padding-left: 1.2%;
+    text-align: left;
+}
+
+main p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+main {
+    height: 85vh;
+}
+
+.Title {
+    background-color: #FFFFFF;
+    color: #8EAAF5;
+}
+
+.container-statistics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 80%;
+}
+
+.statistic-card {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    color: #8EAAF5;
+}
+
+.statistic-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.statistic-card p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#actividadesRecientes {
+    list-style: none;
+    padding: 0;
+}
+
+#actividadesRecientes li {
+    margin: 5px 0;
+}
+
+.btnBack {
+    background-image: url('../images/botones-03.png');
+    background-color: #F8E48C;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: none;
+    width: 75px;
+    height: 45px;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    main {
+        height: 70vh;
+    }
+    .btnPersonalData, .btnAddPhotos, .btnScore, .btnDeleteAccount {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+
+@media (max-height: 660px) {
+    main {
+        height: 70vh;
+    }
+    .btnPersonalData, .btnAddPhotos, .btnScore, .btnDeleteAccount {
+        width: 5rem;
+        height: 5rem;
+    }
+}
