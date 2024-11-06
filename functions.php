@@ -5,8 +5,8 @@ function check_login($con) {
 
 
         $id = $_SESSION['user_id'];
-        $query = "SELECT * FROM users_sonrisas WHERE user_id = '$id' LIMIT 1";
 
+        $query = "SELECT * FROM tutor_users WHERE user_id = '$id' LIMIT 1";
         $result = mysqli_query($con, $query);
         if($result && mysqli_num_rows($result) > 0) {
             $user_data = mysqli_fetch_assoc($result);
@@ -18,22 +18,6 @@ function check_login($con) {
     header("Location: log-reg.php");
     die;
 
-}
-
-function check_perm($con) {
-
-    if(isset($_SESSION['user_id'])) {
-
-        $id = $_SESSION['user_id'];
-        $query = "SELECT user_perm,isverified FROM users_sonrisas WHERE user_id = '$id' LIMIT 1";
-
-        $result = mysqli_query($con, $query);
-        if($result && mysqli_num_rows($result) > 0) {
-            $user_data = mysqli_fetch_assoc($result);
-            return $user_data;
-        }
-    }
-    
 }
 
 function random_num($length, $con) {
@@ -49,9 +33,12 @@ function random_num($length, $con) {
         }
 
         // Verificar si el ID ya existe en la base de datos
-        $query = "SELECT user_id FROM users_sonrisas WHERE user_id = '$text' LIMIT 1";
-        $result = mysqli_query($con, $query);
-    } while (mysqli_num_rows($result) > 0);
+        $query_tut = "SELECT user_id FROM tutor_users WHERE user_id = '$text' LIMIT 1";
+        $result_tut = mysqli_query($con, $query_tut);
+
+        $query_ch = "SELECT uuid FROM child_users WHERE uuid = '$text' LIMIT 1";
+        $result_ch = mysqli_query($con, $query_ch);
+    } while (mysqli_num_rows($result_tut) > 0 && mysqli_num_rows($result_ch) > 0);
 
     return $text;
 }

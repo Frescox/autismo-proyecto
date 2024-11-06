@@ -1,18 +1,9 @@
 <?php
 // save_note.php
 session_start();
-// Conecta a la base de datos
-$servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$dbname = "sonrisas_db";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verifica la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+include('connection.php');
+include('functions.php');
 
 // verifica que el ID del usuario esté disponible en la sesión
 if (!isset($_SESSION['user_id'])) {

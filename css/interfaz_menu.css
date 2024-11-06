@@ -1,10 +1,13 @@
-body {
+body, html {
+    text-align: center;
+    font-family: "Dosis", sans-serif;
+    height: 100%;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
     background-color: #8EAAF5;
-    text-align: center;
     color: #FFF2F2;
-    font-family: "Dosis", sans-serif;
 }
 
 header {
@@ -32,24 +35,24 @@ section {
     padding: 20px;
 }
 
+
+
 footer {
     background-color: #F8E48C;
     color: #FFF2F2;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center; 
+    padding: 2rem 0;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-html,body{
-    height: 100%;
-    background-color: #8EAAF5;
-}
+
 header{
     font-size: 28px;
     font-weight: 800 !important; 
