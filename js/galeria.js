@@ -1,3 +1,9 @@
+    // Borra las notas guardadas en localStorage
+    localStorage.removeItem('notes');
+    localStorage.removeItem('notesTimestamp');
+    localStorage.removeItem('currentElement');
+    console.log('Notas eliminadas del localStorage');
+
 const backgroundImages = [
     './images/fondo1.jpeg',
     './images/fondo2.jpeg',
@@ -22,3 +28,4 @@ changeBackgroundImage();
 
 // Cambia la imagen en intervalos definidos
 setInterval(changeBackgroundImage, changeInterval);
+

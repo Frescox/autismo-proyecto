@@ -14,8 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['child_name'])) {
     // Generar un ID único para el niño
     $uuid = random_num(5, $con);
 
-    $_SESSION['user_id'] = $uuid;
-    
     // Encriptar el nombre del niño
     $encrypted_name = encryptData($child_name);
     
@@ -71,7 +69,10 @@ if (!$result) {
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo htmlspecialchars(decryptData($child['name'])); ?></h5>
                                 <p class="card-text">UUID: <?php echo htmlspecialchars($child['uuid']); ?></p>
-                                <a href="interfaz_menu.html" class="btn btn-primary">Seleccionar</a>
+                                <form action="select_child.php" method="POST">
+                                    <input type="hidden" name="uuid" value="<?php echo htmlspecialchars($child['uuid']); ?>">
+                                    <button type="submit" class="btn btn-primary">Seleccionar</button>
+                                </form>
                             </div>
                         </div>
                     </div>
