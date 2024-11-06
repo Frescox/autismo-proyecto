@@ -110,6 +110,7 @@ function saveNotes() {
     localStorage.setItem('notesTimestamp', now.toString()); // Guarda en milisegundos
 
     localStorage.setItem('currentElement', currentElement); // Guarda el índice actual
+    saveNotes_DB();
 
     save.style.display = 'none';
     noSave.style.display = 'none';
@@ -199,40 +200,55 @@ function saveNotes_DB() {
     const allTextTareas = document.querySelectorAll('textarea');
 
     allTextTareas.forEach(textTarea => {
-            notes.push(textTarea.value); // Agrega el valor del textarea al array
+        notes.push(textTarea.value); // Agrega el valor del textarea al array
     });
 
     localStorage.setItem('notes', JSON.stringify(notes)); // Guarda el array en localStorage
 
-    // Envia las notas a la base de datos
-    const currentDate = new Date().toISOString().slice(0, 10);//Obtine la fecha
-
+    // Enviar las notas a la base de datos
     fetch('save_note.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `user_id=1&notes=${encodeURIComponent(JSON.stringify(notes))}&date=${currentDate}`
+        body: `notes=${encodeURIComponent(JSON.stringify(notes))}`
     })
-    .then(response => response.text())
+    .then(response => {
+        // Verificar si la respuesta fue exitosa
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        // Intentar convertir la respuesta a JSON
+        return response.text().then(text => {
+            try {
+                return JSON.parse(text); // Intentar parsear como JSON
+            } catch (e) {
+                throw new Error('No es un JSON válido: ' + text); // Si no es JSON, mostrar el texto de respuesta
+            }
+        });
+    })
     .then(data => {
-        console.log(data);
+        // Comprobar si la respuesta JSON contiene éxito o error
+        if (data.success) {
+            console.log(data.success);  // Mostrar éxito
+        } else if (data.error) {
+            console.log(data.error);  // Mostrar error
+        }
     })
     .catch(error => {
         console.error('Error al guardar las notas: ', error);
     });
-
 }
 
 window.addEventListener('beforeunload', function (event) {
     saveNotes_DB(); // Guarda en la base de datos al cerrar
-    console.log("Se ha guardado en la base de datos shein");
+    console.log("Se ha guardado en la base de datos");
 
     container.innerHTML = '';
     elements.length = 0; 
     numberNote.innerHTML = "No hay notas disponibles";
 });
-
 
 function showYesNot(textInput){
 
