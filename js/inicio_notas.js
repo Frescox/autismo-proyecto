@@ -10,7 +10,6 @@ const not = document.getElementById('noSave');
 const newNote = document.getElementById('newNote');
 const back = document.getElementById('BtnGoBack1');
 
-
 // Función para crear un nuevo elemento con un textTarea dentro
 function createNewElement(content = '') {
     const newElement = document.createElement('div');
@@ -101,11 +100,15 @@ function saveNotes() {
     const allTextTareas = document.querySelectorAll('textarea');
 
     allTextTareas.forEach(textTarea => {
-            notes.push(textTarea.value); // Agrega el valor del textarea al array
+        notes.push(textTarea.value); // Agrega el valor del textarea al array
     });
 
     localStorage.setItem('notes', JSON.stringify(notes)); // Guarda el array en localStorage
-    localStorage.setItem('notesTimestamp', Date.now()); // Guarda la fecha actual
+    
+    // Cambia el formato del timestamp a milisegundos
+    const now = Date.now(); 
+    localStorage.setItem('notesTimestamp', now.toString()); // Guarda en milisegundos
+
     localStorage.setItem('currentElement', currentElement); // Guarda el índice actual
 
     save.style.display = 'none';
@@ -118,10 +121,11 @@ function saveNotes() {
     }
     if (currentElement == 0) {
         left.style.display = 'none';
-    }else{
-    left.style.display = 'block';
+    } else {
+        left.style.display = 'block';
     }
 }
+
 
 // Función para cargar las notas al iniciar
 function loadNotes() {
@@ -142,7 +146,6 @@ function loadNotes() {
         currentElement = parseInt(localStorage.getItem('currentElement')) || 0;
         let cont = 0; 
 
-        // Asegura que currentElement esté dentro del rango de notas
         if (currentElement >= 0 && currentElement < elements.length) {
             // Desactiva todas las notas primero
             elements.forEach((element) => {
@@ -190,7 +193,6 @@ function loadNotes() {
 
 // Llama a la función para cargar las notas al iniciar
 loadNotes();
-checkAndSaveNotesToDB();
 
 function saveNotes_DB() {
     const notes = [];
@@ -222,24 +224,14 @@ function saveNotes_DB() {
 
 }
 
+window.addEventListener('beforeunload', function (event) {
+    saveNotes_DB(); // Guarda en la base de datos al cerrar
+    console.log("Se ha guardado en la base de datos shein");
 
-function checkAndSaveNotesToDB() {
-    const lastSavedTimestamp = localStorage.getItem('notesTimestamp');
-    const currentTime = Date.now();
-
-    // Se verifica si ya se guardaron notas antes
-    if (lastSavedTimestamp) {
-        // Se calcula el tiempo transcurrido en horas
-        const hoursSinceLastSave = (currentTime - lastSavedTimestamp) / (1000 * 60 * 60);
-        
-        // Si han pasado más de 6 horas, se procede a guardar en la base de datos
-        if (hoursSinceLastSave >= 6) {
-            saveNotes_DB(); // Se llama a la función para guardar en la base de datos
-
-            localStorage.clear();
-        }
-    }
-}
+    container.innerHTML = '';
+    elements.length = 0; 
+    numberNote.innerHTML = "No hay notas disponibles";
+});
 
 
 function showYesNot(textInput){
@@ -253,6 +245,7 @@ function showYesNot(textInput){
         back.style.display = 'none';
     }
 }
+
 
 // Listeners para los botones
 document.getElementById('newNote').addEventListener('click', () => createNewElement(''));

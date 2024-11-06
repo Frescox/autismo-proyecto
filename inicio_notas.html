@@ -7,39 +7,40 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Notes</title>
 </head>
-<body id = "body">
-    <header id = "header">
+<body id="body">
+    <div id="backgroundOverlay" class="overlay"></div>
+    <header id="header">
         <div class="container_Notes_Created">
             <p class="notes_Created">Notas creadas</p>
         </div>
-        <label class="container_Text">
+        <div class="container_Text">
             <p class="text">Hola</p>
-            <button id="newNote" class="newNote" >Nueva Nota</button>
-        </label>
+            <button id="newNote" class="newNote">Nueva Nota</button>
+        </div>
     </header>
 
-    <main id = "main">
+    <main id="main">
         <button id="previousNote" class="Btnleft"></button>
         <button id="save" class="save"></button>
         <button id="noSave" class="noSave"></button>
-        <div  id = "containerNotes" class="containerNotes">
-            <label class = "label" id = "label">
+        <div id="containerNotes" class="containerNotes">
+            <label class="label" id="label">
                 No hay notas creadas
             </label>
-            <div id = "note" class = "note">
-                <textTarea id="textInput" class = "textInput" placeholder="¡Escribe tus notas!" rows="5"></textTarea>
+            <div id="note" class="note">
+                <textTarea id="textInput" class="textInput" placeholder="¡Escribe tus notas!" rows="5"></textTarea>
             </div>
         </div>
         <button id="nextNote" class="Btnright"></button>
     </main>
 
-    <footer id = "footer">
-        <div id = "footer1">
+    <footer id="footer">
+        <div id="footer1">
             <button id="BtnGoBack1" class="BtnGoBack1" onclick="window.location.href = 'interfaz_menu.html';"></button>
         </div>
-        <label class="container_numberNote">
-            <p id = "numberNote" class="numberNote">No hay notas</p>
-        </label>    
+        <div class="container_numberNote">
+            <p id="numberNote" class="numberNote">No hay notas</p>
+        </div>
     </footer>
 
     <script src="./js/inicio_notas.js"></script>
