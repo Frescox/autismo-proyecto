@@ -130,6 +130,7 @@ function saveNotes() {
     loadNotes();
 }
 
+
 function loadNotes() {
     console.log('Notas cargadas');
     const storedNotes = JSON.parse(localStorage.getItem('notes')) || [];
@@ -230,6 +231,7 @@ function showYesNot(textInput){
         back.style.display = 'none';
     }
 }
+
 
 document.getElementById('newNote').addEventListener('click', () => createNewElement(''));
 document.getElementById('nextNote').addEventListener('click', showNextElement);

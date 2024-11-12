@@ -1,8 +1,7 @@
 <?php
 session_start();
-
-include('connection.php');
-include('functions.php');
+include("connection.php");
+include("functions.php");
 
 if (!isset($_SESSION['uuid'])) {
     echo "No se ha encontrado el ID del niño";
