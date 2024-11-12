@@ -1,3 +1,7 @@
+* {
+    font-family: "Dosis", sans-serif;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -5,7 +9,6 @@ body {
     text-align: center;
     color: #FFF2F2;
     font-family: "Dosis", sans-serif;
-
 }
 
 header {
@@ -20,17 +23,12 @@ header {
 nav {
     margin: 10px 0;
     text-align: center;
-
 }
 
 nav a {
     margin: 0 15px;
     text-decoration: none;
     color: #FFF2F2;
-}
-
-section {
-    padding: 20px;
 }
 
 footer {
@@ -42,25 +40,29 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-html,body{
+
+html, body {
     height: 100%;
     background-color: #8EAAF5;
 }
-header{
+
+header {
     font-weight: 700;
     font-size: 28px;
 }
-footer{
+
+footer {
     padding-left: 1.2%;
     text-align: left;
 }
 
-main p{
+main p {
     font-size: 20px;
     font-weight: 700;
 }
@@ -68,43 +70,48 @@ main p{
 main {
     height: 85vh;
 }
-.container-buttons{
+
+.container-buttons {
     display: grid;
-    grid-template-rows: repeat(2,1fr);
+    grid-template-rows: repeat(2, 1fr);
     row-gap: 1rem;
     align-items: center;
     justify-content: center;
     height: 80%;
 }
-.gameTitle{
+
+.gameTitle {
     background-color: #FFFFFF;
     color: #8EAAF5;
 }
-.btnLetters{
+
+.btnLetters {
     background-image: url('../images/lettersLogo.png');
     background-color: #8EAAF5;
-    background-size: 100% 100%; /* Ajusta el tamaño del icono */
+    background-size: 100% 100%;
     border: none;
-    width: 10rem; 
+    width: 10rem;
     height: 10rem;
     cursor: pointer;
 }
-.btnNotes{
+
+.btnNotes {
     background-image: url('../images/notepadLogo.png');
     background-color: #8EAAF5;
-    background-size: 100% 100%; /* Ajusta el tamaño del icono */
+    background-size: 100% 100%;
     border: none;
-    width: 10rem; 
+    width: 10rem;
     height: 10rem;
     cursor: pointer;
 }
-.btnBack{
+
+.btnBack {
     background-image: url('../images/backImage.png');
     background-color: #F8E48C;
-    background-size: 100% 100%; /* Ajusta el tamaño del icono */
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
-    width: 75px; 
+    width: 75px;
     height: 45px;
     cursor: pointer;
 }
@@ -113,13 +120,13 @@ main {
     main {
         height: 70vh;
     }
-    .btnLetters{
-        width: 8rem; 
+    .btnLetters {
+        width: 8rem;
         height: 8rem;
     }
-    .btnNotes{
-        width: 8rem; 
-        height: 8rem;;
+    .btnNotes {
+        width: 8rem;
+        height: 8rem;
     }
 }
 
@@ -127,12 +134,12 @@ main {
     main {
         height: 70vh;
     }
-    .btnLetters{
-        width: 5rem; 
+    .btnLetters {
+        width: 5rem;
         height: 5rem;
     }
-    .btnNotes{
-        width: 5rem; 
-        height: 5rem;;
+    .btnNotes {
+        width: 5rem;
+        height: 5rem;
     }
 }

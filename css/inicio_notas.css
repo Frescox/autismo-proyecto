@@ -3,7 +3,6 @@
 }
 
 body {
-    font-family: "Dosis", sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -20,7 +19,7 @@ header {
     justify-content: center;
     z-index: -1;
     width: 100%;    
-    height:  7vh;
+    height: 7vh;
 }
 
 .container_Notes_Created {
@@ -49,7 +48,7 @@ header {
     top: 11%;
     z-index: -1;
     display: flex;
-    justify-content: space-between; /* Separa los elementos */
+    justify-content: space-between;
     align-items: center;
     padding: 1vh;
 }
@@ -104,7 +103,6 @@ main {
     border-radius: 10px;
 }
 
-
 .label {
     background-color: rgb(107, 156, 229);
     color:  #F8E48C;
@@ -126,7 +124,7 @@ main {
     display: none;
 }
 
-.pared{
+.pared {
     background-color: #8EAAF5;
     width: 15vw;
     height: 66vh;
@@ -154,7 +152,6 @@ main {
 .note.active {
     transform: translateX(0);
     opacity: 1;
-    
 }
 
 .hidden-left {
@@ -172,7 +169,7 @@ main {
 .textInput {
     font-family: "Dosis", sans-serif;
     border-radius: 20px;
-    font-size: clamp(2rem, 5vw, 2.4rem); /* Ajusta según lo necesites */
+    font-size: clamp(2rem, 5vw, 2.4rem); 
     background-image: url("../images/image.png");
     background-size: auto;
     background-repeat: repeat;
@@ -186,7 +183,6 @@ main {
     padding-left: 6.5%;
     padding-right: 6.5%;
     opacity: 0.8;
-    
 }
 
 .textInput::-webkit-scrollbar {
@@ -233,12 +229,12 @@ main {
     font-weight: bold;
     transition: filter 0.3s ease, transform 0.2s ease;
     z-index: 20;
-    transform: translate(-30%, 0%) ;
+    transform: translate(-30%, 0%);
     align-items: center;
     justify-content: center;
 }
 
-.save{
+.save {
     display: flex;
     background-image: url("../images/cheque.png");
     background-size: contain;
@@ -257,7 +253,7 @@ main {
     transition: filter 0.3s ease, transform 0.1s ease;
 }
 
-.noSave{
+.noSave {
     display: flex;
     background-image: url("../images/rechazado.png");
     background-size: contain;
@@ -276,12 +272,11 @@ main {
     transition: filter 0.3s ease, transform 0.1s ease;
 }
 
-
 .BtnGoBack1:hover, .Btnleft:hover, .Btnright:hover, .newNote:hover, .save:hover, .noSave:hover {
     filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
 }
 
-.save:active{
+.save:active {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
     transform: translate(100%, 120%) scale(0.8);
 }
@@ -296,7 +291,7 @@ main {
     transform: translate(-30%, 0%) scale(0.95);
 }
 
-.BtnGoBack1:active{
+.BtnGoBack1:active {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
     transform: translate(0%, 40%) scale(0.95);
 }
@@ -317,16 +312,16 @@ footer {
     text-align: center;
     position: absolute;
     bottom: 0;
-    height:  10vh;
+    height: 10vh;
     width: 100%;
 }
 
-.container_numberNote{
+.container_numberNote {
     display: flex;
     position: absolute;
-    top:  10%;
+    top: 10%;
     z-index: 100;
-    color:  #8EAAF5;
+    color: #8EAAF5;
     font-family: "Dosis";
     font-weight: bold;
     font-size: 5vw;
@@ -336,50 +331,56 @@ footer {
     align-items: center;
 }
 
-/*@media only screen and (min-width: 840px) {
+@media (max-width: 767px) {
     .container_Notes_Created {
-        font-family: "Dosis", sans-serif;
-        font-size: 3vw;
-        color: #FBE48C;
-        font-weight: bold;
-        position: fixed;
+        font-size: 12vw;
     }
 
     .text {
-        text-align: center;
-        font-family: "Dosis", sans-serif;
-        font-size: 4vw;
-        color: #5f8aea;
-        font-weight: bold;
-        margin-top: 20px;
-    }
-    
-    .textInput {
-        font-family: "Dosis", sans-serif;
-        font-size: 2vw;
-        line-height: 3.9vh;
-        overflow-y: auto;
-        background-size: contain;
-        background-repeat: repeat;
-        padding-top: 0.5%;
-        padding-left: 4%;
-        padding-right: 6.5%;
-    }
-    .newNote {
-        font-size: 2.5vw;
-        width: 20vw;
+        font-size: 10vw;
     }
 
     .note {
-        margin-top: 13%;
+        width: 80vw;
+        height: 50vh;
+    }
+
+    .textInput {
+        width: 80vw;
+        height: 50vh;
+        font-size: 5vw;
+    }
+
+    .newNote {
+        font-size: 5vw;
+        width: 40vw;
+    }
+
+    .save, .noSave {
+        width: 10%;
+        height: 20%;
+    }
+
+    .container_numberNote {
+        font-size: 8vw;
+    }
+
+    .BtnGoBack1 {
+        width: 20%;
+        height: 60%;
     }
 
     .Btnright, .Btnleft {
-        height: 7.5%;
+        width: 15%;
+    }
+}
+
+@media (max-height: 660px) {
+    .note {
+        height: 45vh;
     }
 
-    .container_numberNote{
-        position: fixed;
-        top:  87vh;
+    .textInput {
+        height: 40vh;
     }
-}*/
+}
