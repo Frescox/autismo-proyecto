@@ -1,42 +1,56 @@
 <?php
-// save_note.php
 session_start();
-// Conecta a la base de datos
-$servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$dbname = "sonrisas_db";
+include("connection.php");
+include("functions.php");
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verifica la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
-// verifica que el ID del usuario esté disponible en la sesión
-if (!isset($_SESSION['user_id'])) {
-    echo "No se ha encontrado el ID de usuario.";
+if (!isset($_SESSION['uuid'])) {
+    echo "No se ha encontrado el ID del niño";
     exit;
 }
 
-$user_id = $_SESSION['user_id'];
-$notes = json_decode($_POST['notes'], true); // Decodifica el JSON enviado desde JavaScript
+$child_id = $_SESSION['uuid'];
 
-if (!empty($user_id) && !empty($notes)) {
-    foreach ($notes as $note_content) {
-        $note_content = mysqli_real_escape_string($conn, $note_content);
-        $query = "INSERT INTO users_notes (id_user, content, Fecha) 
-                  VALUES ('$user_id', '$note_content', NOW())";
-
-        if (!mysqli_query($conn, $query)) {
-            echo "Error: " . mysqli_error($conn);
-        }
-    }
-    echo "Notas guardadas con éxito.";
-} else {
-    echo "Faltan datos.";
+if (!isset($_POST['oldNote']) || !isset($_POST['currentNote'])) {
+    echo "Faltan datos de la nota anterior o actual.";
+    exit;
 }
 
-$conn->close();
+$oldNote = mysqli_real_escape_string($con, $_POST['oldNote']);
+$currentNote = mysqli_real_escape_string($con, $_POST['currentNote']);
+
+$check_user_query = "SELECT uuid FROM child_users WHERE uuid = '$child_id' LIMIT 1";
+$check_user_result = mysqli_query($con, $check_user_query);
+
+if (mysqli_num_rows($check_user_result) === 0) {
+    echo "El ID del niño no existe en la base de datos.";
+    exit;
+}
+
+$check_note_query = "SELECT id FROM child_notes 
+                     WHERE child_id = '$child_id' AND note = '$oldNote' 
+                     ORDER BY note_date DESC LIMIT 100";
+$check_note_result = mysqli_query($con, $check_note_query);
+
+if (mysqli_num_rows($check_note_result) > 0) {
+    $update_query = "UPDATE child_notes 
+                     SET note = '$currentNote', note_date = NOW() 
+                     WHERE id = (SELECT id FROM child_notes 
+                                 WHERE child_id = '$child_id' AND note = '$oldNote' 
+                                 ORDER BY note_date DESC LIMIT 1)";
+    
+    if (mysqli_query($con, $update_query)) {
+        echo "Nota actualizada con éxito.";
+    } else {
+        echo "Error al actualizar la nota: " . mysqli_error($con);
+    }
+} else {
+    $insert_query = "INSERT INTO child_notes (child_id, note, note_date) VALUES ('$child_id', '$currentNote', NOW())";
+    if (mysqli_query($con, $insert_query)) {
+        echo "Nota insertada con éxito.";
+    } else {
+        echo "Error al guardar la nota: " . mysqli_error($con);
+    }
+}
+
+$con->close();
 ?>

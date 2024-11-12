@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if (!empty($user_password)) {
 
-            $query = "SELECT password FROM users_sonrisas WHERE user_id = '$user_id' LIMIT 1";
+            $query = "SELECT password FROM tutor_users WHERE user_id = '$user_id' LIMIT 1";
             $result = mysqli_query($con, $query);
 
             if ($result && mysqli_num_rows($result) > 0) {

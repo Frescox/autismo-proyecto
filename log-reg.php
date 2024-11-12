@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $user_password = md5($_POST['password']);
         
 
-        $query = "SELECT user_email FROM users_sonrisas WHERE user_email = '$user_email_hash' LIMIT 1";
+        $query = "SELECT user_email FROM tutor_users WHERE user_email = '$user_email_hash' LIMIT 1";
         $result = mysqli_query($con, $query);
         if ($result && mysqli_num_rows($result) > 0) {
             $_SESSION['status'] = "Ya existe una cuenta con ese correo electronico";
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 $user_date = date("y-m-d");
                 $user_id = random_num(5,$con);
-                $query = "INSERT INTO users_sonrisas (user_id, user_name, user_lastname, user_email, password, date) 
+                $query = "INSERT INTO tutor_users (user_id, user_name, user_lastname, user_email, password, date) 
                           VALUES ('$user_id', '$user_name_enc', '$user_lastname_enc', '$user_email_hash', '$user_password','$user_date')";
 
                 $query_run = mysqli_query($con, $query);
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if (!empty($user_email) && !empty($user_password)) {
 
-            $query = "SELECT * FROM users_sonrisas WHERE user_email = '$user_email' LIMIT 1";
+            $query = "SELECT * FROM tutor_users WHERE user_email = '$user_email' LIMIT 1";
             $result = mysqli_query($con, $query);
 
             if ($result && mysqli_num_rows($result) > 0) {
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 if ($user_data['password'] === $user_password) {
                     $_SESSION['user_id'] = $user_data['user_id'];
-                    header('Location: interfaz_menu.html');
+                    header('Location: select_acc.php');
                     die;
                 } else {
                     $_SESSION['status'] = "Contraseña o correo incorrectos.";
@@ -83,9 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonrisas | Registro/Inicio de sesión</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/transicion.css">
 </head>
 
