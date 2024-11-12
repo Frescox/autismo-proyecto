@@ -41,8 +41,8 @@ const soundMap = {
 
 // Eventos de tecleo
 function handleKeyPress() {
-    document.addEventListener('keydown', (event) => {
-        const key = event.key.toLowerCase();
+    document.addEventListener('input', (event) => {
+        const key = event.data.toLowerCase();
 
         // Excluir teclas de comandos (F1-F12, ESC, etc.)
         if (/^[a-z0-9]$/.test(key) || key === ' ') { 
