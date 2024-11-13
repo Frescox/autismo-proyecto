@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/palabras.css">
     <title>Menú</title>
+    <link rel="stylesheet" href="./CSS/palabras.css">
 </head>
 <body>
     <header>
@@ -16,13 +16,30 @@
     </div>
     <main>
         <div class="container-buttons">
-            <div class="empty-space"></div>
+            <div class="empty-space" id="container">
+                <!-- Secciones de palabras generadas dinámicamente -->
+            </div>
         </div>
     </main>
+
+    <!-- Ventana emergente para agregar palabra -->
+    <div id="word-modal" class="modal">
+        <div class="modal-content">
+            <h2>Agregar Palabra</h2>
+            <input type="text" id="word-input" placeholder="Ingrese una palabra" />
+            <div class="modal-buttons">
+                <button class="btnCancel" onclick="closeModal()">Cancelar</button>
+                <button class="btnConfirm" onclick="confirmWord()">Agregar</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <button class="btnBack" onclick="window.location.href = 'admin.html';"></button>
-        <button class="btnAdd" onclick="window.location.href = '';">Agregar Palabra</button>
+        <button class="btnAdd" onclick="showModal()">Agregar Palabra</button>
     </footer>
-    
+
+    <script src="js/palabras.js"></script>
+
 </body>
 </html>

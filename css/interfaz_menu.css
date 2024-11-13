@@ -1,3 +1,7 @@
+* {
+    font-family: "Dosis", sans-serif;
+}
+
 body, html {
     text-align: center;
     font-family: "Dosis", sans-serif;
@@ -11,7 +15,7 @@ body, html {
 }
 
 header {
-    background-color:#F8E48C;
+    background-color: #F8E48C;
     color: #8EAAF5;
     font-weight: 800;
     font-size: 60px;
@@ -22,7 +26,6 @@ header {
 nav {
     margin: 10px 0;
     text-align: center;
-
 }
 
 nav a {
@@ -35,15 +38,13 @@ section {
     padding: 20px;
 }
 
-
-
 footer {
     background-color: #F8E48C;
     color: #FFF2F2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    text-align: center; 
+    text-align: center;
     padding: 2rem 0;
 }
 
@@ -53,18 +54,25 @@ footer {
     box-sizing: border-box;
 }
 
-header{
+html, body {
+    height: 100%;
+    background-color: #8EAAF5;
+}
+
+header {
+    font-weight: 700;
     font-size: 28px;
-    font-weight: 800 !important; 
+    font-weight: 800 !important;
     text-align: start;
     display: inline-block;
 }
-footer{
+
+footer {
     padding-left: 1.2%;
     text-align: left;
 }
 
-main p{
+main p {
     font-size: 20px;
     font-weight: 700;
 }
@@ -72,62 +80,71 @@ main p{
 main {
     height: 75vh;
 }
-.offcanvas-end{
+
+.offcanvas-end {
     background-color: rgb(174, 174, 174);
 }
-.offcanvas-body{
+
+.offcanvas-body {
     text-align: left;
 }
 
-#img-thumbnail{
+#img-thumbnail {
     height: 80px;
     width: 80px;
     background-color: transparent;
 }
-#btnConf{
+
+#btnConf {
     background-color: #F8E48C;
     display: inline-block;
 }
-#container-buttons{
+
+#container-buttons {
     display: grid;
-    grid-template-rows: repeat(2,1fr);
+    grid-template-rows: repeat(2, 1fr);
     row-gap: 1rem;
     align-items: center;
     justify-content: center;
     height: 80%;
 }
-#gameTitle{
+
+#gameTitle {
     background-color: #FFFFFF;
     color: #8EAAF5;
 }
-#gameTitle h1{
+
+#gameTitle h1 {
     display: inline-block;
 }
-#btnLetters{
+
+#btnLetters {
     background-image: url('../images/lettersLogo.png');
     background-color: transparent;
-    background-size: 100% 100%; 
+    background-size: 100% 100%;
     border: none;
-    width: 10rem; 
+    width: 10rem;
     height: 10rem;
     cursor: pointer;
 }
-#btnNotes{
+
+#btnNotes {
     background-image: url('../images/notepadLogo.png');
     background-color: transparent;
-    background-size: 100% 100%; 
+    background-size: 100% 100%;
     border: none;
-    width: 10rem; 
+    width: 10rem;
     height: 10rem;
     cursor: pointer;
 }
-#btnBack{
+
+#btnBack {
     background-image: url('../images/backImage.png');
     background-color: transparent;
-    background-size: 100% 100%; 
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
-    width: 75px; 
+    width: 75px;
     height: 45px;
     cursor: pointer;
 }
@@ -136,13 +153,10 @@ main {
     main {
         height: 70vh;
     }
-    .btnLetters{
-        width: 8rem; 
+    #btnLetters,
+    #btnNotes {
+        width: 8rem;
         height: 8rem;
-    }
-    .btnNotes{
-        width: 8rem; 
-        height: 8rem;;
     }
 }
 
@@ -150,18 +164,15 @@ main {
     main {
         height: 70vh;
     }
-    .btnLetters{
-        width: 5rem; 
+    #btnLetters,
+    #btnNotes {
+        width: 5rem;
         height: 5rem;
     }
-    .btnNotes{
-        width: 5rem; 
-        height: 5rem;;
-    }
 }
+
 @media (max-width: 660px) {
-    .offcanvas{
-        /* background-color: red; */
+    .offcanvas {
         max-width: 50vw;
     }
 }

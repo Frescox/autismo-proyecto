@@ -58,7 +58,7 @@ main {
 
 .container-buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     row-gap: 1rem;
     column-gap: 1rem;
     align-items: center;
@@ -107,22 +107,25 @@ main {
     cursor: pointer;
 }
 
-@media (max-width: 767px) {
-    main {
-        height: 70vh;
+@media (max-width: 410px) {
+    header {
+        font-size: 12px;
     }
+
     .btnStatistics, .btnWords, .btnAppConfig, .btnEditProfile {
         width: 8rem;
         height: 8rem;
     }
 }
 
-@media (max-height: 660px) {
+@media (max-height: 430px) {
     main {
-        height: 70vh;
+        height: 40vh;
     }
+
     .btnStatistics, .btnWords, .btnAppConfig, .btnEditProfile {
-        width: 5rem;
-        height: 5rem;
+        width: 3rem;
+        height: 3rem;
     }
+
 }

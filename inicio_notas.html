@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
     <link rel="stylesheet" href="./css/inicio_notas.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Notes</title>
 </head>
 <body id="body">
-    <div id="backgroundOverlay" class="overlay"></div>
     <header id="header">
         <div class="container_Notes_Created">
             <p class="notes_Created">Notas creadas</p>
         </div>
-        <div class="container_Text">
+        <label class="container_Text">
             <p class="text">Hola</p>
             <button id="newNote" class="newNote">Nueva Nota</button>
-        </div>
+        </label>
     </header>
 
     <main id="main">
@@ -25,10 +24,10 @@
         <button id="noSave" class="noSave"></button>
         <div id="containerNotes" class="containerNotes">
             <label class="label" id="label">
-                No hay notas creadas
+                No hay notas
             </label>
             <div id="note" class="note">
-                <textTarea id="textInput" class="textInput" placeholder="¡Escribe tus notas!" rows="5"></textTarea>
+                <textarea id="textInput" class="textInput" placeholder="¡Escribe tus notas!" rows="5"></textarea>
             </div>
         </div>
         <button id="nextNote" class="Btnright"></button>
@@ -38,9 +37,9 @@
         <div id="footer1">
             <button id="BtnGoBack1" class="BtnGoBack1" onclick="window.location.href = 'interfaz_menu.html';"></button>
         </div>
-        <div class="container_numberNote">
+        <label class="container_numberNote">
             <p id="numberNote" class="numberNote">No hay notas</p>
-        </div>
+        </label>    
     </footer>
 
     <script src="./js/inicio_notas.js"></script>

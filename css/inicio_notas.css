@@ -1,42 +1,36 @@
 * {
     font-family: "Dosis", sans-serif;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
-
 body {
-    font-family: "Dosis", sans-serif;
-    background-color: white;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    background-color: white;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 header {
     background-color: #8EAAF5;
     font-size: 5vw; 
-    padding: 1vh; 
+    padding: 2vh; 
     display: flex;
     justify-content: center;
     z-index: -1;
     width: 100%;    
-    height:  10vh;
-    justify-content: center;   
-    align-items: center; 
+    height: 7vh;
 }
 
 .container_Notes_Created {
     font-size: 6vw;
     color: #FBE48C;
     font-weight: bold;
-    height: 9vh; 
-    z-index: 5;
+    height: 5vh; 
+    z-index: 1;
     background-color: transparent;
     width: 100%;
+    padding: 1%;
     display: flex;            
     justify-content: center;   
     align-items: center;     
@@ -54,23 +48,18 @@ header {
     top: 11%;
     z-index: -1;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     padding: 1vh;
 }
 
 .text {
-    display: flex;
     text-align: center;
     font-family: "Dosis", sans-serif;
     font-size: 6vw;
     color: #5f8aea;
     font-weight: bold;
-    background-color: transparent;
-    width: 50%;
-    height: 150%;
-    align-items: center;
-    justify-content: center;
+    padding-left: 5%;
 }
 
 main {
@@ -104,8 +93,8 @@ main {
     flex-direction: row;
     white-space: nowrap; 
     width: 80vw; 
-    height: 52vh;
-    margin-top: 18vh;
+    height: 50vh;
+    margin-top: 20vh;
     margin-left: 10%;
     position: absolute;
     background-color: transparent; 
@@ -113,7 +102,6 @@ main {
     align-items: center; 
     border-radius: 10px;
 }
-
 
 .label {
     background-color: rgb(107, 156, 229);
@@ -136,7 +124,7 @@ main {
     display: none;
 }
 
-.pared{
+.pared {
     background-color: #8EAAF5;
     width: 15vw;
     height: 66vh;
@@ -164,7 +152,6 @@ main {
 .note.active {
     transform: translateX(0);
     opacity: 1;
-    
 }
 
 .hidden-left {
@@ -182,14 +169,14 @@ main {
 .textInput {
     font-family: "Dosis", sans-serif;
     border-radius: 20px;
-    font-size: clamp(2rem, 5vw, 2.4rem); /* Ajusta según lo necesites */
+    font-size: clamp(2rem, 5vw, 2.4rem); 
     background-image: url("../images/image.png");
     background-size: auto;
     background-repeat: repeat;
-    line-height: clamp(20px, 6vh, 5.9vh); /* Ajusta según lo necesites */
+    line-height: clamp(20px, 6vh, 5.9vh); 
     overflow-y: auto;
-    width: clamp(300px, 70vw, 600px); /* Ajusta según lo necesites */
-    height: clamp(300px, 52vh, 600px); /* Ajusta según lo necesites */
+    width: clamp(300px, 70vw, 600px); 
+    height: clamp(300px, 52vh, 600px); 
     max-width: 150%;
     max-height: 150%;
     padding-top: 1%;
@@ -223,7 +210,7 @@ main {
     position: absolute;
     justify-content: center;
     z-index: 1;
-    transform: translate(30%, -50%);
+    transform: translate(30%, 40%);
     border: none;
     background-color: transparent;
     transition: filter 0.3s ease, transform 0.2s ease;
@@ -242,12 +229,12 @@ main {
     font-weight: bold;
     transition: filter 0.3s ease, transform 0.2s ease;
     z-index: 20;
-    transform: translate(-30%, 0%) ;
+    transform: translate(-30%, 0%);
     align-items: center;
     justify-content: center;
 }
 
-.save{
+.save {
     display: flex;
     background-image: url("../images/cheque.png");
     background-size: contain;
@@ -266,7 +253,7 @@ main {
     transition: filter 0.3s ease, transform 0.1s ease;
 }
 
-.noSave{
+.noSave {
     display: flex;
     background-image: url("../images/rechazado.png");
     background-size: contain;
@@ -285,12 +272,11 @@ main {
     transition: filter 0.3s ease, transform 0.1s ease;
 }
 
-
 .BtnGoBack1:hover, .Btnleft:hover, .Btnright:hover, .newNote:hover, .save:hover, .noSave:hover {
     filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
 }
 
-.save:active{
+.save:active {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
     transform: translate(100%, 120%) scale(0.8);
 }
@@ -305,9 +291,9 @@ main {
     transform: translate(-30%, 0%) scale(0.95);
 }
 
-.BtnGoBack1:active{
+.BtnGoBack1:active {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    transform: translate(0%, -50%) scale(0.95);
+    transform: translate(0%, 40%) scale(0.95);
 }
 
 .Btnright:active {
@@ -324,28 +310,97 @@ footer {
     display: flex;
     background-color: #F8E48C;
     text-align: center;
-    align-items: center;
     position: absolute;
     bottom: 0;
-    height:  10vh;
+    height: 10vh;
     width: 100%;
 }
 
-.container_numberNote{
+.container_numberNote {
     display: flex;
     position: absolute;
-    top:  10%;
+    top: 10%;
     z-index: 100;
-    color:  #8EAAF5;
+    color: #8EAAF5;
     font-family: "Dosis";
     font-weight: bold;
-    font-size:3.1vw;
-    left: 35%;
-    width: 45vw;
+    font-size: 5vw;
+    left: 60%;
+    width: 40vw;
     height: 8vh;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: transparent;
-    left: 55%;
 }
+
+@media (max-width: 700px) {
+    .container_Notes_Created {
+        font-size: 12vw;
+    }
+
+    .text {
+        font-size: 10vw;
+    }
+
+    .note {
+        width: 80vw;
+        height: 50vh;
+    }
+
+    .textInput {
+        width: 80vw;
+        height: 50vh;
+        font-size: 5vw;
+    }
+
+    .newNote {
+        font-size: 5vw;
+        width: 40vw;
+    }
+
+    .save, .noSave {
+        width: 10%;
+        height: 20%;
+    }
+
+    .container_numberNote {
+        font-size: 8vw;
+    }
+
+    .BtnGoBack1 {
+        width: 20%;
+        height: 60%;
+    }
+
+    .Btnright, .Btnleft {
+        width: 15%;
+    }
+}
+
+@media (max-width: 770px) {
+
+    .save {
+    
+        transform: translateX(-10%) translateY(0%); 
+        width: 20%;
+        height: 20%;
+    }
+
+    .noSave{
+        width: 20%;
+        height: 20%;
+
+        transform: translateX(-140%) translateY(0%); 
+
+    }
+}
+
+
+@media (max-height: 660px) {
+    .note {
+        height: 45vh;
+    }
+
+    .textInput {
+        height: 40vh;
+    }
+}
+
