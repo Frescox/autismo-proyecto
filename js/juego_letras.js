@@ -94,19 +94,22 @@ function seleccionarLetra(index) {
     const letra = letrasContainer.children[index].textContent;
 
     // Encontrar el primer espacio vacío en letra-container
-    const espacioVacio = Array.from(letraContainer.children).find(div => div.textContent === "");
+    const espacioVacioArriba = Array.from(letraContainer.children).find(div => div.textContent === "");
 
     // Solo continuar si hay un espacio vacío disponible
-    if (espacioVacio) {
+    if (espacioVacioArriba) {
         // Colocar la letra en el espacio vacío
-        espacioVacio.textContent = letra;
-        espacioVacio.classList.add("letter");
+        espacioVacioArriba.textContent = letra;
+        espacioVacioArriba.classList.add("letter");
 
-        // Guardar la letra en la respuesta del usuario
-        respuestaUsuario.push(letra);
+        // Guardar la letra en la respuesta del usuario junto con su índice
+        respuestaUsuario.push({ letra, index });
 
         // Ocultar la letra en letras-container
         letrasContainer.children[index].style.visibility = "hidden";
+
+        // Añadir un evento al espacio para que se pueda deseleccionar
+        espacioVacioArriba.onclick = () => deseleccionarLetra(espacioVacioArriba, index);
 
         // Validar si se han llenado todos los espacios
         if (respuestaUsuario.length === palabraActual.length) {
@@ -115,8 +118,24 @@ function seleccionarLetra(index) {
     }
 }
 
+function deseleccionarLetra(espacioVacio, index) {
+    const letrasContainer = document.getElementById("letras-container");
+
+    // Restaurar la visibilidad de la letra en letras-container
+    letrasContainer.children[index].style.visibility = "visible";
+
+    // Limpiar el contenido del espacio vacío
+    espacioVacio.textContent = "";
+    espacioVacio.classList.remove("letter");
+
+    // Remover el evento de clic del espacio vacío
+    espacioVacio.onclick = null;
+
+    // Eliminar la letra del array respuestaUsuario de forma precisa
+    respuestaUsuario = respuestaUsuario.filter(item => item.index !== index);
+}
+
 function resetearLetras() {
-    // Vaciar la respuesta del usuario
     respuestaUsuario = [];
     
     // Selecciona el contenedor de letras
@@ -125,34 +144,47 @@ function resetearLetras() {
 
     // Resetear la visibilidad de cada letra en letras-container
     Array.from(letrasContainer.children).forEach(letra => letra.style.visibility = "visible");
-
-    // Selecciona todos los elementos con la clase 'espacio-vacio'
-    const espaciosVacios = document.querySelectorAll(".espacio-vacio");
-    
-    // Recorre cada espacio vacío y restablece el estilo original
-    espaciosVacios.forEach(espacio => {
-        espacio.style.backgroundColor = "lightgray";  // Cambia el color de fondo al original
-        espacio.textContent = "";                    // Limpia el contenido del espacio
-    });
 }
 
 
 
 function validarRespuesta() {
-    const palabraUsuario = respuestaUsuario.join("");
+    const palabraUsuario = respuestaUsuario.map(item => item.letra).join("");
+    const congratulations = document.getElementById("congratulations");
+    const letrasIncorrectas = document.getElementsByClassName("spaceLetter");
+    const correct = new Audio('./images/correct.mp3');
+    const incorrect = new Audio('./images/incorrect.mp3');
+
     if (palabraUsuario === palabraActual) {
+        correct.play();
+        congratulations.style.display = "block";
+        congratulations.style.animationPlayState = "running";
+        Array.from(letrasIncorrectas).forEach(letra => {
+            letra.style.border = "2px solid green";
+        });
         setTimeout(() => {
-            alert("¡Correcto! Has acomodado la palabra correctamente.");
             document.getElementById("continuar-btn").style.display = "inline";
-            resetearLetras();
-        }, 200);
+            congratulations.style.display = "none"; 
+            congratulations.style.animationPlayState = "paused";
+            Array.from(letrasIncorrectas).forEach(letra => {
+                letra.style.border = "2px solid  #9cc6e1";
+            });
+            cargarNuevaPalabra();
+        }, 2000);
     } else {
+        Array.from(letrasIncorrectas).forEach(letra => {
+            letra.style.border = "2px solid red";
+        });
+        incorrect.play();
         setTimeout(() => {
-            alert("Incorrecto, intenta de nuevo.");
+            Array.from(letrasIncorrectas).forEach(letra => {
+                letra.style.border = "2px solid #9cc6e1";
+            });
             resetearLetras();
-        }, 200);
+        }, 1000);
     }
 }
+
 
 function resetearLetras() {
     respuestaUsuario = [];

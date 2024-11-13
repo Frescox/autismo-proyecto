@@ -10,6 +10,21 @@ body {
     height: 100vh;
 }
 
+.congratulations {
+    z-index: 1000;
+    position: fixed; 
+    top: 75%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: transparent;
+    height: 25%;
+    width: 80%;
+}
+
+
 header {
     background-color: #8EAAF5;
     color: white;
@@ -132,19 +147,24 @@ footer {
 
 .changeWord{
     display: flex;
-    background-color: #8EAAF5;;
-    width: 30vw;
-    height: 7vh;
+    background-image: url("../images/cambiar.png");
+    background-color:transparent;
+    background-size: cover;
+    width:9vw;
+    height: 8vh;
     border-radius: 15px;
-    border-color: #8EAAF5;
-    font-size: 4vw;
-    color: #F8E48C;
+    border: none;
     font-weight: bold;
     transition: filter 0.3s ease, transform 0.2s ease;
     z-index: 20;
-    transform: translate(190%, 0%) ;
+    transform: translate(850%, 0%) ;
     align-items: center;
     justify-content: center;
+    opacity: 0.6;
+}
+
+.congratulations{
+    animation: mymove 3s infinite;
 }
 
 .BtnGoBack1:hover, .changeWord:hover {
@@ -156,5 +176,6 @@ footer {
 }
 .changeWord:active{
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    transform: translate(190%, 0%) scale(0.95);
+    transform: translate(850%, 0%) scale(0.95);
 }
+
