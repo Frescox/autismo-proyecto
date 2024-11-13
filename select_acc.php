@@ -55,50 +55,45 @@ if (!$result) {
     </header>
     <main>
         <div id="gameTitle" class="d-flex align-items-center">
+            <button class="right" id="btnBack" onclick="window.location.href = 'index.html';"></button>
             <div class="p-2 flex-grow-1">
-                <h1 class="ms-5">Seleccione la cuenta que desea utilizar</h1>
+                <h1 class="left ms-5">Seleccione la cuenta que desea utilizar</h1>
             </div>
         </div>
-
+        
+        
         <div class="container my-4">
+            <!-- Formulario para agregar un nuevo niño -->
+                <div class="card mb-3 text-center border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">Agregar Niño</h5>
+                        <form action="select_acc.php" method="POST">
+                            <div class="mb-3">
+                                <label for="child_name" class="form-label">Nombre del Niño</label>
+                                <input type="text" class="form-control" id="child_name" name="child_name" required>
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary">Agregar</button>
+                        </form>
+                    </div>
+                </div>
             <div class="row">
                 <?php while ($child = mysqli_fetch_assoc($result)) { ?>
                     <!-- Tarjeta para cada niño -->
                     <div class="col-md-4">
                         <div class="card mb-3">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo htmlspecialchars(decryptData($child['name'])); ?></h5>
-                                <p class="card-text">UUID: <?php echo htmlspecialchars($child['uuid']); ?></p>
+                                <h5 class="card-title"><?php echo 'Cuenta de: ' . htmlspecialchars(decryptData($child['name'])); ?></h5>
                                 <form action="select_child.php" method="POST">
                                     <input type="hidden" name="uuid" value="<?php echo htmlspecialchars($child['uuid']); ?>">
-                                    <button type="submit" class="btn btn-primary">Seleccionar</button>
+                                    <button type="submit" class="btn btn-primary">Acceder a la cuenta</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 <?php } ?>
-
-                <!-- Formulario para agregar un nuevo niño -->
-                <div class="col-md-4">
-                    <div class="card mb-3 text-center border-primary">
-                        <div class="card-body">
-                            <h5 class="card-title">Agregar Niño</h5>
-                            <form action="select_acc.php" method="POST">
-                                <div class="mb-3">
-                                    <label for="child_name" class="form-label">Nombre del Niño</label>
-                                    <input type="text" class="form-control" id="child_name" name="child_name" required>
-                                </div>
-                                <button type="submit" class="btn btn-outline-primary">Agregar</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </main>
-    <footer>
-        <button id="btnBack" onclick="window.location.href = 'index.html';"></button>
-    </footer>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
