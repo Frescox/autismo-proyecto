@@ -107,9 +107,9 @@ main {
     cursor: pointer;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 410px) {
     header {
-        font-size: 30px;
+        font-size: 12px;
     }
 
     .btnStatistics, .btnWords, .btnAppConfig, .btnEditProfile {
@@ -118,13 +118,14 @@ main {
     }
 }
 
-@media (max-height: 660px) {
+@media (max-height: 430px) {
     main {
-        height: 70vh;
+        height: 40vh;
     }
 
     .btnStatistics, .btnWords, .btnAppConfig, .btnEditProfile {
-        width: 5rem;
-        height: 5rem;
+        width: 3rem;
+        height: 3rem;
     }
+
 }

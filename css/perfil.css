@@ -107,6 +107,17 @@ main {
 }
 
 @media (max-width: 767px) {
+
+    header {
+        font-size: 16px; 
+        padding: 8px 0;
+    }
+    
+    footer {
+        font-size: 20px; 
+        padding: 5px 0; 
+    }
+
     main {
         height: 70vh;
     }
@@ -114,9 +125,21 @@ main {
         width: 8rem;
         height: 8rem;
     }
+
+
 }
 
 @media (max-height: 660px) {
+    
+    header {
+        font-size: 16px; 
+        padding: 8px 0; 
+    }
+    footer {
+        font-size: 20px; 
+        padding: 5px 0; 
+    }
+
     main {
         height: 70vh;
     }
@@ -124,4 +147,6 @@ main {
         width: 5rem;
         height: 5rem;
     }
+
+
 }

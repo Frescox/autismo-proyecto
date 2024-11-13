@@ -1,50 +1,36 @@
 * {
     font-family: "Dosis", sans-serif;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
-
 body {
-
     margin: 0;
     padding: 0;
-    font-family: "Dosis", sans-serif;
     background-color: white;
-    padding: 0;
-    margin: 0;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 header {
     background-color: #8EAAF5;
     font-size: 5vw; 
-    padding: 1vh; 
+    padding: 2vh; 
     display: flex;
     justify-content: center;
     z-index: -1;
     width: 100%;    
-
-  
     height: 7vh;
-
-    height:  10vh;
-    justify-content: center;   
-    align-items: center; 
-
 }
 
 .container_Notes_Created {
     font-size: 6vw;
     color: #FBE48C;
     font-weight: bold;
-    height: 9vh; 
-    z-index: 5;
+    height: 5vh; 
+    z-index: 1;
     background-color: transparent;
     width: 100%;
+    padding: 1%;
     display: flex;            
     justify-content: center;   
     align-items: center;     
@@ -62,27 +48,18 @@ header {
     top: 11%;
     z-index: -1;
     display: flex;
-
     justify-content: space-between;
-
-    justify-content: space-between; 
-
     align-items: center;
     padding: 1vh;
 }
 
 .text {
-    display: flex;
     text-align: center;
     font-family: "Dosis", sans-serif;
     font-size: 6vw;
     color: #5f8aea;
     font-weight: bold;
-    background-color: transparent;
-    width: 50%;
-    height: 150%;
-    align-items: center;
-    justify-content: center;
+    padding-left: 5%;
 }
 
 main {
@@ -116,8 +93,8 @@ main {
     flex-direction: row;
     white-space: nowrap; 
     width: 80vw; 
-    height: 52vh;
-    margin-top: 18vh;
+    height: 50vh;
+    margin-top: 20vh;
     margin-left: 10%;
     position: absolute;
     background-color: transparent; 
@@ -196,10 +173,10 @@ main {
     background-image: url("../images/image.png");
     background-size: auto;
     background-repeat: repeat;
-    line-height: clamp(20px, 6vh, 5.9vh); /* Ajusta según lo necesites */
+    line-height: clamp(20px, 6vh, 5.9vh); 
     overflow-y: auto;
-    width: clamp(300px, 70vw, 600px); /* Ajusta según lo necesites */
-    height: clamp(300px, 52vh, 600px); /* Ajusta según lo necesites */
+    width: clamp(300px, 70vw, 600px); 
+    height: clamp(300px, 52vh, 600px); 
     max-width: 150%;
     max-height: 150%;
     padding-top: 1%;
@@ -233,7 +210,7 @@ main {
     position: absolute;
     justify-content: center;
     z-index: 1;
-    transform: translate(30%, -50%);
+    transform: translate(30%, 40%);
     border: none;
     background-color: transparent;
     transition: filter 0.3s ease, transform 0.2s ease;
@@ -316,7 +293,7 @@ main {
 
 .BtnGoBack1:active {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    transform: translate(0%, -50%) scale(0.95);
+    transform: translate(0%, 40%) scale(0.95);
 }
 
 .Btnright:active {
@@ -333,7 +310,6 @@ footer {
     display: flex;
     background-color: #F8E48C;
     text-align: center;
-    align-items: center;
     position: absolute;
     bottom: 0;
     height: 10vh;
@@ -348,15 +324,14 @@ footer {
     color: #8EAAF5;
     font-family: "Dosis";
     font-weight: bold;
-    font-size:3.1vw;
-    left: 35%;
-    width: 45vw;
+    font-size: 5vw;
+    left: 60%;
+    width: 40vw;
     height: 8vh;
     align-items: center;
-
 }
 
-@media (max-width: 767px) {
+@media (max-width: 700px) {
     .container_Notes_Created {
         font-size: 12vw;
     }
@@ -400,6 +375,25 @@ footer {
     }
 }
 
+@media (max-width: 770px) {
+
+    .save {
+    
+        transform: translateX(-10%) translateY(0%); 
+        width: 20%;
+        height: 20%;
+    }
+
+    .noSave{
+        width: 20%;
+        height: 20%;
+
+        transform: translateX(-140%) translateY(0%); 
+
+    }
+}
+
+
 @media (max-height: 660px) {
     .note {
         height: 45vh;
@@ -408,11 +402,5 @@ footer {
     .textInput {
         height: 40vh;
     }
-}
-
-    justify-content: center;
-    overflow: hidden;
-    background-color: transparent;
-    left: 55%;
 }
 
