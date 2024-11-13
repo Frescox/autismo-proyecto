@@ -306,6 +306,16 @@ main {
     transform: translate(-30%, 10%) scale(0.95);
 }
 
+footer {
+    display: flex;
+    background-color: #F8E48C;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    height: 10vh;
+    width: 100%;
+}
+
 .container_numberNote {
     display: flex;
     position: absolute;

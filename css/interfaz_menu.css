@@ -2,14 +2,6 @@
     font-family: "Dosis", sans-serif;
 }
 
-.left{
-    padding-right: 100px;
-}
-
-.right{
-    padding: 20px;
-}
-
 body, html {
     text-align: center;
     font-family: "Dosis", sans-serif;
@@ -54,9 +46,6 @@ footer {
     justify-content: space-between;
     text-align: center;
     padding: 2rem 0;
-    padding-left: 1.2%;
-    text-align: left;
-    
 }
 
 * {
@@ -76,6 +65,11 @@ header {
     font-weight: 800 !important;
     text-align: start;
     display: inline-block;
+}
+
+footer {
+    padding-left: 1.2%;
+    text-align: left;
 }
 
 main p {
