@@ -113,9 +113,21 @@ main {
     main {
         height: 70vh;
     }
-    .btnPersonalData, .btnAddPhotos, .btnScore, .btnDeleteAccount {
-        width: 8rem;
-        height: 8rem;
+
+    .statistic-card {
+        padding: 15px;
+    }
+
+    .statistic-card h2 {
+        font-size: 20px;
+    }
+
+    .statistic-card p {
+        font-size: 18px;
+    }
+
+    .container-statistics {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -123,8 +135,16 @@ main {
     main {
         height: 70vh;
     }
-    .btnPersonalData, .btnAddPhotos, .btnScore, .btnDeleteAccount {
-        width: 5rem;
-        height: 5rem;
+
+    .statistic-card {
+        padding: 12px;
+    }
+
+    .statistic-card h2 {
+        font-size: 18px;
+    }
+
+    .statistic-card p {
+        font-size: 16px;
     }
 }
