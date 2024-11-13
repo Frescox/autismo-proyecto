@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,28 +8,26 @@
 </head>
 <body>
     <header>
-        <p>Logo</p>
-        <h1>Administrador</h1>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <img id="userProfilePic" src="" alt="Foto de perfil" style="width: 60px; height: 60px; border-radius: 50%; display: none; margin-right: 10px;">
+            <h1>Administrador</h1>
+        </div>
     </header>
+    
+    
     <main>
         <div class="Title">
             <h1>Editar Perfil</h1>
         </div>
         <div class="container-buttons">
+            <!-- Botón Agregar Fotos -->
             <div>
-                <button class="btnPersonalData" onclick="window.location.href = '';"></button>
-                <p>Datos Personales</p>
-            </div>
-            <div>
-                <button class="btnAddPhotos" onclick="window.location.href = '';"></button>
+                <button class="btnAddPhotos" onclick="openPhotoPopup();"></button>
                 <p>Agregar Fotos</p>
             </div>
+            <!-- Botón Eliminar Cuenta -->
             <div>
-                <button class="btnScore" onclick="window.location.href = '';"></button>
-                <p>Revisar Puntaje</p>
-            </div>
-            <div>
-                <button class="btnDeleteAccount" onclick="window.location.href = '';"></button>
+                <button class="btnDeleteAccount" onclick="openDeletePopup();"></button>
                 <p>Eliminar Cuenta</p>
             </div>
         </div>
@@ -37,6 +35,44 @@
     <footer>
         <button class="btnBack" onclick="window.location.href = 'admin.html';"></button>
     </footer>
+
+    <!-- Ventana emergente para agregar fotos -->
+    <div id="photoPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePhotoPopup()">&times;</span>
+            <h2>Seleccionar Foto de Perfil</h2>
+            <div class="photo-space">
+                <img id="photoPreview" src="" alt="Previsualización de Foto" style="display: none; width: 100%; height: auto;">
+            </div>
+            <input type="file" id="fileInput" style="display: none;" onchange="previewPhoto(event)">
+            <button class="btnCustomPhoto" onclick="document.getElementById('fileInput').click();">Seleccionar foto de perfil personalizada</button>
+            <button class="btnAcceptPhoto" onclick="acceptPhoto();">Aceptar</button>
+        </div>
+    </div>
+
+    <!-- Ventana emergente para eliminar cuenta -->
+    <div id="deletePopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeDeletePopup()">&times;</span>
+            <h2>Eliminar Cuenta</h2>
+            <p>¿Está seguro de que desea eliminar la cuenta? Todos los datos serán borrados.</p>
+            <button class="btnCancel" onclick="closeDeletePopup()">Cancelar</button>
+            <button class="btnDeleteAccount" onclick="openPasswordPopup();">Eliminar Cuenta</button>
+        </div>
+    </div>
+
+    <!-- Ventana emergente para ingresar la contraseña -->
+    <div id="passwordPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePasswordPopup()">&times;</span>
+            <h2>Confirmar Contraseña</h2>
+            <p>Para eliminar la cuenta, ingrese la contraseña de administrador:</p>
+            <input type="password" id="adminPassword" placeholder="Contraseña">
+            <button class="btnConfirmPassword" onclick="confirmPassword();">Confirmar</button>
+        </div>
+    </div>
+
+    <script src="js/perfil.js"></script>
 </body>
 </html>
     
