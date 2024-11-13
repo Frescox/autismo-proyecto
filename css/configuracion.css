@@ -1,7 +1,8 @@
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #8EAAF5;
+    background-color: white;
     text-align: center;
     color: #FFF2F2;
     font-family: "Dosis", sans-serif;
@@ -92,6 +93,9 @@ main {
     background-color: #8EAAF5;
 }
 
+
+
+
 .btnBack {
     background-image: url('../images/botones-03.png');
     background-color: #F8E48C;
@@ -115,7 +119,6 @@ main {
     font-weight: bold;
     color: #FFF2F2;
     margin-right: 10px;
-
 }
 
 .switch {
@@ -157,30 +160,47 @@ main {
     border-radius: 50%;
 }
 
-input:checked + .slider {
-    background-color: #8EAAF5;
-}
 
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
 
-@media (max-width: 767px) {
-    main {
-        height: 70vh;
+
+
+@media (max-height: 450px) {
+    
+
+    header {
+        font-size: 16px; 
+        padding: 8px 0; 
+    }
+    footer {
+        font-size: 20px; 
+        padding: 5px 0; 
     }
     .color-button {
-        width: 8rem;
-        height: 8rem;
+        width: 2rem;  
+        height: 2rem;
     }
+    .container-buttons {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+    
 }
 
-@media (max-height: 660px) {
-    main {
-        height: 70vh;
+@media (max-width: 450px) {
+    
+
+    header {
+        font-size: 16px; 
+        padding: 8px 0;
     }
+    
+    footer {
+        font-size: 20px; 
+        padding: 5px 0; 
+    }
+
     .color-button {
-        width: 5rem;
-        height: 5rem;
+        width: 2rem;  
+        height: 2rem;
     }
-}
+}   
+

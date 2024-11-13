@@ -110,21 +110,66 @@ main {
 }
 
 @media (max-width: 767px) {
+
+    header {
+        font-size: 16px; 
+        padding: 8px 0;
+    }
+    
+    footer {
+        font-size: 20px; 
+        padding: 5px 0; 
+    }  
+
+    
     main {
         height: 70vh;
     }
-    .btnPersonalData, .btnAddPhotos, .btnScore, .btnDeleteAccount {
-        width: 8rem;
-        height: 8rem;
+
+    .statistic-card {
+        padding: 15px;
+    }
+
+    .statistic-card h2 {
+        font-size: 20px;
+    }
+
+    .statistic-card p {
+        font-size: 18px;
+    }
+
+    .container-statistics {
+        grid-template-columns: 1fr;
     }
 }
 
-@media (max-height: 660px) {
+
+@media (max-height: 450px) {
+    
+
+    header {
+        font-size: 16px; 
+        padding: 8px 0; 
+    }
+    footer {
+        font-size: 20px; 
+        padding: 5px 0; 
+    }
     main {
         height: 70vh;
     }
-    .btnPersonalData, .btnAddPhotos, .btnScore, .btnDeleteAccount {
-        width: 5rem;
-        height: 5rem;
+
+    .statistic-card {
+        padding: 12px;
     }
+
+    .statistic-card h2 {
+        font-size: 18px;
+    }
+
+    .statistic-card p {
+        font-size: 16px;
+    }
+    
+    
 }
