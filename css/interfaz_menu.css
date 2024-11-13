@@ -1,29 +1,21 @@
-
 * {
     font-family: "Dosis", sans-serif;
 }
-
-body {
 
 body, html {
     text-align: center;
     font-family: "Dosis", sans-serif;
     height: 100%;
-
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     background-color: #8EAAF5;
     color: #FFF2F2;
-
-    font-family: "Dosis", sans-serif;
-
-
 }
 
 header {
-    background-color:#F8E48C;
+    background-color: #F8E48C;
     color: #8EAAF5;
     font-weight: 800;
     font-size: 60px;
@@ -42,13 +34,9 @@ nav a {
     color: #FFF2F2;
 }
 
-
 section {
     padding: 20px;
 }
-
-
-
 
 footer {
     background-color: #F8E48C;
@@ -56,7 +44,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    text-align: center; 
+    text-align: center;
     padding: 2rem 0;
 }
 
@@ -66,7 +54,6 @@ footer {
     box-sizing: border-box;
 }
 
-
 html, body {
     height: 100%;
     background-color: #8EAAF5;
@@ -74,11 +61,8 @@ html, body {
 
 header {
     font-weight: 700;
-
-header{
-
     font-size: 28px;
-    font-weight: 800 !important; 
+    font-weight: 800 !important;
     text-align: start;
     display: inline-block;
 }
@@ -96,28 +80,27 @@ main p {
 main {
     height: 75vh;
 }
-.offcanvas-end{
+
+.offcanvas-end {
     background-color: rgb(174, 174, 174);
 }
-.offcanvas-body{
+
+.offcanvas-body {
     text-align: left;
 }
 
-#img-thumbnail{
+#img-thumbnail {
     height: 80px;
     width: 80px;
     background-color: transparent;
 }
- 
 
-.container-buttons {
-
-#btnConf{
+#btnConf {
     background-color: #F8E48C;
     display: inline-block;
 }
-#container-buttons{
 
+#container-buttons {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     row-gap: 1rem;
@@ -126,63 +109,39 @@ main {
     height: 80%;
 }
 
-
-.gameTitle {
+#gameTitle {
     background-color: #FFFFFF;
     color: #8EAAF5;
 }
 
-.btnLetters {
-    background-image: url('../images/lettersLogo.png');
-    background-color: #8EAAF5;
-    background-size: 100% 100%;
-
-#gameTitle{
-    background-color: #FFFFFF;
-    color: #8EAAF5;
-}
-#gameTitle h1{
+#gameTitle h1 {
     display: inline-block;
 }
-#btnLetters{
+
+#btnLetters {
     background-image: url('../images/lettersLogo.png');
     background-color: transparent;
-    background-size: 100% 100%; 
-
+    background-size: 100% 100%;
     border: none;
     width: 10rem;
     height: 10rem;
     cursor: pointer;
 }
 
-
-.btnNotes {
-    background-image: url('../images/notepadLogo.png');
-    background-color: #8EAAF5;
-    background-size: 100% 100%;
-
-#btnNotes{
+#btnNotes {
     background-image: url('../images/notepadLogo.png');
     background-color: transparent;
-    background-size: 100% 100%; 
-
+    background-size: 100% 100%;
     border: none;
     width: 10rem;
     height: 10rem;
     cursor: pointer;
 }
 
-
-.btnBack {
-    background-image: url('../images/backImage.png');
-    background-color: #F8E48C;
-    background-size: 100% 100%;
-
-#btnBack{
+#btnBack {
     background-image: url('../images/backImage.png');
     background-color: transparent;
-    background-size: 100% 100%; 
-
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
     width: 75px;
@@ -194,11 +153,8 @@ main {
     main {
         height: 70vh;
     }
-    .btnLetters {
-        width: 8rem;
-        height: 8rem;
-    }
-    .btnNotes {
+    #btnLetters,
+    #btnNotes {
         width: 8rem;
         height: 8rem;
     }
@@ -208,21 +164,15 @@ main {
     main {
         height: 70vh;
     }
-    .btnLetters {
-        width: 5rem;
-        height: 5rem;
-    }
-    .btnNotes {
+    #btnLetters,
+    #btnNotes {
         width: 5rem;
         height: 5rem;
     }
 }
 
-
 @media (max-width: 660px) {
-    .offcanvas{
-        /* background-color: red; */
+    .offcanvas {
         max-width: 50vw;
     }
 }
-
