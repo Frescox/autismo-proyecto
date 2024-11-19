@@ -1,3 +1,4 @@
+//Elementos de la interfaz del menú
 const header = document.getElementsByTagName("header")[0];
 const footer = document.getElementsByTagName("footer")[0];
 const colorPicker_hf = document.getElementById('colorPicker');
@@ -13,6 +14,20 @@ colorPicker_hf.addEventListener('input', actualizarColores);
 colorPicker_title.addEventListener('input', actualizarColores);
 colorPicker_text.addEventListener('input', actualizarColores);
 colorPicker_bg.addEventListener('input', actualizarColores);
+
+//Eventlistener para cambiar la configuración del JSON cada que se cambia el color de un picker
+colorPicker_hf.addEventListener("change",function(){
+    register();
+});
+colorPicker_title.addEventListener("change",function(){
+    register();
+});
+colorPicker_text.addEventListener("change",function(){
+    register();
+});
+colorPicker_bg.addEventListener("change",function(){
+    register();
+});
 
 // Función que maneja el cambio de color en ambos casos
 function actualizarColores(event) {
@@ -39,14 +54,14 @@ function actualizarColores(event) {
     }
 }
 
-let inputSubject=$("#colorPicker");
+
 let subject="";
-var colores={};
 
 
 function register(){
-    //Cada vez que se cambie de color, son limpiados del local storage los que se tenian anteriormente 
-    localStorage.clear();
+    //Variable que guarda todos los datos de la configuración de colores
+    var colores={};
+
     subject = colorPicker_hf.value;
     colores.header_footer = colorPicker_hf.value;
     subject = colorPicker_title.value;
@@ -56,48 +71,64 @@ function register(){
     subject = colorPicker_bg.value;
     colores.bg = colorPicker_bg.value;
 
-    localStorage.setItem('color',JSON.stringify(colores));
+    jsonData = JSON.stringify(colores);
+    
+    // Al archivo save_conf se le envia el JSON creado con los valores que contiene cada color picker
+    fetch('save_conf.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonData // Convertir el objeto a JSON
+    })
+    .catch(error => console.error('Error al enviar:', error));
 }
-
-colorPicker_hf.addEventListener("change",function(){
-    register();
-});
-colorPicker_title.addEventListener("change",function(){
-    register();
-});
-colorPicker_text.addEventListener("change",function(){
-    register();
-});
-colorPicker_bg.addEventListener("change",function(){
-    register();
-});
 
 
 function init(){
-    console.log(JSON.parse(localStorage.getItem('color')).title);
-    const colorGuardado = JSON.parse(localStorage.getItem('color'))
-    if (colorGuardado) {
-        header.style.backgroundColor=colorGuardado.header_footer;
-        footer.style.backgroundColor=colorGuardado.header_footer;
+    //Variable para acceder a cada uno de los atributos de la configuración
+    let colorGuardado;
 
-        for (let i = 0; i < title.length; i++) {
-            const txt = title[i];
-            txt.style.color = colorGuardado.title;
+    //Obtenemos un JSON por parte del archivo get_conf que contiene la configuración de colores
+    fetch('get_conf.php')
+    .then(respuesta => respuesta.json())  // Convierte la respuesta a JSON
+    .then(data => {
+        colorGuardado = data;
+
+        //Si se procesa correctamente la información
+        if (colorGuardado) {
+            //Agregamos los colores al header y footer
+            header.style.backgroundColor=colorGuardado.header_footer;
+            footer.style.backgroundColor=colorGuardado.header_footer;
+            
+            //Agregamos los colores de titulo a cada uno de los titulos dentro de la interfaz
+            for (let i = 0; i < title.length; i++) {
+                const txt = title[i];
+                txt.style.color = colorGuardado.title;
+            }
+            
+            //Agregamos los colores de texto a cada uno de los textos dentro de la interfaz
+            for (let i = 0; i < textos.length; i++) {
+                const txt = textos[i];
+                txt.style.color = colorGuardado.text;
+            }
+            
+            //Cambiamos el color de fondo de la aplicación
+            fondo.style.backgroundColor = colorGuardado.bg;
+    
+            //Actualizamos el valor de los colorPicker para que contengan los colores de la configuración actual
+            colorPicker_hf.value = colorGuardado.header_footer;
+            colorPicker_title.value = colorGuardado.title;
+            colorPicker_text.value = colorGuardado.text
+            colorPicker_bg.value = colorGuardado.bg;
         }
-
-        for (let i = 0; i < textos.length; i++) {
-            const txt = textos[i];
-            txt.style.color = colorGuardado.text;
+        else{
+            console.log("No se proceso correctamente la información");
         }
-
-        fondo.style.backgroundColor = colorGuardado.bg;
-
-        colorPicker_hf.value = colorGuardado.header_footer;
-        colorPicker_title.value = colorGuardado.title;
-        colorPicker_text.value = colorGuardado.text
-        colorPicker_bg.value = colorGuardado.bg;
-    }
-
+    })
+    .catch(error => {
+        console.error('Error:', error);  // Maneja cualquier error que pueda ocurrir
+    });
 }
 
 window.onload=init;
