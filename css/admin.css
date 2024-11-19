@@ -1,131 +1,168 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #8EAAF5;
-    text-align: center;
-    color: #FFF2F2;
-    font-family: "Dosis", sans-serif;
-}
-
-header {
-    background-color: #F8E48C;
-    color: #8EAAF5;
-    font-weight: 800;
-    font-size: 60px;
-    padding: 10px 0;
-    text-align: center;
-}
-
-footer {
-    background-color: #F8E48C;
-    color: #FFF2F2;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
 
 * {
+    box-sizing: border-box; /* Ensures padding is included in the element's width and height */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: "Dosis", sans-serif; /* Sets a consistent font for all elements */
 }
-
 html, body {
     height: 100%;
     background-color: #8EAAF5;
 }
+/* Body Styles */
+body {
+    height: 100vh; /* Ensures the body takes up the full height of the viewport */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Aligns elements in a column */
+    background-color: #8EAAF5; /* Light blue background color */
+    text-align: center; /* Centers text horizontally */
+    color: #FFF2F2; /* Light text color */
+    overflow: hidden; /* Prevents scrolling */
+}
 
+/* Header Styles */
 header {
-    font-weight: 700;
-    font-size: 28px;
+    background-color: #F8E48C; /* Light yellow background color for the header */
+    color: #8EAAF5; /* Sets text color to blue */
+    font-weight: 700; /* Makes text bold */
+    height: 15vh; /* Sets the header height to 15% of the viewport height */
+    display: flex; /* Uses flexbox for layout */
+    align-items: center; /* Vertically centers items within the header */
+    justify-content: space-between; /* Positions items at both ends of the header */
+    padding: 0 1rem; /* Adds horizontal padding to the header */
 }
 
-footer {
-    padding-left: 1.2%;
-    text-align: left;
+header h1 {
+    font-size: 5vw; /* Responsive font size for the header title */
 }
 
-main p {
-    font-size: 20px;
-    font-weight: 700;
+header p {
+    font-size: 5vw; /* Responsive font size for the logo or other text */
 }
 
+/* Main Section Styles */
 main {
-    height: 85vh;
+    flex: 1; /* Allows the main section to grow and fill available space */
+    height: 70%; /* Sets the height to 70% of the viewport */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Aligns elements in a column */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
 }
 
-.container-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    row-gap: 1rem;
-    column-gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    height: 80%;
-}
 
 .Title {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 80%; /* Cambiado a un ancho más flexible para adaptarse mejor a la pantalla */
+    max-width: 400px; /* Limita el ancho máximo para evitar que sea demasiado grande */
+    height: 10vh; /* Ajusta la altura automáticamente según el contenido */
+    margin: 1.5rem auto; /* Añade margen superior e inferior para evitar solapamiento */
     background-color: #FFFFFF;
-    color: #8EAAF5;
+    border-radius: 10px;
+    box-sizing: border-box; /* Asegura que padding no afecte al ancho/alto total */
+    
+}
+.Title h1 {
+    color: #8EAAF5; /* Color azul para el texto */
+    font-size: 3vw; /* Tamaño de fuente ajustable según el ancho de la pantalla */
+    padding: 1rem; /* Espaciado interno alrededor del título */
+    border-radius: 8px; /* Bordes redondeados para el título */
+    margin: 0; /* Sin margen para evitar separación innecesaria */
+    text-align: center; /* Centra el texto del título */
 }
 
-.btnStatistics, .btnWords, .btnAppConfig, .btnEditProfile {
-    background-color: #8EAAF5;
-    background-size: 100% 100%;
-    border: none;
-    width: 10rem;
-    height: 10rem;
-    cursor: pointer;
+button:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3)); /* Adds a shadow effect on hover */
 }
 
+button:active {
+    transform: scale(0.95); /* Slightly shrinks button on click */
+}
+
+/* Specific Button Styles */
 .btnStatistics {
-    background-image: url('../images/icono 05.svg');
+    background-image: url('../images/icono 05.svg'); /* Background image for statistics button */
+    background-color: #8EAAF5; /* Button background color */
 }
 
 .btnWords {
-    background-image: url('../images/icono 07.svg');
+    background-image: url('../images/icono 07.svg'); /* Background image for words button */
+    background-color: #8EAAF5; /* Button background color */
 }
 
 .btnAppConfig {
-    background-image: url('../images/icono 05.svg');
+    background-image: url('../images/icono 05.svg'); /* Background image for app config button */
+    background-color: #8EAAF5; /* Button background color */
 }
 
 .btnEditProfile {
-    background-image: url('../images/icono 08.svg');
+    background-image: url('../images/icono 08.svg'); /* Background image for edit profile button */
+    background-color: #8EAAF5; /* Button background color */
+}
+
+
+
+
+/* Container for Buttons */
+.container-buttons {
+    display: grid; /* Uses grid layout for buttons */
+    grid-template-columns: repeat(4, 1fr);    gap: 20px;    gap: 1rem; /* Adds space between grid items */
+    width: 100%; /* Sets the width to full container */
+    padding: 1rem; /* Adds padding around the grid */
+}
+
+.container-buttons div {
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Aligns items in a column */
+    align-items: center; /* Centers items horizontally */
+    gap: 0.8rem; /* Adds space between button and text */
+}
+
+/* Button Styles */
+button {
+    background-size: contain; /* Ensures the background image fits within the button */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    border: none; /* Removes button border */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    width: 15vw; /* Sets the button width */
+    height: 15vh; /* Sets the button height */
+    transition: transform 0.3s ease, filter 0.2s ease; /* Adds smooth transitions for transform and filter properties */
+}
+/* Modo vertical*/
+@media (max-aspect-ratio: 1/1){
+ .container-buttons{
+    grid-template-columns: repeat(2, 1fr);
+ }
+}
+
+/* Footer Styles */
+footer {
+    height: 13vh; /* Sets footer height to 15% of the viewport height */
+    background-color: #F8E48C; /* Light yellow background color for the footer */
+    display: flex; /* Uses flexbox for layout */
+    align-items: center; /* Centers items vertically */
+    justify-content: left; /* Centers items horizontally */
 }
 
 .btnBack {
-    background-image: url('../images/botones-03.png');
-    background-color: #F8E48C;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    border: none;
-    width: 75px;
-    height: 45px;
-    cursor: pointer;
+    background-image: url('../images/botones-03.png'); /* Background image for back button */
+    background-color: #F8E48C; /* Button background color */
+    width: 10vw; /* Sets button width */
+    height: 12vh; /* Sets button height */
+    justify-self: left;
+    padding-left: 15px;
 }
 
-@media (max-width: 410px) {
-    header {
-        font-size: 12px;
-    }
 
-    .btnStatistics, .btnWords, .btnAppConfig, .btnEditProfile {
-        width: 8rem;
-        height: 8rem;
-    }
-}
+/* ------------------------------------------------------------------------*/
 
-@media (max-height: 430px) {
-    main {
-        height: 40vh;
-    }
 
-    .btnStatistics, .btnWords, .btnAppConfig, .btnEditProfile {
-        width: 3rem;
-        height: 3rem;
-    }
 
-}
+
+
+
+
+

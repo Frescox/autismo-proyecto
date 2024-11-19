@@ -8,14 +8,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
-    <img src="./images/congratulations.gif" alt="" id = "congratulations" class = "congratulations" style="display: none;">
     <header>
         <label class = "letterBreaker">Rompedor de letras</label>
     </header>
     <main>
         <div id="imagen-container"></div>
-        <div class="letters" id="letras-container"></div>
-        <div id="letra-container" class = "spacesLetters"></div>
+        <div class ="containerLetters">
+            <div class="letters" id="letras-container"></div>
+            <div id="letra-container" class = "spacesLetters"></div>
+        </div>
     </main>
     <footer>
         <button id="continuar-btn" class="changeWord" onclick="cargarNuevaPalabra()"></button>

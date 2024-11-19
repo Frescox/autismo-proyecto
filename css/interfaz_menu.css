@@ -1,98 +1,79 @@
-* {
-    font-family: "Dosis", sans-serif;
-}
-
-body, html {
-    text-align: center;
-    font-family: "Dosis", sans-serif;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    background-color: #8EAAF5;
-    color: #FFF2F2;
-}
-
-header {
-    background-color: #F8E48C;
-    color: #8EAAF5;
-    font-weight: 800;
-    font-size: 60px;
-    padding: 10px 0;
-    text-align: center;
-}
-
-nav {
-    margin: 10px 0;
-    text-align: center;
-}
-
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #FFF2F2;
-}
-
-section {
-    padding: 20px;
-}
-
-footer {
-    background-color: #F8E48C;
-    color: #FFF2F2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    padding: 2rem 0;
-}
-
+/* Estilos Globales */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Dosis", sans-serif;
 }
 
 html, body {
     height: 100%;
+    width: 100%;
     background-color: #8EAAF5;
+    color: #FFF2F2;
+    overflow: hidden;
+    text-align: center;
 }
 
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #8EAAF5;
+    text-align: center;
+    color: #FFF2F2;
+    overflow: hidden;
+}
+
+/* Header */
 header {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #F8E48C;
+    color: #8EAAF5;
+    height: 15vh;
+}
+
+header h1 {
     font-weight: 700;
-    font-size: 28px;
-    font-weight: 800 !important;
+    font-size: 5vh;
     text-align: start;
-    display: inline-block;
-}
-
-footer {
-    padding-left: 1.2%;
-    text-align: left;
-}
-
-main p {
-    font-size: 20px;
-    font-weight: 700;
-}
-
-main {
-    height: 75vh;
-}
-
-.offcanvas-end {
-    background-color: rgb(174, 174, 174);
-}
-
-.offcanvas-body {
-    text-align: left;
+    margin-left: 2vw;
 }
 
 #img-thumbnail {
-    height: 80px;
-    width: 80px;
+    height: 13vh;
     background-color: transparent;
+}
+
+/* Main */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#gameTitle {
+    position: relative;
+    background-color: #FFFFFF;
+    color: #8EAAF5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 80%;
+    height: 8vh;
+    border-radius: 10px;
+    margin-top: -70px; /* Ajuste para elevar el recuadro */
+    margin-bottom: 50px;
+}
+
+#gameTitle h1 {
+    font-size: 4vh;
+    margin-left: 1rem;
 }
 
 #btnConf {
@@ -102,40 +83,70 @@ main {
 
 #container-buttons {
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    row-gap: 1rem;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
-    height: 80%;
+    width: 100%; /* Asegura que el contenedor toma el espacio disponible */
 }
 
-#gameTitle {
-    background-color: #FFFFFF;
-    color: #8EAAF5;
+#btnLetters, #btnNotes {
+    width: 100px; /* Tamaño uniforme */
+    height: 100px; /* Tamaño uniforme */
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    background-size: cover; /* Asegura que la imagen cubra el botón */
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
 }
 
-#gameTitle h1 {
-    display: inline-block;
-}
 
 #btnLetters {
     background-image: url('../images/lettersLogo.png');
-    background-color: transparent;
-    background-size: 100% 100%;
-    border: none;
-    width: 10rem;
-    height: 10rem;
-    cursor: pointer;
 }
 
 #btnNotes {
     background-image: url('../images/notepadLogo.png');
-    background-color: transparent;
-    background-size: 100% 100%;
-    border: none;
-    width: 10rem;
-    height: 10rem;
-    cursor: pointer;
+}
+
+/* Configuración de columnas para orientación de pantalla */
+@media (orientation: landscape) {
+    #container-buttons {
+        grid-template-columns: repeat(2, 1fr); /* 2x1 cuando está en horizontal */
+        grid-template-rows: none;
+    }
+
+    #gameTitle {
+        
+        margin-top: -30px; /* Ajuste para elevar el recuadro */
+        margin-bottom: 30px;
+    }
+}
+
+@media (orientation: portrait) {
+    #container-buttons {
+        grid-template-columns: 1fr; /* 1x2 cuando está en vertical */
+        grid-template-rows: repeat(2, 1fr);
+    }
+    
+    header h1 {
+        
+        font-size: 5vw;
+        
+    }
+
+}
+
+
+/* Footer */
+footer {
+    background-color: #F8E48C;
+    color: #FFF2F2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 1.2%;
+    height: 10vh;
 }
 
 #btnBack {
@@ -144,35 +155,7 @@ main {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
-    width: 75px;
-    height: 45px;
+    width: 8vh;
+    height: 6vh;
     cursor: pointer;
-}
-
-@media (max-width: 767px) {
-    main {
-        height: 70vh;
-    }
-    #btnLetters,
-    #btnNotes {
-        width: 8rem;
-        height: 8rem;
-    }
-}
-
-@media (max-height: 660px) {
-    main {
-        height: 70vh;
-    }
-    #btnLetters,
-    #btnNotes {
-        width: 5rem;
-        height: 5rem;
-    }
-}
-
-@media (max-width: 660px) {
-    .offcanvas {
-        max-width: 50vw;
-    }
 }
