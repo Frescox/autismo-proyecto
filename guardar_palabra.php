@@ -1,5 +1,4 @@
 <?php
-
 $host = '127.0.0.1';
 $db = 'sonrisas_db';
 $user = 'root';
@@ -17,7 +16,9 @@ $child_uuid = $_SESSION['uuid'];  // Se espera que el UUID esté en la sesión
 
 // Procesar solo solicitudes POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $new_word = $_POST['word'];
+    // Decodificar el cuerpo de la solicitud JSON
+    $data = json_decode(file_get_contents('php://input'), true);
+    $new_word = $data['word'];  // Obtener la palabra desde el cuerpo JSON
 
     // Validar entrada
     if (!empty($child_uuid) && !empty($new_word)) {

@@ -4,7 +4,6 @@ let childUuid = '';
 // Función para obtener el UUID de la sesión cuando se carga la página
 window.onload = function () {
     fetchUuidFromSession();
-    fetchWordsFromDatabase();
 };
 
 // Obtener el UUID del usuario desde la sesión
@@ -15,6 +14,7 @@ function fetchUuidFromSession() {
             if (data.success) {
                 childUuid = data.uuid;
                 console.log("UUID obtenido: ", childUuid); // Verificar en la consola
+                fetchWordsFromDatabase(); // Ahora que tenemos el UUID, obtenemos las palabras
             } else {
                 console.error('Error al obtener el UUID:', data.message);
             }
@@ -70,36 +70,43 @@ function confirmWord() {
 
 // Guardar la palabra en la base de datos
 function saveWordToDatabase(word) {
+    if (!childUuid) return;  // No continuar si no se tiene el UUID
+
+    console.log('Enviando palabra:', word); // Verificar palabra
+
     fetch('guardar_palabra.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
         },
-        body: `child_uuid=${childUuid}&word=${encodeURIComponent(word)}`,
+        body: JSON.stringify({
+            child_uuid: childUuid,
+            word: word
+        })
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {
-            console.log('Palabra guardada con éxito');
-        } else {
+        console.log(data); // Para ver la respuesta del servidor
+        if (!data.success) {
             console.error('Error al guardar la palabra:', data.message);
         }
     })
     .catch(error => console.error('Error en la solicitud:', error));
 }
 
-// Agregar la palabra a la interfaz
-function addWordToUI(word) {
-    const section = document.querySelector('.empty-space').lastElementChild;
-    const listItem = document.createElement('li');
-    listItem.textContent = word;
-    section.querySelector('ul').appendChild(listItem);
-}
 
-// Crear una nueva sección cuando se agreguen más palabras
-function createNewSection() {
-    const newSection = document.createElement('div');
-    newSection.classList.add('word-section');
-    newSection.innerHTML = '<ul></ul>';
-    document.getElementById('container').appendChild(newSection);
+// Agregar una palabra a la interfaz
+function addWordToUI(word) {
+    const container = document.querySelector('.empty-space');
+
+    const wordSection = document.createElement('div');
+    wordSection.classList.add('word-section');
+
+    const wordList = document.createElement('ul');
+    const wordItem = document.createElement('li');
+    wordItem.textContent = word;
+    wordList.appendChild(wordItem);
+
+    wordSection.appendChild(wordList);
+    container.appendChild(wordSection);
 }
