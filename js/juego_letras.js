@@ -2,8 +2,10 @@ let palabras = [];
 let palabraActual = "";
 let palabraDesordenada = "";
 let respuestaUsuario = [];
+const presion = new Audio('./images/burbuja.mp3');
+const correct = new Audio('./images/correcto1.mp3');
+const incorrect = new Audio('./images/incorrect.mp3');
 
-// Cargar el archivo .csv
 Papa.parse("./palabras/palabras.csv", {
     download: true,
     header: true,
@@ -55,33 +57,34 @@ async function mostrarImagen(palabra) {
     }
 }
 
+
 function mostrarLetrasDesordenadas(palabra) {
     const letrasContainer = document.getElementById("letras-container");
-    letrasContainer.innerHTML = "";  // Limpiar el contenedor antes de agregar nuevas letras
+    letrasContainer.innerHTML = ""; 
     const count = palabra.length;
     letrasContainer.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
 
     palabra.split("").forEach((letra, index) => {
         const div = document.createElement("div");
-        div.classList.add("letter");  // Agregar clase "letter" a cada div
-        div.textContent = letra;  // Establecer la letra como contenido de texto
-        div.setAttribute("data-index", index);  // Asignar un índice para identificar la letra
-        div.onclick = () => seleccionarLetra(index);  // Asociar un evento onclick para seleccionar la letra
-        letrasContainer.appendChild(div);  // Añadir el div al contenedor
+        div.classList.add("letter"); 
+        div.textContent = letra;  
+        div.setAttribute("data-index", index);  
+        div.onclick = () => seleccionarLetra(index);  
+        letrasContainer.appendChild(div); 
     });
 }
 
 function mostrarEspacios(palabra) {
     const letrasContainer = document.getElementById("letra-container");
-    letrasContainer.innerHTML = "";  // Limpiar el contenedor antes de agregar nuevas letras
+    letrasContainer.innerHTML = "";  
     const count = palabra.length;
-    letrasContainer.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
+    letrasContainer.style.gridTemplateColumns = `repeat(${count}, 1fr)`
 
     palabra.split("").forEach((letra, index) => {
         const div = document.createElement("div");
-        div.classList.add("spaceLetter");  // Agregar clase "letter" a cada div
-        div.setAttribute("data-index", index);  // Asignar un índice para identificar la letra
-        letrasContainer.appendChild(div);  // Añadir el div al contenedor
+        div.classList.add("spaceLetter"); 
+        div.setAttribute("data-index", index); 
+        letrasContainer.appendChild(div);  
     });
 }
 
@@ -90,28 +93,21 @@ function seleccionarLetra(index) {
     const letrasContainer = document.getElementById("letras-container");
     const letraContainer = document.getElementById("letra-container");
 
-    // Obtener la letra seleccionada
     const letra = letrasContainer.children[index].textContent;
 
-    // Encontrar el primer espacio vacío en letra-container
     const espacioVacioArriba = Array.from(letraContainer.children).find(div => div.textContent === "");
-
-    // Solo continuar si hay un espacio vacío disponible
+    presion.play();
+   
     if (espacioVacioArriba) {
-        // Colocar la letra en el espacio vacío
         espacioVacioArriba.textContent = letra;
         espacioVacioArriba.classList.add("letter");
 
-        // Guardar la letra en la respuesta del usuario junto con su índice
         respuestaUsuario.push({ letra, index });
 
-        // Ocultar la letra en letras-container
         letrasContainer.children[index].style.visibility = "hidden";
 
-        // Añadir un evento al espacio para que se pueda deseleccionar
         espacioVacioArriba.onclick = () => deseleccionarLetra(espacioVacioArriba, index);
 
-        // Validar si se han llenado todos los espacios
         if (respuestaUsuario.length === palabraActual.length) {
             validarRespuesta();
         }
@@ -120,29 +116,23 @@ function seleccionarLetra(index) {
 
 function deseleccionarLetra(espacioVacio, index) {
     const letrasContainer = document.getElementById("letras-container");
-
-    // Restaurar la visibilidad de la letra en letras-container
+    presion.play();
     letrasContainer.children[index].style.visibility = "visible";
 
-    // Limpiar el contenido del espacio vacío
     espacioVacio.textContent = "";
     espacioVacio.classList.remove("letter");
 
-    // Remover el evento de clic del espacio vacío
     espacioVacio.onclick = null;
 
-    // Eliminar la letra del array respuestaUsuario de forma precisa
     respuestaUsuario = respuestaUsuario.filter(item => item.index !== index);
 }
 
 function resetearLetras() {
     respuestaUsuario = [];
     
-    // Selecciona el contenedor de letras
     const letrasContainer = document.getElementById("letras-container");
     const letraContainer = document.getElementById("letra-container");
 
-    // Resetear la visibilidad de cada letra en letras-container
     Array.from(letrasContainer.children).forEach(letra => letra.style.visibility = "visible");
 }
 
@@ -150,22 +140,15 @@ function resetearLetras() {
 
 function validarRespuesta() {
     const palabraUsuario = respuestaUsuario.map(item => item.letra).join("");
-    const congratulations = document.getElementById("congratulations");
     const letrasIncorrectas = document.getElementsByClassName("spaceLetter");
-    const correct = new Audio('./images/correct.mp3');
-    const incorrect = new Audio('./images/incorrect.mp3');
 
     if (palabraUsuario === palabraActual) {
         correct.play();
-        congratulations.style.display = "block";
-        congratulations.style.animationPlayState = "running";
         Array.from(letrasIncorrectas).forEach(letra => {
             letra.style.border = "2px solid green";
         });
         setTimeout(() => {
             document.getElementById("continuar-btn").style.display = "inline";
-            congratulations.style.display = "none"; 
-            congratulations.style.animationPlayState = "paused";
             Array.from(letrasIncorrectas).forEach(letra => {
                 letra.style.border = "2px solid  #9cc6e1";
             });
@@ -191,10 +174,8 @@ function resetearLetras() {
     const letrasContainer = document.getElementById("letras-container");
     const letraContainer = document.getElementById("letra-container");
 
-    // Resetear las letras visibles en letras-container
     Array.from(letrasContainer.children).forEach(letra => letra.style.visibility = "visible");
 
-    // Limpiar los espacios en letra-container
     Array.from(letraContainer.children).forEach(div => div.textContent = "");
 }
 
