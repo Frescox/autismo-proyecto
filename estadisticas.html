@@ -18,39 +18,35 @@
     
     <main>
         <div class="container-statistics">
+            <!-- Tiempo Promedio -->
             <div class="statistic-card">
                 <h2>Tiempo Promedio en Acomodar la Palabra</h2>
-                <p id="totalUsuarios">6 Minutos 36 Segundos</p>
+                <p id="tiempoPromedio">Cargando...</p> <!-- El JavaScript actualizará este valor -->
             </div>
-            <div class="statistic-card">
-                <h2>Promedio de errores por palabra</h2>
-                <p id="totalPalabras">50</p>
-            </div>
+            
+            <!-- Palabras Complicadas -->
             <div class="statistic-card">
                 <h2>Palabras complicadas</h2>
-                <ul id="actividadesRecientes">
-                    <li>Platano</li>
-                    <li>Isla</li>
-                    <li>Jupiter</li>
+                <ul id="palabrasComplicadas">
+                    <!-- Las palabras se cargarán dinámicamente -->
                 </ul>
             </div>
+            
+            <!-- Palabras Aprendidas -->
             <div class="statistic-card">
                 <h2>Palabras aprendidas</h2>
-                <ul id="aprendidas">
-                    <li>Platano</li>
-                    <li>Isla</li>
-                    <li>Jupiter</li>
+                <ul id="palabrasAprendidas">
+                    <!-- Las palabras se cargarán dinámicamente -->
                 </ul>
             </div>
         </div>
     </main>
     
     <footer>
-        <button class="btnBack" onclick="window.location.href = 'admin.html';"></button>
+        <button class="btnBack" onclick="window.location.href = 'admin.html';">Volver</button>
     </footer>
 
     <script src="js/estadisticas.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
 </body>
 </html>

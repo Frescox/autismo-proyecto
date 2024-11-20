@@ -136,24 +136,30 @@ button {
  .container-buttons{
     grid-template-columns: repeat(2, 1fr);
  }
+
+ 
 }
 
 /* Footer Styles */
 footer {
-    height: 13vh; /* Sets footer height to 15% of the viewport height */
+    height: 10vh; /* Sets footer height to 15% of the viewport height */
     background-color: #F8E48C; /* Light yellow background color for the footer */
     display: flex; /* Uses flexbox for layout */
     align-items: center; /* Centers items vertically */
     justify-content: left; /* Centers items horizontally */
+    padding-bottom:0 ;
+    padding-left: 10px;
 }
 
 .btnBack {
-    background-image: url('../images/botones-03.png'); /* Background image for back button */
-    background-color: #F8E48C; /* Button background color */
-    width: 10vw; /* Sets button width */
-    height: 12vh; /* Sets button height */
-    justify-self: left;
-    padding-left: 15px;
+    background-image: url('../images/botones-03.png');
+    background-color: #F8E48C;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: none;
+    width: 15vw; /* Sets button width */
+    height: 10vh; /* Sets button height */
+    cursor: pointer;
 }
 
 

@@ -48,7 +48,7 @@ main {
 }
 
 .container_Notes_Created {
-    font-size: 4vw;
+    font-size: 5.5vw;
     color: #FBE48C;
     font-weight: bold;
     z-index: 1;
@@ -93,7 +93,7 @@ main {
     border-radius: 15px;
     border-color: #F8E48C;
     font-family: "Dosis", sans-serif;
-    font-size: 3vw;
+    font-size: 5vw;
     color: #8EAAF5;
     font-weight: bold;
     transition: filter 0.3s ease, transform 0.2s ease;
@@ -134,8 +134,8 @@ main {
 
 .note {
     position: absolute;
-    width: 50vw; /* Ajusta el ancho entre 300px y 600px según el ancho de la pantalla */
-    height: 30vh; /* Ajusta la altura entre 300px y 600px según el alto de la pantalla */
+    width: 80vw; /* Ajusta el ancho entre 300px y 600px según el ancho de la pantalla */
+    height: 40vh; /* Ajusta la altura entre 300px y 600px según el alto de la pantalla */
     display: flex;                      /* Hace que el contenedor use Flexbox */
     align-items: center;                /* Alinea el contenido verticalmente al centro */
     justify-content: center;            /* Alinea el contenido horizontalmente al centro */
@@ -177,7 +177,7 @@ main {
     display: flex;
     flex-direction: row;
     white-space: nowrap;
-    width: 50vw;
+    width: 80vw;
     margin-top: 20vh;
     margin-left: 10%;
     position: absolute;
@@ -222,7 +222,7 @@ main {
 .container_numberNote {
     display: flex;
     position: relative;
-    top: 10%;
+    top: 0%;
     z-index: 100;
     color: #8EAAF5;
     font-family: "Dosis";
@@ -242,14 +242,14 @@ main {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 8%;
+    width: 18%;
     height: 20%;
     align-items: center;
     position: absolute;
     justify-content: center;
     z-index: 1;
-    left: 50%;
-    transform: translate(100%, -80%);
+    
+    transform: translate(100%, -100%);
     border: none;
     background-color: transparent;
     transition: filter 0.3s ease, transform 0.1s ease;
@@ -261,14 +261,14 @@ main {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 8%;
+    width: 18%;
     height: 20%;
     align-items: center;
     position: absolute;
     justify-content: center;
     z-index: 1;
-    left: 30%;
-    transform: translate(100%, -80%);
+   
+    transform: translate(-20%, -100%);
     border: none;
     background-color: transparent;
     transition: filter 0.3s ease, transform 0.1s ease;

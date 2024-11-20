@@ -64,7 +64,7 @@ header h1 {
 }
 .Title h1 {
     color: #8EAAF5; /* Color azul para el texto */
-    font-size: 3vw; /* Tamaño de fuente ajustable según el ancho de la pantalla */
+    font-size: 5vh; /* Tamaño de fuente ajustable según el ancho de la pantalla */
     padding: 1rem; /* Espaciado interno alrededor del título */
     border-radius: 8px; /* Bordes redondeados para el título */
     margin: 0; /* Sin margen para evitar separación innecesaria */
@@ -86,7 +86,7 @@ main {
 /* Contenedor de las Tarjetas de Estadísticas */
 .container-statistics {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);    gap: 20px;
     justify-content: center;
  
 }
@@ -104,68 +104,66 @@ main {
     font-size: 1.1vw;
 }
 
-#totalUsuarios {
+/* Cambiar color del tiempo promedio */
+#tiempoPromedio {
     font-size: 1.5vw;
-    color: black;
-    padding: 5px;
+    color: #000000; /* Cambia el color a azul más oscuro */
+    font-weight: bold; /* Añade peso al texto */
+    padding: 10px;
 }
 
- #totalPalabras {
-    font-size: 1.5vw;
-    color: black;
-    padding: 5px;
- }
-
- #actividadesRecientes {
-    list-style:inside;
-    padding: 3PX;
-    color: red;
+/* Centrando listas y eliminando puntos */
+#palabrasComplicadas,
+#palabrasAprendidas {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding interno */
+    text-align: center; /* Centra los elementos de la lista */
 }
 
-#aprendidas {
-    list-style:inside;
-    padding: 3PX;
-    color: rgb(19, 139, 65);
+#palabrasComplicadas li,
+#palabrasAprendidas li {
+    font-size: 1.2vw;
+    margin: 5px 0; /* Añade un margen vertical entre las palabras */
 }
+
 
 
 /* Modo vertical (pantalla más alta que ancha): 2x2 */
 @media (max-aspect-ratio: 1/1) {
     .container-statistics {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 3fr);
     }
 
     .statistic-card {
-        width: 28vw; /* Sets the button width */
-        height: 20vh; /* Sets the button height */
-        font-size: 2vw;
+        width: 65vw; /* Sets the button width */
+        height: 19vh; /* Sets the button height */
+        font-size: 2.5vw;
     }
 
-    #totalUsuarios {
-        font-size: 1.5vh;
-        color: black;
-        padding: 5px;
-    }
+    /* Cambiar color del tiempo promedio */
+#tiempoPromedio {
     
-     #totalPalabras {
-        font-size: 1.5vh;
-        color: black;
-        padding: 5px;
-     }
+    color: #000000; /* Cambia el color a azul más oscuro */
+    font-weight: bold; /* Añade peso al texto */
+    padding: 20px;
+    font-size: 3vw;
+}
+
+/* Centrando listas y eliminando puntos */
+#palabrasComplicadas,
+#palabrasAprendidas {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding interno */
+    text-align: center; /* Centra los elementos de la lista */
     
-     #actividadesRecientes {
-        list-style:inside;
-        padding: 3px;
-        color: red;
-        font-size: 1.3vh;
-    }
-    
-    #aprendidas {
-        list-style:inside;
-        padding: 3px;
-        color: rgb(19, 139, 65);
-        font-size: 1.3vh;
-    }
+}
+
+#palabrasComplicadas li,
+#palabrasAprendidas li {
+    font-size: 3.2vw;
+    margin: 5px 0; /* Añade un margen vertical entre las palabras */
+}
+
 }
 
 
@@ -188,7 +186,7 @@ footer {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
-    width: 10vw; /* Sets button width */
+    width: 15vw; /* Sets button width */
     height: 12vh; /* Sets button height */
     cursor: pointer;
     
