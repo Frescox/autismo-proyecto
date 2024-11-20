@@ -101,6 +101,7 @@ main {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     border: 2px solid #9cc6e1;
+    margin-top: 30%;
 }
 
 .letters {
@@ -145,16 +146,17 @@ footer {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 20%;
-    height: 7%;
+    width: 15vh;
+    height: 7vh;
     align-items: center;
     position: absolute;
-    justify-content: center;
+    justify-content: right;
     z-index: 1;
-    transform: translate(20%, 0%);
+    transform: translate(10%, 0%);
     border: none;
     background-color: transparent;
     transition: filter 0.3s ease, transform 0.2s ease;
+    margin-left: 0%;
 }
 
 .changeWord {
@@ -174,7 +176,7 @@ footer {
     opacity: 0.6;
     position: absolute;
     right: 0;
-    transform: translate(-10vh, 0%);
+    transform: translate(-4vh, 0%);
 }
 
 .BtnGoBack1:hover, .changeWord:hover {
@@ -188,18 +190,18 @@ footer {
 
 .changeWord:active {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    transform: translate(-10vh, 0%) scale(0.95);
+    transform: translate(-4vh, 0%) scale(0.95);
 }
 
 
 /* Para pantallas entre 450px y 760px */
 @media (max-width: 768px) and (min-width: 450px) {
     .spacesLetters {
-        transform: translate(0%, -22vh); /* Ajuste menor en la posición vertical */
+        transform: translate(0%, -22vh); 
     }
 
     .letters {
-        transform: translate(0%, 13vh); /* Posición más cercana al centro */
+        transform: translate(0%, 13vh);
     }
     
     img {
@@ -214,11 +216,11 @@ footer {
 
 @media (max-width: 920px) and (min-width: 769px) {
     .spacesLetters {
-        transform: translate(0%, -25vh); /* Ajuste menor en la posición */
+        transform: translate(0%, -25vh); 
     }
 
     .letters {
-        transform: translate(0%, 13vh); /* Posición más cercana al centro */
+        transform: translate(0%, 13vh); 
     }
 
     .letter {
@@ -243,11 +245,11 @@ footer {
 
 @media (max-width: 1023px) and (min-width: 921px) {
     .spacesLetters {
-        transform: translate(0%, -25vh); /* Ajuste menor en la posición */
+        transform: translate(0%, -25vh);
     }
 
     .letters {
-        transform: translate(0%, 13vh); /* Posición más cercana al centro */
+        transform: translate(0%, 13vh); 
     }
 
     .letter {
@@ -378,57 +380,39 @@ footer {
     }
 }
 
-
-/*
-@media (max-width: 1024px) {
-    header {
-        font-size: 16px; 
-        padding: 8px 0;
+@keyframes moveToPosition1 {
+    0% {
+        transform: translateY(100px) scale(0.5); 
+        opacity: 0;
     }
-    
-    footer {
-        font-size: 20px; 
-        padding: 5px 0; 
+    50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1; 
     }
-
-    main {
-        height: 70vh;
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
     }
-
-    .btnAddPhotos, .btnDeleteAccount {
-        width: 8rem;
-        height: 8rem;
+}
+@keyframes moveToPosition2 {
+    0% {
+        transform: translateY(100px) scale(0.5); 
+        opacity: 0;
     }
-
-    .letterBreaker {
-        font-size: 6vh;
+    50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 1; 
     }
-
-    footer {
-        height: 12vh;
-    }
-
-    .BtnGoBack1 {
-        width: 25%;
-        height: 7%;
-    }
-
-    .changeWord {
-        width: 10vh;
-        height: 10vh;
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
     }
 }
 
-@media (max-height: 660px) {
-    header {
-        font-size: 14px;
-    }
+.letter, .spaceLetter{
+    animation: moveToPosition1 1s ease-out forwards;
+}
 
-    footer {
-        font-size: 18px;
-    }
-
-    .letterBreaker {
-        font-size: 5vh;
-    }
-}*/
+img{
+    animation: moveToPosition2 1s ease-out ;
+}
