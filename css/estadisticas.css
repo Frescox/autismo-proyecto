@@ -1,175 +1,195 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #8EAAF5;
-    text-align: center;
-    color: #FFF2F2;
-    font-family: "Dosis", sans-serif;
-}
-
-header {
-    background-color: #F8E48C;
-    color: #8EAAF5;
-    font-weight: 800;
-    font-size: 60px;
-    padding: 10px 0;
-    text-align: center;
-}
-
-footer {
-    background-color: #F8E48C;
-    color: #FFF2F2;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
+/* Estilos Globales */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Dosis", sans-serif; /* Sets a consistent font for all elements */
+
 }
 
 html, body {
     height: 100%;
-    background-color: #8EAAF5;
+    width: 100%;
+    overflow: hidden; /* Evita el desplazamiento */
+    background-color: white;
+    text-align: center;
 }
 
+body {
+    height: 100vh; /* Ensures the body takes up the full height of the viewport */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Aligns elements in a column */
+    background-color: #8EAAF5; /* Light blue background color */
+    text-align: center; /* Centers text horizontally */
+    color: #FFF2F2; /* Light text color */
+    overflow: hidden; /* Prevents scrolling */
+}
+
+/* Estilos del Header */
 header {
-    font-weight: 700;
-    font-size: 28px;
+    background-color: #F8E48C; /* Light yellow background color for the header */
+    color: #8EAAF5; /* Sets text color to blue */
+    font-weight: 700; /* Makes text bold */
+    height: 15vh; /* Sets the header height to 15% of the viewport height */
+    display: flex; /* Uses flexbox for layout */
+    align-items: center; /* Vertically centers items within the header */
+    justify-content: space-between; /* Positions items at both ends of the header */
+    padding: 0 1rem; /* Adds horizontal padding to the header */
 }
 
-footer {
-    padding-left: 1.2%;
-    text-align: left;
+/* Logo y título del Header */
+header p {
+    font-size: 5vw; /* Responsive font size for the logo or other text */
+
 }
 
-main p {
-    font-size: 20px;
-    font-weight: 700;
+header h1 {
+    font-size: 5vw; /* Responsive font size for the header title */
+
 }
 
-main {
-    height: 85vh;
-}
-
+/* Estilos de la Sección Title */
 .Title {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 80%; /* Cambiado a un ancho más flexible para adaptarse mejor a la pantalla */
+    max-width: 400px; /* Limita el ancho máximo para evitar que sea demasiado grande */
+    height: 10vh; /* Ajusta la altura automáticamente según el contenido */
+    margin: 1.5rem auto; /* Añade margen superior e inferior para evitar solapamiento */
     background-color: #FFFFFF;
-    color: #8EAAF5;
+    border-radius: 10px;
+    box-sizing: border-box; /* Asegura que padding no afecte al ancho/alto total */
+    
+}
+.Title h1 {
+    color: #8EAAF5; /* Color azul para el texto */
+    font-size: 3vw; /* Tamaño de fuente ajustable según el ancho de la pantalla */
+    padding: 1rem; /* Espaciado interno alrededor del título */
+    border-radius: 8px; /* Bordes redondeados para el título */
+    margin: 0; /* Sin margen para evitar separación innecesaria */
+    text-align: center; /* Centra el texto del título */
 }
 
+
+/* Main Section Styles */
+main {
+    flex: 1; /* Allows the main section to grow and fill available space */
+    height: 70%; /* Sets the height to 70% of the viewport */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Aligns elements in a column */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+}
+
+
+/* Contenedor de las Tarjetas de Estadísticas */
 .container-statistics {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    align-items: center;
+    grid-template-columns: repeat(4, 1fr);    gap: 20px;
     justify-content: center;
-    padding: 20px;
-    height: 80%;
+ 
 }
 
+
+/* Tarjetas de Estadísticas */
 .statistic-card {
     background-color: #FFFFFF;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     color: #8EAAF5;
+    width: 20vw; /* Sets the button width */
+    height: 25vh; /* Sets the button height */
+    font-size: 1.1vw;
 }
 
-.statistic-card h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+#totalUsuarios {
+    font-size: 1.5vw;
+    color: black;
+    padding: 5px;
 }
 
-.statistic-card p {
-    font-size: 20px;
-    font-weight: bold;
+ #totalPalabras {
+    font-size: 1.5vw;
+    color: black;
+    padding: 5px;
+ }
+
+ #actividadesRecientes {
+    list-style:inside;
+    padding: 3PX;
+    color: red;
 }
 
-#actividadesRecientes {
-    list-style: none;
-    padding: 0;
+#aprendidas {
+    list-style:inside;
+    padding: 3PX;
+    color: rgb(19, 139, 65);
 }
 
-#actividadesRecientes li {
-    margin: 5px 0;
+
+/* Modo vertical (pantalla más alta que ancha): 2x2 */
+@media (max-aspect-ratio: 1/1) {
+    .container-statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .statistic-card {
+        width: 28vw; /* Sets the button width */
+        height: 20vh; /* Sets the button height */
+        font-size: 2vw;
+    }
+
+    #totalUsuarios {
+        font-size: 1.5vh;
+        color: black;
+        padding: 5px;
+    }
+    
+     #totalPalabras {
+        font-size: 1.5vh;
+        color: black;
+        padding: 5px;
+     }
+    
+     #actividadesRecientes {
+        list-style:inside;
+        padding: 3px;
+        color: red;
+        font-size: 1.3vh;
+    }
+    
+    #aprendidas {
+        list-style:inside;
+        padding: 3px;
+        color: rgb(19, 139, 65);
+        font-size: 1.3vh;
+    }
 }
 
+
+
+/* Estilos del Footer */
+footer {
+    height: 13vh; /* Sets footer height to 15% of the viewport height */
+    background-color: #F8E48C; /* Light yellow background color for the footer */
+    display: flex; /* Uses flexbox for layout */
+    align-items: center; /* Centers items vertically */
+    justify-content: left; /* Centers items horizontally */
+    padding-bottom:0 ;
+    padding-left: 10px;
+}
+
+/* Botón de Regreso */
 .btnBack {
     background-image: url('../images/botones-03.png');
     background-color: #F8E48C;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
-    width: 75px;
-    height: 45px;
+    width: 10vw; /* Sets button width */
+    height: 12vh; /* Sets button height */
     cursor: pointer;
-}
-
-@media (max-width: 767px) {
-
-    header {
-        font-size: 16px; 
-        padding: 8px 0;
-    }
-    
-    footer {
-        font-size: 20px; 
-        padding: 5px 0; 
-    }  
-
-    
-    main {
-        height: 70vh;
-    }
-
-    .statistic-card {
-        padding: 15px;
-    }
-
-    .statistic-card h2 {
-        font-size: 20px;
-    }
-
-    .statistic-card p {
-        font-size: 18px;
-    }
-
-    .container-statistics {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-@media (max-height: 450px) {
-    
-
-    header {
-        font-size: 16px; 
-        padding: 8px 0; 
-    }
-    footer {
-        font-size: 20px; 
-        padding: 5px 0; 
-    }
-    main {
-        height: 70vh;
-    }
-
-    .statistic-card {
-        padding: 12px;
-    }
-
-    .statistic-card h2 {
-        font-size: 18px;
-    }
-
-    .statistic-card p {
-        font-size: 16px;
-    }
-    
     
 }

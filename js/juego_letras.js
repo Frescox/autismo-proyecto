@@ -40,7 +40,7 @@ function desordenarPalabra(palabra) {
 }
 
 async function mostrarImagen(palabra) {
-    const apiKey = "47025182-8154449cd611439901ec5a891"; // Agrega tu clave de Pixabay aquí
+    const apiKey = "47025182-8154449cd611439901ec5a891"; 
     const response = await fetch(`https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(palabra)}&image_type=photo&per_page=3`);
     const data = await response.json();
 

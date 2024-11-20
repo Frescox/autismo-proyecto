@@ -11,24 +11,10 @@ body {
     height: 100vh;
 }
 
-.congratulations {
-    z-index: 1000;
-    position: fixed; 
-    top: 75%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    background-color: transparent;
-    height: 25%;
-    width: 80%;
-}
-
 header {
     background-color: #8EAAF5;
     color: white;
-    height: 10vh;
+    height: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,31 +25,35 @@ header {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    background-color: lightblue;
-    max-height: 400px;
+    background-color: transparent;
+    max-height: 300px;
     max-width: 85%;
-    overflow: hidden; 
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden;
     border-radius: 10px;
+    padding: 1%;
 }
 
 img {
-    width: 100%;
-    height: 400px; 
-    max-height: 100%; 
+    width: 100%;      
+    height: 230px;          
+    max-height: 300px;      
+    object-fit: cover;     
     border-radius: 10px;
-    object-fit: cover; 
+    border: 5px solid gray;
 }
 
 .letterBreaker {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 5.5vh;
+    font-size: 4vh;
     color: #FBE48C;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     font-weight: bold;
     background-color: transparent;
-    height: 9vh;
+    height: 7vh;
 }
 
 main {
@@ -72,14 +62,31 @@ main {
     place-items: center;
 }
 
+.containerLetters {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 35vh;
+    max-height: 80vh;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    padding: 2%;
+    box-sizing: border-box;
+    top: -3%
+}
+
 .spacesLetters {
     display: grid;
-    gap: 0.5%;
-    grid-template-columns: repeat(5, 1fr);
+    gap: 5%;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     place-items: center;
-    transform: translate(0%, -100%);
     background-color: transparent;
-    padding: 1%;
+    width: 100%;
+    height: 100%;
+    transform: translate(0%, -21vh);
 }
 
 .spaceLetter {
@@ -87,8 +94,10 @@ main {
     place-items: center;
     background-color: rgb(252, 252, 251);
     border-radius: 10%;
-    width: 75px;
-    height: 75px;
+    aspect-ratio: 1; 
+    width: 100%;
+    max-width: 80px; 
+    max-height: 80px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     border: 2px solid #9cc6e1;
@@ -96,12 +105,14 @@ main {
 
 .letters {
     display: grid;
-    gap: 0.5%;
-    grid-template-columns: repeat(5, 1fr);
+    gap: 5%;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     place-items: center;
     background-color: transparent;
     font-weight: bold;
-    transform: translate(0%, 140%);
+    width: 100%;
+    height: 100%;
+    transform: translate(0%, 120px);
 }
 
 .letter {
@@ -109,13 +120,15 @@ main {
     place-items: center;
     background-color: rgb(252, 252, 251);
     border-radius: 10%;
-    width: 70px;
-    height: 70px;
+    width: 100%;
+    aspect-ratio: 1; 
     font-weight: bold;
-    font-size: 4.2vw;
+    font-size: calc(2vw + 1vh);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     border: 2px solid #9cc6e1;
+    max-width: 80px; 
+    max-height: 80px;
 }
 
 footer {
@@ -123,7 +136,7 @@ footer {
     color: white;
     align-items: center;
     display: flex;
-    height: 10vh;
+    height: 9vh;
 }
 
 .BtnGoBack1 {
@@ -149,8 +162,8 @@ footer {
     background-image: url("../images/cambiar.png");
     background-color: transparent;
     background-size: cover;
-    width: 8vh;
-    height: 8vh;
+    width: 7vh;
+    height: 7vh;
     border-radius: 15px;
     border: none;
     font-weight: bold;
@@ -178,8 +191,196 @@ footer {
     transform: translate(-10vh, 0%) scale(0.95);
 }
 
-/* Responsividad */
-@media (max-width: 767px) {
+
+/* Para pantallas entre 450px y 760px */
+@media (max-width: 768px) and (min-width: 450px) {
+    .spacesLetters {
+        transform: translate(0%, -22vh); /* Ajuste menor en la posición vertical */
+    }
+
+    .letters {
+        transform: translate(0%, 13vh); /* Posición más cercana al centro */
+    }
+    
+    img {
+        width: 80%;
+        height: 350px;
+    }
+
+    #imagen-container {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 920px) and (min-width: 769px) {
+    .spacesLetters {
+        transform: translate(0%, -25vh); /* Ajuste menor en la posición */
+    }
+
+    .letters {
+        transform: translate(0%, 13vh); /* Posición más cercana al centro */
+    }
+
+    .letter {
+        max-width: 100px; 
+        max-height: 100px;
+    }
+
+    .spaceLetter {
+        max-width: 110px; 
+        max-height: 110px;
+    }
+
+    img {
+        width: 80%;
+        height: 350px;
+    }
+
+    #imagen-container {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 921px) {
+    .spacesLetters {
+        transform: translate(0%, -25vh); /* Ajuste menor en la posición */
+    }
+
+    .letters {
+        transform: translate(0%, 13vh); /* Posición más cercana al centro */
+    }
+
+    .letter {
+        max-width: 100px; 
+        max-height: 100px;
+    }
+
+    .spaceLetter {
+        max-width: 110px; 
+        max-height: 110px;
+    }
+
+    img {
+        width: 80%;
+        height: 350px;
+    }
+
+    #imagen-container {
+        max-height: 350px;
+    }
+}
+
+
+@media (min-width:450px) and (max-width: 740px) and (min-height: 740px) and (max-height: 740px){
+    .spacesLetters {
+        transform: translate(0%, -19vh);
+    }
+
+    .letters {
+        transform: translate(0%, 10vh); 
+        width: 70%;
+    }
+
+    .letter {
+        max-width: 60px; 
+        max-height: 60px;
+    }
+
+    .spacesLetters{
+        width: 70%;
+    }
+
+    .spaceLetter {
+        max-width: 65px; 
+        max-height: 65px;
+    }
+
+    img {
+        width: 80%;
+        height: 400px;
+    }
+
+    #imagen-container {
+        max-height: 350px;
+    }
+
+    footer {
+        height: 9%;
+    }
+}
+
+@media (min-width:450px) and (min-height: 500px){
+    .spacesLetters {
+        transform: translate(0%, -19.5vh);
+    }
+
+    .letters {
+        transform: translate(0%, 9.5vh); 
+        width: 70%;
+    }
+
+    .letter {
+        max-width: 60px; 
+        max-height: 60px;
+    }
+
+    .spacesLetters{
+        width: 70%;
+    }
+
+    .spaceLetter {
+        max-width: 65px; 
+        max-height: 65px;
+    }
+
+    img {
+        width: 80%;
+        height: 350px;
+    }
+
+    #imagen-container {
+        max-height: 400px;
+    }
+}
+
+@media (min-width:900px) and (min-height: 1300px){
+    .spacesLetters {
+        transform: translate(0%, -19.5vh);
+        width: 80%;
+    }
+
+    .letters {
+        transform: translate(0%, 9.5vh); 
+        width: 70%;
+    }
+
+    .letter {
+        max-width: 100px; 
+        max-height: 100px;
+    }
+
+    .spacesLetters{
+        width: 70%;
+    }
+
+    .spaceLetter {
+        max-width: 105px; 
+        max-height: 105px;
+    }
+
+    img {
+        width: 80%;
+        height: 350px;
+    }
+
+    #imagen-container {
+        max-height: 400px;
+    }
+}
+
+
+/*
+@media (max-width: 1024px) {
     header {
         font-size: 16px; 
         padding: 8px 0;
@@ -203,17 +404,6 @@ footer {
         font-size: 6vh;
     }
 
-    .spacesLetters {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-    }
-
-    .letter {
-        width: 60px;
-        height: 60px;
-        font-size: 5vw;
-    }
-
     footer {
         height: 12vh;
     }
@@ -229,20 +419,6 @@ footer {
     }
 }
 
-@media (max-width: 400px) {
-    header {
-        font-size: 14px;
-    }
-
-    .spacesLetters {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .letter {
-        font-size: 5vw;
-    }
-}
-
 @media (max-height: 660px) {
     header {
         font-size: 14px;
@@ -255,8 +431,4 @@ footer {
     .letterBreaker {
         font-size: 5vh;
     }
-
-    .spacesLetters {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
+}*/

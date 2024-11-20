@@ -175,14 +175,14 @@ function loadNotes() {
             back.style.display = 'block';
         } else {
             currentElement = 0;
-            numberNote.innerHTML = "No hay notas disponibles";
+            numberNote.innerHTML = "No hay notas";
             left.style.display = 'none';
             right.style.display = 'none';
             newNote.style.display = 'block';
             back.style.display = 'block';
         }
     } else {
-        numberNote.innerHTML = "No hay notas disponibles";
+        numberNote.innerHTML = "No hay notas";
         right.style.display = 'none';
         left.style.display = 'none';
         newNote.style.display = 'block';

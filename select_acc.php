@@ -20,10 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['child_name'])) {
     // Insertar en la base de datos
     $insert_query = "INSERT INTO child_users (tutor_id, uuid, name) VALUES ('$tutor_id', '$uuid', '$encrypted_name')";
     $insert_result = mysqli_query($con, $insert_query);
+
+    $insert_query1 = "INSERT INTO child_config (child_uuid) VALUES ('$uuid')";
+    $insert_result = mysqli_query($con, $insert_query1);
     
     if (!$insert_result) {
         echo "Error al agregar niño: " . mysqli_error($con);
     }
+    else {
+    // Redireccion para limpiar los elementos de consulta y evitar problemas al recargar la pagina
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
+}
+    
 }
 
 // Consulta para obtener los niños asociados al tutor
