@@ -101,7 +101,7 @@ main {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     border: 2px solid #9cc6e1;
-    margin-top: 70%;
+    margin-top: 30%;
 }
 
 .letters {
@@ -317,7 +317,7 @@ footer {
     }
 
     .letters {
-        transform: translate(0%, 9.5vh); 
+        transform: translate(0%, 14vh); 
         width: 70%;
     }
 
