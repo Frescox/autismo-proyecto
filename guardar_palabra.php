@@ -1,15 +1,5 @@
 <?php
-$host = '127.0.0.1';
-$db = 'sonrisas_db';
-$user = 'root';
-$password = '';
-
-$conn = new mysqli($host, $user, $password, $db);
-
-if ($conn->connect_error) {
-    die("Error en la conexión: " . $conn->connect_error);
-}
-
+include("connection.php");
 // Iniciar sesión para acceder al UUID del usuario actual
 session_start();
 $child_uuid = $_SESSION['uuid'];  // Se espera que el UUID esté en la sesión
