@@ -106,6 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <p>Derechos reservados &copy; 2024</p>
     </footer>
 
+    <script src="./js/verif_perm.js"></script>
     <script src="./js/galeria.js"></script>
 </body>
 
