@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2024 at 07:38 AM
+-- Generation Time: Nov 21, 2024 at 10:56 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,22 +34,6 @@ CREATE TABLE `child_config` (
   `words` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`words`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `child_config`
---
-
-INSERT INTO `child_config` (`id`, `child_uuid`, `config`, `words`) VALUES
-(3, '09260', '{\"header_footer\":\"#00ff88\",\"title\":\"#8eaaf5\",\"text\":\"#fff2f2\",\"bg\":\"#8eaaf5\"}', '[\"Serpiente\"]'),
-(4, '71415', '{\"header_footer\":\"#ef0aff\",\"title\":\"#8eaaf5\",\"text\":\"#fff2f2\",\"bg\":\"#8eaaf5\"}', NULL),
-(5, '28289', '{\"header_footer\":\"#000000\",\"title\":\"#8eaaf5\",\"text\":\"#fff2f2\",\"bg\":\"#8eaaf5\"}', NULL),
-(6, '33598', '{\"header_footer\":\"#ff0000\",\"title\":\"#8eaaf5\",\"text\":\"#fff2f2\",\"bg\":\"#8eaaf5\"}', NULL),
-(19, '3240', '{\"header_footer\":\"#4dff00\",\"title\":\"#8eaaf5\",\"text\":\"#fff2f2\",\"bg\":\"#8eaaf5\"}', NULL),
-(20, '60516', NULL, NULL),
-(21, '12291', '{\"header_footer\":\"#3b3b3b\",\"title\":\"#000000\",\"text\":\"#000000\",\"bg\":\"#949aa8\"}', '[\"Telefono\",\"arbol\",\"Laptop\",\"sal\",\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"platano\",\"sal\",\"proton\",\"arbol\",\"proton\",\"palabra\",\"ni\\u00f1o\"]'),
-(23, '2565', NULL, '[\"hola\",\"adios\"]'),
-(24, '35373', NULL, '[\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"arbol\",\"adios\"]'),
-(25, '2868', NULL, '[\"nuevo\"]');
-
 -- --------------------------------------------------------
 
 --
@@ -62,14 +46,6 @@ CREATE TABLE `child_notes` (
   `note` varchar(256) NOT NULL,
   `note_date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `child_notes`
---
-
-INSERT INTO `child_notes` (`id`, `child_id`, `note`, `note_date`) VALUES
-(1, '12291', 'Hola como estaaaas', '2024-11-19 14:37:20'),
-(2, '12291', 'Estoy cansado', '2024-11-19 14:37:28');
 
 -- --------------------------------------------------------
 
@@ -103,22 +79,6 @@ CREATE TABLE `child_users` (
   `name` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `child_users`
---
-
-INSERT INTO `child_users` (`id`, `tutor_id`, `uuid`, `name`) VALUES
-(29, '2979', '09260', 'AaJFO8ZCmd2Sv1NMViZPcw=='),
-(30, '2979', '71415', 'Ppif+phbI+fHT0CpxlBtFQ=='),
-(31, '2979', '28289', 'bwbMPyQ9uCqDXE090gzvjQ=='),
-(32, '08463', '33598', 'koZM3bMQRA9/KrGGicQ7yw=='),
-(45, '08463', '3240', 'E6knc3TN8BIYjKZx3uF57w=='),
-(46, '08463', '60516', 'RcD+XqYZI3gwcsRFpNGqwA=='),
-(47, '4405', '12291', 'MD54cn0ai7yvOjmLSeRvJQ=='),
-(48, '4405', '2565', 'rzvS/Mdrn7uDd3Z2ltRkjQ=='),
-(49, '48092', '35373', 'ioHmeDOjXq/zB7/gmjUw5g=='),
-(50, '48092', '2868', 'eWUm55eCrjo1bYKg8Qr6yA==');
-
 -- --------------------------------------------------------
 
 --
@@ -142,10 +102,7 @@ CREATE TABLE `tutor_users` (
 --
 
 INSERT INTO `tutor_users` (`id`, `user_id`, `user_name`, `user_lastname`, `user_email`, `password`, `date`, `has_perm`, `is_adm`) VALUES
-(50, '08463', 'mg/A95wlcEqcZS8K++L1Dw==', 'P8jRkl8jSf6rAkeO1Xm/qw==', '047d0b51a2f083f6e858c96c94dbb37e', 'c93ccd78b2076528346216b3b2f701e6', '24-11-13', 0, 0),
-(51, '2979', 'mg/A95wlcEqcZS8K++L1Dw==', 'AkAS2eeUV2ESDemerypmVQ==', '8d9ba6e325fb95d027a85311b33576fa', 'c93ccd78b2076528346216b3b2f701e6', '24-11-13', 0, 0),
-(52, '4405', 'MD54cn0ai7yvOjmLSeRvJQ==', 'oysJDxt3TOcwOrPlyRJFcw==', '0b52f467013c4de5da37ec7d9210485b', 'c48214d919a58f16f4780e92c94c78df', '24-11-19', 0, 0),
-(53, '48092', 'ioHmeDOjXq/zB7/gmjUw5g==', 'DP9kKlSsllQbqw/IsPFTpQ==', '976d94fd882d43f445cb03d3076b8278', '2423b1c8171f028ddb8e59570ff8f7ae', '24-11-20', 0, 0);
+(56, '4044', '9u9f3gV9I9/FXdXgceZUFg==', '50MY5khs3L05Bfv01f7xtg==', 'e72e8328842d839eb9cef42ec0958eb6', '81dc9bdb52d04dc20036dbd8313ed055', '24-11-21', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -195,13 +152,13 @@ ALTER TABLE `tutor_users`
 -- AUTO_INCREMENT for table `child_config`
 --
 ALTER TABLE `child_config`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `child_notes`
 --
 ALTER TABLE `child_notes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `child_statistics`
@@ -213,13 +170,13 @@ ALTER TABLE `child_statistics`
 -- AUTO_INCREMENT for table `child_users`
 --
 ALTER TABLE `child_users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `tutor_users`
 --
 ALTER TABLE `tutor_users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- Constraints for dumped tables
