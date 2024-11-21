@@ -29,6 +29,7 @@ header img.logo {
     margin-left: 20px;
 }
 
+
 header h1 {
     margin: 0;
     font-size: 40px;
@@ -69,6 +70,10 @@ section {
     border-radius: 8px;
     max-width: 90%;
     text-align: left;
+}
+
+section h1 {
+    color: #8EAAF5;
 }
 
 section p {
