@@ -59,8 +59,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 if ($user_data['password'] === $user_password) {
                     $_SESSION['user_id'] = $user_data['user_id'];
-                    header('Location: select_acc.php');
-                    die;
+                    if($user_data ['is_adm'] == 1){
+                        header('Location: adm_pannel.php');
+                        die;
+                    }else if ($user_data ['has_perm'] == 1){
+                        header('Location: select_acc.php');
+                        die;
+                    }else{
+                        $_SESSION['status'] = "¡Ponte en contacto con un administrador para que tu cuenta sea activada!";
+                    }
                 } else {
                     $_SESSION['status'] = "Contraseña o correo incorrectos.";
                 }
