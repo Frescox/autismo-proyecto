@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include("connection.php");
 include("functions.php");
@@ -18,10 +19,33 @@ $administradores = $con->query("SELECT user_id, user_name, user_lastname FROM tu
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #f5f5f5; }
-        .panel { display: none; transition: transform 0.5s ease-in-out, opacity 0.5s; }
-        .panel.active { display: block; opacity: 1; transform: translateX(0); }
-        .panel.left { transform: translateX(-100%); opacity: 0; }
-        .panel.right { transform: translateX(100%); opacity: 0; }
+        .panel {
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.5s ease, opacity 1s ease;
+            position: absolute; 
+            width: 100%;
+        }
+
+        .panel.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            position: relative;
+        }
+
+        .panel.left {
+            transform: translateX(-100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .panel.right {
+            transform: translateX(100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+
         .nav-buttons { text-align: center; margin: 20px 0; }
     </style>
 </head>
@@ -75,18 +99,28 @@ $administradores = $con->query("SELECT user_id, user_name, user_lastname FROM tu
     </div>
 
     <script>
+        
         let currentPanel = 0;
-        function showPanel(index) {
-            document.getElementById(`panel-${currentPanel}`).classList.remove('active');
-            document.getElementById(`panel-${currentPanel}`).classList.add(currentPanel > index ? 'right' : 'left');
-            currentPanel = index;
-            document.getElementById(`panel-${index}`).classList.add('active');
-            document.getElementById(`panel-${index}`).classList.remove('left', 'right');
-        }
+
+function showPanel(index) {
+    // Ocultar el panel actual
+    const current = document.getElementById(`panel-${currentPanel}`);
+    current.classList.remove('active');
+    current.classList.add(currentPanel > index ? 'right' : 'left');  // Transiciones de salida
+
+    // Mostrar el panel seleccionado
+    const next = document.getElementById(`panel-${index}`);
+    next.classList.remove('left', 'right');  // Eliminar clases anteriores
+    next.classList.add('active');  // Hacer visible el siguiente panel
+
+    // Actualizar el índice del panel actual
+    currentPanel = index;
+}
+
+
 
         function confirmAction(message, url, data) {
             if (confirm(message)) {
-                // Crear un formulario oculto y enviarlo
                 const form = document.createElement('form');
                 form.method = 'POST';
                 form.action = url;

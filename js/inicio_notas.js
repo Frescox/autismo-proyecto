@@ -9,6 +9,7 @@ const yes = document.getElementById('save');
 const not = document.getElementById('noSave');
 const newNote = document.getElementById('newNote');
 const back = document.getElementById('BtnGoBack1');
+const niño = document.getElementById('text');
 let oldNote = '';
 let currentNote = ""; 
 
@@ -132,7 +133,9 @@ function saveNotes() {
 
 
 function loadNotes() {
+    consultarNombre();
     console.log('Notas cargadas');
+    niño.innerHTML = "Nota carro";
     const storedNotes = JSON.parse(localStorage.getItem('notes')) || [];
 
     container.innerHTML = '';
@@ -171,22 +174,28 @@ function loadNotes() {
 
             left.style.display = currentElement > 0 ? 'block' : 'none';
             right.style.display = currentElement < elements.length - 1 ? 'block' : 'none';
-            newNote.style.display = 'block';
-            back.style.display = 'block';
+            newNote.style.opacity = 1;
+            newNote.style.pointerEvents = 'auto';
+            back.style.pointerEvents = 'auto';
+            back.style.opacity = 1;
         } else {
             currentElement = 0;
             numberNote.innerHTML = "No hay notas";
             left.style.display = 'none';
             right.style.display = 'none';
-            newNote.style.display = 'block';
-            back.style.display = 'block';
+            newNote.style.opacity = 1;
+            newNote.style.pointerEvents = 'auto';
+            back.style.pointerEvents = 'auto';
+            back.style.opacity = 1;
         }
     } else {
         numberNote.innerHTML = "No hay notas";
         right.style.display = 'none';
         left.style.display = 'none';
-        newNote.style.display = 'block';
-        back.style.display = 'block';
+        newNote.style.opacity = 1;
+        newNote.style.pointerEvents = 'auto';
+        back.style.pointerEvents = 'auto';
+        back.style.opacity = 1;
     }
 }
 
@@ -227,10 +236,32 @@ function showYesNot(textInput){
         noSave.style.display = 'block';
         left.style.display = 'none';
         right.style.display = 'none';
-        newNote.style.display = 'none';
-        back.style.display = 'none';
+        newNote.style.opacity = 0.5;
+        newNote.style.pointerEvents = 'none';
+        back.style.pointerEvents = 'none';
+        back.style.opacity = 0.5;
     }
 }
+
+function consultarNombre() {
+    fetch('getChildName.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.nombre) {
+                document.getElementById('text').textContent = `¡Hola ${data.nombre} !`;
+            } else {
+                document.getElementById('text').textContent = data.error;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('text').textContent = 'Error al consultar el nombre';
+        });
+}
+
+
+
+
 
 
 document.getElementById('newNote').addEventListener('click', () => createNewElement(''));
