@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($child_uuid) && !empty($new_word)) {
         // Obtener palabras actuales
         $sql = "SELECT words FROM child_config WHERE child_uuid = ?";
-        $stmt = $conn->prepare($sql);
+        $stmt = $con->prepare($sql);
         $stmt->bind_param("s", $child_uuid);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -29,14 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Actualizar palabras
             $updated_words = json_encode($current_words);
             $update_sql = "UPDATE child_config SET words = ? WHERE child_uuid = ?";
-            $update_stmt = $conn->prepare($update_sql);
+            $update_stmt = $con->prepare($update_sql);
             $update_stmt->bind_param("ss", $updated_words, $child_uuid);
             $update_stmt->execute();
         } else {
             // Crear un nuevo registro si no existe
             $new_words = json_encode([$new_word]);
             $insert_sql = "INSERT INTO child_config (child_uuid, words) VALUES (?, ?)";
-            $insert_stmt = $conn->prepare($insert_sql);
+            $insert_stmt = $con->prepare($insert_sql);
             $insert_stmt->bind_param("ss", $child_uuid, $new_words);
             $insert_stmt->execute();
         }
@@ -49,5 +49,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode(["success" => false, "message" => "Método no permitido"]);
 }
 
-$conn->close();
+$con->close();
 ?>

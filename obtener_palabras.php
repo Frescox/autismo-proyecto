@@ -8,7 +8,7 @@ $child_uuid = $_SESSION['uuid'];  // Se espera que el UUID esté en la sesión
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (!empty($child_uuid)) {
         $sql = "SELECT words FROM child_config WHERE child_uuid = ?";
-        $stmt = $conn->prepare($sql);
+        $stmt = $con->prepare($sql);
         $stmt->bind_param("s", $child_uuid);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -27,5 +27,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo json_encode(["success" => false, "message" => "Método no permitido"]);
 }
 
-$conn->close();
+$con->close();
 ?>
