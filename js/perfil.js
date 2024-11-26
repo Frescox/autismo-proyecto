@@ -1,71 +1,92 @@
-// Función para abrir el popup de foto
+// Cargar la foto de perfil al cargar la página
+function init() {
+    fetch('get_user_data.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success && data.profile_pic) {
+                const userProfilePic = document.getElementById('userProfilePic');
+                userProfilePic.src = data.profile_pic; // Usar la ruta de la imagen
+                userProfilePic.style.display = 'inline-block'; // Asegurarse de que se muestre la imagen
+            }
+        })
+        .catch(error => console.error('Error al cargar datos:', error));
+}
+
+// Mostrar el popup para seleccionar una foto
 function openPhotoPopup() {
     document.getElementById('photoPopup').style.display = 'block';
 }
 
-// Función para cerrar el popup de foto y limpiar la previsualización
+// Cerrar el popup de la foto
 function closePhotoPopup() {
     document.getElementById('photoPopup').style.display = 'none';
-
-    // Limpiar la previsualización de la imagen
-    var photoPreview = document.getElementById('photoPreview');
-    photoPreview.src = ""; // Eliminar la imagen previa
-    photoPreview.style.display = 'none'; // Ocultar el área de previsualización
 }
 
-// Función para previsualizar la imagen seleccionada
+// Vista previa de la foto seleccionada
 function previewPhoto(event) {
-    var file = event.target.files[0];
-    var reader = new FileReader();
-
-    reader.onload = function () {
-        var photoPreview = document.getElementById('photoPreview');
-        photoPreview.src = reader.result;
-        photoPreview.style.display = 'block'; // Mostrar la imagen
+    const photoPreview = document.getElementById('photoPreview');
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+        photoPreview.src = e.target.result;
+        photoPreview.style.display = 'block';
     };
+    
     reader.readAsDataURL(file);
 }
 
-// Función para aceptar la imagen
+// Aceptar la foto seleccionada y subirla al servidor
 function acceptPhoto() {
-    var photoPreview = document.getElementById('photoPreview');
-    var userProfilePic = document.getElementById('userProfilePic');
+    const formData = new FormData();
+    const fileInput = document.getElementById('fileInput');
     
-    userProfilePic.src = photoPreview.src; // Asigna la imagen seleccionada al perfil en el encabezado
-    userProfilePic.style.display = 'inline-block'; // Muestra la imagen en el encabezado
-    
-    closePhotoPopup();
-    alert("Foto de perfil actualizada.");
+    if (fileInput.files.length === 0) {
+        alert("No se ha seleccionado ninguna foto.");
+        return;
+    }
+
+    formData.append('profile_pic', fileInput.files[0]);
+
+    fetch('upload_profile_pic.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        closePhotoPopup();
+        init();
+    })
+    .catch(error => console.error('Error al subir la foto:', error));
 }
 
-// Función para abrir el popup de eliminar cuenta
+// Mostrar el popup de eliminar cuenta
 function openDeletePopup() {
     document.getElementById('deletePopup').style.display = 'block';
 }
 
-// Función para cerrar el popup de eliminar cuenta
+// Cerrar el popup de eliminar cuenta
 function closeDeletePopup() {
     document.getElementById('deletePopup').style.display = 'none';
 }
 
-// Función para abrir el popup de contraseña
+// Mostrar el popup para confirmar la contraseña de administrador (sin funcionalidad)
 function openPasswordPopup() {
     document.getElementById('passwordPopup').style.display = 'block';
 }
 
-// Función para cerrar el popup de contraseña
+// Cerrar el popup de confirmación de contraseña
 function closePasswordPopup() {
     document.getElementById('passwordPopup').style.display = 'none';
 }
 
-// Función para confirmar la contraseña
+// Confirmar la contraseña para eliminar la cuenta (sin funcionalidad)
 function confirmPassword() {
-    var password = document.getElementById('adminPassword').value;
-    if (password === "admin123") { // Contraseña de ejemplo
-        alert("Cuenta eliminada.");
-        closePasswordPopup();
-        closeDeletePopup();
-    } else {
-        alert("Contraseña incorrecta.");
+    const password = document.getElementById('adminPassword').value;
+
+    if (!password) {
+        alert("Por favor, ingresa la contraseña.");
+        return;
     }
 }
