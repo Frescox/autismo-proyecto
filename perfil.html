@@ -6,26 +6,23 @@
     <link rel="stylesheet" href="./CSS/perfil.css">
     <title>Menú</title>
 </head>
-<body>
+<body onload="init();">
     <header>
         <div style="display: flex; align-items: center; justify-content: center;">
             <img id="userProfilePic" src="" alt="Foto de perfil" style="width: 60px; height: 60px; border-radius: 50%; display: none; margin-right: 10px;">
             <h1>Administrador</h1>
         </div>
     </header>
-    
-    
+
     <main>
         <div class="Title">
             <h1>Editar Perfil</h1>
         </div>
         <div class="container-buttons">
-            <!-- Botón Agregar Fotos -->
             <div>
                 <button class="btnAddPhotos" onclick="openPhotoPopup();"></button>
                 <p>Agregar Fotos</p>
             </div>
-            <!-- Botón Eliminar Cuenta -->
             <div>
                 <button class="btnDeleteAccount" onclick="openDeletePopup();"></button>
                 <p>Eliminar Cuenta</p>
@@ -36,7 +33,6 @@
         <button class="btnBack" onclick="window.location.href = 'admin.html';"></button>
     </footer>
 
-    <!-- Ventana emergente para agregar fotos -->
     <div id="photoPopup" class="popup">
         <div class="popup-content">
             <span class="close" onclick="closePhotoPopup()">&times;</span>
@@ -50,7 +46,7 @@
         </div>
     </div>
 
-    <!-- Ventana emergente para eliminar cuenta -->
+    <!-- Popup para eliminar cuenta -->
     <div id="deletePopup" class="popup">
         <div class="popup-content">
             <span class="close" onclick="closeDeletePopup()">&times;</span>
@@ -61,7 +57,7 @@
         </div>
     </div>
 
-    <!-- Ventana emergente para ingresar la contraseña -->
+    <!-- Popup para confirmar contraseña (Solo estructura sin funcionalidad) -->
     <div id="passwordPopup" class="popup">
         <div class="popup-content">
             <span class="close" onclick="closePasswordPopup()">&times;</span>
@@ -73,7 +69,6 @@
     </div>
 
     <script src="./js/verif_perm.js"></script>
-    <script src="js/perfil.js"></script>
+    <script src="./js/perfil.js"></script>
 </body>
 </html>
-    
