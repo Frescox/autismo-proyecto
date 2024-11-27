@@ -1,5 +1,7 @@
 // Variable para guardar el UUID del usuario
 let childUuid = '';
+let wordToDelete = ''; // Variable para almacenar la palabra a eliminar
+let wordSectionToDelete = null; // Variable para almacenar el contenedor de la palabra a eliminar
 
 // Función para obtener el UUID de la sesión cuando se carga la página
 window.onload = function () {
@@ -49,8 +51,9 @@ function showModal() {
 
 // Cerrar el modal sin guardar
 function closeModal() {
-    const modal = document.getElementById('word-modal');
-    modal.style.display = 'none';
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => modal.style.display = 'none');
+    hideDeleteButtons();
 }
 
 // Confirmar la palabra ingresada y guardarla
@@ -94,7 +97,6 @@ function saveWordToDatabase(word) {
     .catch(error => console.error('Error en la solicitud:', error));
 }
 
-
 // Agregar una palabra a la interfaz
 function addWordToUI(word) {
     const container = document.querySelector('.empty-space');
@@ -107,6 +109,80 @@ function addWordToUI(word) {
     wordItem.textContent = word;
     wordList.appendChild(wordItem);
 
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Eliminar';
+    deleteButton.classList.add('btnDelete');
+    deleteButton.onclick = function() {
+        showDeleteModal(word, wordSection);
+    };
+
     wordSection.appendChild(wordList);
+    wordSection.appendChild(deleteButton);
     container.appendChild(wordSection);
+}
+
+// Mostrar el modal de eliminación de palabra
+function showDeleteModal(word, wordSection) {
+    wordToDelete = word;
+    wordSectionToDelete = wordSection;
+
+    const deleteModal = document.getElementById('word-delete');
+    const deleteWordText = document.getElementById('delete-word-text');
+    deleteWordText.textContent = `${word}`;
+    deleteWordText.style.fontSize = '20px';
+    deleteWordText.style.fontWeight = 'bold';
+    deleteWordText.style.paddingBottom = "10px";
+    deleteModal.style.display = 'flex';
+
+    const confirmDeleteButton = document.getElementById('confirm-delete-button');
+    confirmDeleteButton.onclick = confirmDeleteWord;
+}
+
+// Confirmar la eliminación de la palabra
+function confirmDeleteWord() {
+    deleteWordFromDatabase(wordToDelete);
+    wordSectionToDelete.remove();
+    closeModal();
+}
+
+// Eliminar la palabra de la base de datos
+function deleteWordFromDatabase(word) {
+    if (!childUuid) return;  // No continuar si no se tiene el UUID
+
+    console.log('Eliminando palabra:', word); // Verificar palabra
+
+    fetch('eliminar_palabra.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            child_uuid: childUuid,
+            word: word
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Para ver la respuesta del servidor
+        if (!data.success) {
+            console.error('Error al eliminar la palabra:', data.message);
+        }
+    })
+    .catch(error => console.error('Error en la solicitud:', error));
+}
+
+// Ocultar todos los botones de eliminar
+function hideDeleteButtons() {
+    const deleteButtons = document.querySelectorAll('.btnDelete');
+    deleteButtons.forEach(button => {
+        button.style.display = 'none';
+    });
+}
+
+// Mostrar/ocultar botones de eliminar
+function toggleDeleteButtons() {
+    const deleteButtons = document.querySelectorAll('.btnDelete');
+    deleteButtons.forEach(button => {
+        button.style.display = button.style.display === 'none' ? 'inline-block' : 'none';
+    });
 }

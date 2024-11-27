@@ -204,18 +204,14 @@ main {
 
 
 .BtnGoBack1 {
-    display: flex;
-    background-image: url("../images/botones-03.png");
-    background-size: contain;
-    background-position: left;
-    background-repeat: no-repeat;
-    width: 12vw;
-    height: 10vh;
-    border: none;
-    cursor: pointer;
+    background-image: url('../images/backImage.png');
     background-color: transparent;
-    transition: filter 0.3s ease, transform 0.2s ease;
-    position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: none;
+    width: 8vh;
+    height: 6vh;
+    cursor: pointer;
 }
 
 .container_numberNote {

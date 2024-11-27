@@ -179,24 +179,23 @@ main {
 
 /* Estilos del Footer */
 footer {
-    height: 13vh; 
-    background-color: #F8E48C; 
+    background-color: #F8E48C;
+    color: #FFF2F2;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: left; 
-    padding-bottom:0 ;
-    padding-left: 10px;
+    padding: 2vh 1.2%;
+    height: 10vh;
 }
 
 /* Botón de Regreso */
 .btnBack {
-    background-image: url('../images/botones-03.png');
-    background-color: #F8E48C;
+    background-image: url('../images/backImage.png');
+    background-color: transparent;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
-    width: 15vw; 
-    height: 12vh;
+    width: 8vh;
+    height: 6vh;
     cursor: pointer;
-    
 }

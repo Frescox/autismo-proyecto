@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <title>Menú</title>
     <link rel="stylesheet" href="./CSS/palabras.css">
 </head>
@@ -30,10 +33,22 @@
             </div>
         </div>
     </div>
+    <!-- Modal para eliminar palabra -->
+    <div id="word-delete" class="modal">
+        <div class="modal-content">
+            <h2>Eliminar Palabra</h2>
+            <p id="delete-word-text"></p>
+            <div class="modal-buttons">
+                <button class="btnCancel" onclick="closeModal()">Cancelar</button>
+                <button class="btnConfirm" id="confirm-delete-button">Eliminar</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <button class="btnBack" onclick="window.location.href = 'admin.html';"></button>
         <button class="btnAdd" onclick="showModal()">Agregar Palabra</button>
+        <button class="btnRemove" onclick="toggleDeleteButtons()">Eliminar Palabra</button>
     </footer>
 
     <script src="./js/verif_perm.js"></script>

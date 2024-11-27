@@ -10,15 +10,39 @@ let intervaloTiempo;
 let sesionIniciada = false; // Control para verificar si ya se incrementó la sesión
 let errores = {}; // Objeto para rastrear los errores por palabra
 
-// Cargar palabras desde el CSV
-Papa.parse("./palabras/palabras.csv", {
-    download: true,
-    header: true,
-    complete: function (results) {
-        palabras = results.data.map(row => row.Palabra);
-        cargarNuevaPalabra();
-    }
+// Cargar palabras desde el CSV y la base de datos al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+    cargarPalabras();
 });
+
+function cargarPalabras() {
+    Papa.parse("./palabras/palabras.csv", {
+        download: true,
+        header: true,
+        complete: function (results) {
+            const palabrasCSV = results.data.map(row => row.Palabra);
+            obtenerPalabrasBD(palabrasCSV);
+        }
+    });
+}
+
+async function obtenerPalabrasBD(palabrasCSV) {
+    try {
+        const response = await fetch('obtener_palabras.php');
+        const data = await response.json();
+
+        if (data.success && Array.isArray(data.words)) {
+            palabras = [...palabrasCSV, ...data.words];
+        } else {
+            console.error('Error al obtener las palabras:', data.message || 'Datos incorrectos');
+            palabras = [...palabrasCSV]; // Solo las palabras del CSV en caso de error
+        }
+    } catch (error) {
+        console.error('Error al conectar con la base de datos:', error);
+        palabras = [...palabrasCSV]; // Solo las palabras del CSV en caso de error
+    }
+    cargarNuevaPalabra();
+}
 
 async function cargarNuevaPalabra() {
     document.getElementById("continuar-btn");
@@ -30,7 +54,7 @@ async function cargarNuevaPalabra() {
     }
 
     const palabraAleatoria = obtenerPalabraAleatoria();
-    palabraActual = palabraAleatoria;
+    palabraActual = palabraAleatoria.toLowerCase();
     palabraDesordenada = desordenarPalabra(palabraAleatoria);
     respuestaUsuario = [];
     errores[palabraActual] = errores[palabraActual] || 0; // Inicializar contador de errores para la palabra
@@ -39,6 +63,8 @@ async function cargarNuevaPalabra() {
     mostrarLetrasDesordenadas(palabraDesordenada);
     mostrarEspacios(palabraAleatoria);
 }
+
+// El resto del código permanece sin cambios.
 
 function iniciarSesion() {
     // Incrementar el contador de sesiones en el backend

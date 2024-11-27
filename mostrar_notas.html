@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas del Niño</title>
+    <link rel="stylesheet" href="./css/mostrar_notas.css">
+</head>
+<body>
+    <header>
+        <h1>Notas del Niño</h1>
+    </header>
+    <div class="Title">
+        <h2>Todas las Notas</h2>
+    </div>
+    <main>
+        <div class="empty-space">
+            <!-- Aquí se añadirán las notas -->
+        </div>
+        <div class="Title">
+            <h2>Filtrar Notas por Fecha</h2>
+        </div>
+        <div class="filter-container">
+            <label for="start-date">Desde:</label>
+            <input type="date" id="start-date" />
+            <label for="end-date">Hasta:</label>
+            <input type="date" id="end-date" />
+            <button class="btnAdd" onclick="filterNotes()">Filtrar</button>
+        </div>              
+    </main>
+    <footer>
+        <button class="btnBack" onclick="window.location.href = 'admin.html';"></button>
+    </footer>
+
+    <script src="./js/mostrar_notas.js"></script>
+</body>
+</html>
