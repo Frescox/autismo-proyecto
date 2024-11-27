@@ -176,7 +176,8 @@ main {
     flex-direction: row;
     white-space: nowrap;
     width: 80vw;
-    margin-top: 20vh;
+    margin-top: 30vh;
+    margin-bottom: 10vh;
     margin-left: 14%;
     position: absolute;
     background-color: transparent;
@@ -277,6 +278,7 @@ footer {
     width: 100%;
     position: relative;
     padding-left: 5vw;
+    
 }
 
 @media (max-aspect-ratio: 1/1) {
@@ -285,6 +287,28 @@ footer {
         
     }
 
+}
+
+@media (orientation: landscape) {
+
+
+    .newNote {
+        font-size: 0.5em;  
+        width: 30vw;  
+        height: 10vh ;
+    }
+
+    .text{
+        font-size: 4vw;
+    }
+        
+    .notes_Created{
+        font-size: 10vh;  
+    }
+
+    .container_numberNote{
+        font-size: 9vh;  
+    }
 }
 
 

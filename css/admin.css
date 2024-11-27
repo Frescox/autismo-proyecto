@@ -6,19 +6,30 @@
 }
 
 html, body {
-    height: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Esto asegura que tanto el html como el body ocupen toda la altura de la ventana */
+    width: 100%; /* Asegura que el body ocupe el 100% del ancho */
+    overflow-x: hidden; /* Evita el desplazamiento por desbordamiento */
+    overflow-x: visible;
+    background-color: white;
+    text-align: center;
+    flex-direction: column;
     background-color: #8EAAF5;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    color: #FFF2F2;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    background-color: #8EAAF5;
+    height: 100%;
+    width: 100%;
 }
 
 header {
+    width: 100%;
     background-color: #F8E48C;
     color: #8EAAF5;
     font-weight: 700;
@@ -30,7 +41,10 @@ header {
 }
 
 header h1 {
-    font-size: 3rem;  /* Aumenté el tamaño del texto */
+    font-weight: 700;
+    font-size: 5vh;
+    text-align: start;
+    margin-left: 2vw;
 }
 
 header img {
@@ -38,6 +52,11 @@ header img {
     height: 100px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+#userProfilePic{
+    height: 13vh;
+    width: auto;
 }
 
 main {
@@ -50,27 +69,29 @@ main {
 
 .Title {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    width: 80%;
-    max-width: 400px;
-    height: 10vh;
-    margin: 1.5rem auto;
+    width: 80%; /* Cambiado a un ancho más flexible para adaptarse mejor a la pantalla */
+    max-width: 400px; /* Limita el ancho máximo para evitar que sea demasiado grande */
+    height: 10vh; /* Ajusta la altura automáticamente según el contenido */
+    margin: 1.5rem auto; /* Añade margen superior e inferior para evitar solapamiento */
     background-color: #FFFFFF;
     border-radius: 10px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Asegura que padding no afecte al ancho/alto total */
+    
 }
-
 .Title h1 {
-    color: #8EAAF5;
-    font-size: 2.5rem;
-    padding: 1rem;
-    margin: 0;
+    color: #8EAAF5; /* Color azul para el texto */
+    font-size: 5vh; /* Tamaño de fuente ajustable según el ancho de la pantalla */
+    padding: 1rem; /* Espaciado interno alrededor del título */
+    border-radius: 8px; /* Bordes redondeados para el título */
+    margin: 0; /* Sin margen para evitar separación innecesaria */
+    text-align: center; /* Centra el texto del título */
 }
 
 .container-buttons {
     display: flex;
-    justify-content: space-between;  /* Increased space between buttons */
+    justify-content: center;  /* Increased space between buttons */
     gap: 3rem;  /* Increased gap between buttons */
     padding: 1rem;
     width: 80%;  /* Ensure the buttons container takes up most of the width */
@@ -89,6 +110,18 @@ button {
     height: 10vw;  /* Botones más pequeños */
     border: none;
     cursor: pointer;
+}
+
+p{
+    color: white;
+}
+
+button:hover {
+    filter: none;
+}
+
+button:active {
+    transform: none;
 }
 
 .btnStatistics {
@@ -120,6 +153,8 @@ footer {
     align-items: center;
     padding: 2vh 1.2%;
     height: 10vh;
+    width: 100%;
+
 }
 
 footer p {
@@ -137,14 +172,18 @@ footer p {
     height: 6vh;
     cursor: pointer;
 }
+@media (orientation: portrait) {
+   
+    
+    header h1 {
+        
+        font-size: 8vw;
+        
+    }
 
-@media (max-width: 768px) {
-    .container-buttons {
-        flex-direction: column;
-        gap: 2rem;
+    #gameTitle h1 {
+        font-size: 3vh;
+        margin-left: 1rem;
     }
-    button {
-        width: 25vw;
-        height: 25vw;
-    }
+
 }
