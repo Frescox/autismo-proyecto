@@ -1,4 +1,4 @@
-/* Estilos Globales */
+Estilos Globales
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     background-color: #8EAAF5;
@@ -67,7 +67,7 @@ main {
     width: 80%;
     height: 8vh;
     border-radius: 10px;
-    margin-top: -70px; /* Ajuste para elevar el recuadro */
+    margin-top: -10px; /* Ajuste para elevar el recuadro */
     margin-bottom: 50px;
 }
 
@@ -79,6 +79,8 @@ main {
 #btnConf {
     background-color: #F8E48C;
     display: inline-block;
+    height: 4.2rem;
+    width: 4.2rem;
 }
 
 #container-buttons {
@@ -87,11 +89,13 @@ main {
     align-items: center;
     justify-content: center;
     width: 100%; /* Asegura que el contenedor toma el espacio disponible */
+    font-size: 2.3vh;
+    font-weight: 600;
 }
 
 #btnLetters, #btnNotes {
-    width: 100px; /* Tamaño uniforme */
-    height: 100px; /* Tamaño uniforme */
+    width: 15.7rem; /* Tamaño uniforme */
+    height: 20%; /* Tamaño uniforme */
     aspect-ratio: 1 / 1;
     background-color: transparent;
     background-size: cover; /* Asegura que la imagen cubra el botón */
@@ -109,6 +113,15 @@ main {
     background-image: url('../images/notepadLogo.png');
 }
 
+/* <!-- Agregar CSS para la imagen de perfil --> */
+img.img-thumbnail {
+    width: 100px;          /* Tamaño fijo */
+    height: 100px;         /* Tamaño fijo */
+    border-radius: 50%;    /* Forma circular */
+    object-fit: cover;     /* Asegura que la imagen cubra el área sin deformarse */
+    margin-right: 10px;    /* Espacio a la derecha de la imagen */
+}
+
 /* Configuración de columnas para orientación de pantalla */
 @media (orientation: landscape) {
     #container-buttons {
@@ -117,9 +130,8 @@ main {
     }
 
     #gameTitle {
-        
-        margin-top: -30px;
-        margin-bottom: 30px;
+        margin-top: -100px; /* Ajuste para elevar el recuadro */
+        margin-bottom: 100px;
     }
 }
 
@@ -137,23 +149,70 @@ main {
 
 }
 
-footer {
-    background-color: #F8E48C;
-    color: #FFF2F2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2vh 1.2%;
-    height: 10vh;
+@media (max-height:1028px) {
+    #gameTitle{
+        margin-top: -20px;
+        margin-bottom: 40px;
+    }
+    #btnLetters, #btnNotes {
+        width: 9rem; /* Tamaño uniforme */
+        height: 20%; /* Tamaño uniforme */
+    }
+    #btnConf {
+        height: 3.2rem;
+        width: 3.2rem;
+    }
 }
 
-#btnBack {
-    background-image: url('../images/backImage.png');
-    background-color: transparent;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    border: none;
-    width: 8vh;
-    height: 6vh;
-    cursor: pointer;
+@media (max-height:862px) {
+    #btnConf {
+        height: 2.6rem;
+        width: 2.6rem;
+    }
 }
+
+@media (max-height:678px) {
+    #gameTitle{
+        margin-top: -10px;
+        margin-bottom: 40px;
+    }
+    #btnLetters, #btnNotes {
+        width: 6.5rem; /* Tamaño uniforme */
+        height: 20%; /* Tamaño uniforme */
+    }
+    #btnConf {
+        height: 2.2rem;
+        width: 2.2rem;
+    }
+    img.img-thumbnail{
+        width: 70px;          /* Tamaño fijo */
+        height: 70px;         /* Tamaño fijo */
+        border-radius: 50%;    /* Forma circular */
+        object-fit: cover;     /* Asegura que la imagen cubra el área sin deformarse */
+        margin-right: 10px; 
+    }
+}
+
+@media (max-height: 528px) {
+    #gameTitle{
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+    #btnLetters, #btnNotes {
+        width: 4rem; /* Tamaño uniforme */
+        height: 20%; /* Tamaño uniforme */
+    }
+    #btnConf {
+        height: 1.8rem;
+        width: 1.8rem;
+    }
+    img.img-thumbnail{
+        width: 48px;          /* Tamaño fijo */
+        height: 48px;         /* Tamaño fijo */
+        border-radius: 50%;    /* Forma circular */
+        object-fit: cover;     /* Asegura que la imagen cubra el área sin deformarse */
+        margin-right: 10px; 
+    }
+}
+
+
