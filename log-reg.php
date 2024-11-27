@@ -109,14 +109,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         <main class="container d-flex justify-content-center align-items-center" style="min-height: 50vh;">
 
-            <!----------------------------- Form box ----------------------------------->
             <div class="form-box d-flex justify-content-center align-items-center">
 
                 <div class="col-md-6">
-                    <!------------------- login form -------------------------->
                     <div class="login-container card p-4 rounded" id="login">
                         <form method="POST" action="log-reg.php">
-                            <input type="hidden" name="form_type" value="login"> <!-- Campo oculto -->
+                            <input type="hidden" name="form_type" value="login">
                             <div class="top text-center mb-4">
                                 <span>¿No tienes una cuenta? <a href="#" onclick="register()">Regístrate</a></span>
                                 <h3>Iniciar sesión</h3>
@@ -153,10 +151,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </div>
 
                 <div class="col-md-6 center">
-                    <!------------------- registration form -------------------------->
                     <div class="register-container card p-4 " id="register">
                         <form method="POST" action="log-reg.php">
-                            <input type="hidden" name="form_type" value="register"> <!-- Campo oculto -->
+                            <input type="hidden" name="form_type" value="register">
                             <div class="top text-center mb-4">
                                 <span>¿Ya tienes una cuenta? <a href="#" onclick="login()">Iniciar sesión</a></span>
                                 <h3>Registrarse</h3>

@@ -46,14 +46,13 @@ $con->close();
 
     <title>Menú</title>
 
-    <!-- Agregar CSS para la imagen de perfil -->
     <style>
         img.img-thumbnail {
-            width: 100px;          /* Tamaño fijo */
-            height: 100px;         /* Tamaño fijo */
-            border-radius: 50%;    /* Forma circular */
-            object-fit: cover;     /* Asegura que la imagen cubra el área sin deformarse */
-            margin-right: 10px;    /* Espacio a la derecha de la imagen */
+            width: 100px;    
+            height: 100px;      
+            border-radius: 50%;  
+            object-fit: cover;   
+            margin-right: 10px;  
         }
     </style>
 </head>

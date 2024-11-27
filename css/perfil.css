@@ -1,4 +1,3 @@
-/* General */
 body {
     margin: 0;
     padding: 0;
@@ -70,7 +69,6 @@ main {
     color: #8EAAF5;
 }
 
-/* Botones principales */
 .btnAddPhotos {
     background-image: url('../images/icono 09.svg');
     background-color: #8EAAF5;
@@ -84,7 +82,7 @@ main {
 
 .btnDeleteAccount {
     background-image: url('../images/icono 10.svg');
-    background-color: transparent; /* Sin fondo rojo */
+    background-color: transparent;
     background-size: 100% 100%;
     border: none;
     width: 10rem;
@@ -104,7 +102,6 @@ main {
     cursor: pointer;
 }
 
-/* Estilos para el popup */
 .popup {
     display: none;
     position: fixed;
@@ -135,7 +132,6 @@ main {
     cursor: pointer;
 }
 
-/* Estilos para el contenedor de previsualización de la imagen */
 .photo-space {
     width: 100%;
     height: 200px;
@@ -176,9 +172,8 @@ main {
     font-size: 16px;
 }
 
-/* Estilo específico para el botón "Eliminar Cuenta" en el popup */
 .popup .btnPopupDelete {
-    background-color: #FF4B4B; /* Rojo para advertencia */
+    background-color: #FF4B4B;
     color: #FFFFFF;
     font-weight: bold;
     border: none;
@@ -187,7 +182,7 @@ main {
     margin: 10px;
     border-radius: 5px;
     font-size: 16px;
-    background-image: none; /* Sin ícono */
+    background-image: none;
 }
 
 .popup .btnPopupCancel {

@@ -71,7 +71,6 @@ if (!$result) {
         </div>
         
         <div class="container my-4">
-            <!-- Formulario para agregar un nuevo niño -->
             <div class="card mb-3 text-center border-primary">
                 <div class="card-body">
                     <h5 class="card-title">Agregar Niño</h5>
@@ -85,18 +84,14 @@ if (!$result) {
                 </div>
             </div>
 
-            <!-- Mostrar la lista de niños con imagen de perfil -->
             <div class="row">
                 <?php while ($child = mysqli_fetch_assoc($result)) { 
-                    // Obtener la ruta de la imagen de perfil, si no tiene se mostrará una imagen predeterminada
                     $profile_pic = !empty($child['profile_pic']) ? $child['profile_pic'] : './images/qqq.png';
                 ?>
-                    <!-- Tarjeta para cada niño -->
                     <div class="col-md-4">
                         <div class="card mb-3">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo 'Cuenta de: ' . htmlspecialchars(decryptData($child['name'])); ?></h5>
-                                <!-- Mostrar imagen de perfil -->
                                 <img src="<?php echo htmlspecialchars($profile_pic); ?>" alt="Foto de perfil" class="img-thumbnail" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px;">
                                 <form action="select_child.php" method="POST">
                                     <input type="hidden" name="uuid" value="<?php echo htmlspecialchars($child['uuid']); ?>">

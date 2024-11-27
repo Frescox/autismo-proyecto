@@ -194,7 +194,6 @@ footer {
 }
 
 
-/* Para pantallas entre 450px y 760px */
 @media (max-width: 768px) and (min-width: 450px) {
     .spacesLetters {
         transform: translate(0%, -22vh); 

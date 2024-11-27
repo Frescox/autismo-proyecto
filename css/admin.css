@@ -1,152 +1,129 @@
-
 * {
-    box-sizing: border-box; /* Ensures padding is included in the element's width and height */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Dosis", sans-serif; /* Sets a consistent font for all elements */
+    font-family: "Dosis", sans-serif;
 }
+
 html, body {
     height: 100%;
     background-color: #8EAAF5;
 }
-/* Body Styles */
+
 body {
-    height: 100vh; /* Ensures the body takes up the full height of the viewport */
-    display: flex; /* Uses flexbox for layout */
-    flex-direction: column; /* Aligns elements in a column */
-    background-color: #8EAAF5; /* Light blue background color */
-    text-align: center; /* Centers text horizontally */
-    color: #FFF2F2; /* Light text color */
-    overflow: hidden; /* Prevents scrolling */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #8EAAF5;
+    text-align: center;
+    color: #FFF2F2;
+    overflow: hidden;
 }
 
-/* Header Styles */
 header {
-    background-color: #F8E48C; /* Light yellow background color for the header */
-    color: #8EAAF5; /* Sets text color to blue */
-    font-weight: 700; /* Makes text bold */
-    height: 15vh; /* Sets the header height to 15% of the viewport height */
-    display: flex; /* Uses flexbox for layout */
-    align-items: center; /* Vertically centers items within the header */
-    justify-content: space-between; /* Positions items at both ends of the header */
-    padding: 0 1rem; /* Adds horizontal padding to the header */
+    background-color: #F8E48C;
+    color: #8EAAF5;
+    font-weight: 700;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
 }
 
 header h1 {
-    font-size: 5vw; /* Responsive font size for the header title */
+    font-size: 5vw;
 }
 
 header p {
-    font-size: 5vw; /* Responsive font size for the logo or other text */
+    font-size: 5vw;
 }
 
-/* Main Section Styles */
 main {
-    flex: 1; /* Allows the main section to grow and fill available space */
-    height: 70%; /* Sets the height to 70% of the viewport */
-    display: flex; /* Uses flexbox for layout */
-    flex-direction: column; /* Aligns elements in a column */
-    align-items: center; /* Centers items horizontally */
-    justify-content: center; /* Centers items vertically */
+    flex: 1;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
 }
-
 
 .Title {
     display: flex;
     justify-content: center; 
     align-items: center;
-    width: 80%; /* Cambiado a un ancho más flexible para adaptarse mejor a la pantalla */
-    max-width: 400px; /* Limita el ancho máximo para evitar que sea demasiado grande */
-    height: 10vh; /* Ajusta la altura automáticamente según el contenido */
-    margin: 1.5rem auto; /* Añade margen superior e inferior para evitar solapamiento */
+    width: 80%; 
+    max-width: 400px;
+    height: 10vh;
+    margin: 1.5rem auto;
     background-color: #FFFFFF;
     border-radius: 10px;
-    box-sizing: border-box; /* Asegura que padding no afecte al ancho/alto total */
-    
+    box-sizing: border-box;
 }
+
 .Title h1 {
-    color: #8EAAF5; /* Color azul para el texto */
-    font-size: 3vw; /* Tamaño de fuente ajustable según el ancho de la pantalla */
-    padding: 1rem; /* Espaciado interno alrededor del título */
-    border-radius: 8px; /* Bordes redondeados para el título */
-    margin: 0; /* Sin margen para evitar separación innecesaria */
-    text-align: center; /* Centra el texto del título */
+    color: #8EAAF5;
+    font-size: 3vw;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0;
+    text-align: center;
+}
+
+.container-buttons {
+    display: flex;               
+    justify-content: center;     
+    gap: 2rem;                   
+    padding: 1rem;
+}
+
+.button-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;                 
+}
+
+button {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    width: 15vw;
+    height: 15vh;
+    transition: transform 0.3s ease, filter 0.2s ease;
 }
 
 button:hover {
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3)); /* Adds a shadow effect on hover */
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3)); 
 }
 
 button:active {
-    transform: scale(0.95); /* Slightly shrinks button on click */
+    transform: scale(0.95);
 }
 
-/* Specific Button Styles */
 .btnStatistics {
-    background-image: url('../images/icono 05.svg'); /* Background image for statistics button */
-    background-color: #8EAAF5; /* Button background color */
+    background-image: url('../images/icono 05.svg');
+    background-color: #8EAAF5; 
 }
 
 .btnWords {
-    background-image: url('../images/icono 07.svg'); /* Background image for words button */
-    background-color: #8EAAF5; /* Button background color */
-}
-
-.btnAppConfig {
-    background-image: url('../images/icono 05.svg'); /* Background image for app config button */
-    background-color: #8EAAF5; /* Button background color */
+    background-image: url('../images/icono 07.svg'); 
+    background-color: #8EAAF5;
 }
 
 .btnEditProfile {
-    background-image: url('../images/icono 08.svg'); /* Background image for edit profile button */
-    background-color: #8EAAF5; /* Button background color */
+    background-image: url('../images/icono 08.svg');
+    background-color: #8EAAF5; 
 }
 
-
-
-
-/* Container for Buttons */
-.container-buttons {
-    display: grid; /* Uses grid layout for buttons */
-    grid-template-columns: repeat(4, 1fr);    gap: 20px;    gap: 1rem; /* Adds space between grid items */
-    width: 100%; /* Sets the width to full container */
-    padding: 1rem; /* Adds padding around the grid */
-}
-
-.container-buttons div {
-    display: flex; /* Uses flexbox for layout */
-    flex-direction: column; /* Aligns items in a column */
-    align-items: center; /* Centers items horizontally */
-    gap: 0.8rem; /* Adds space between button and text */
-}
-
-/* Button Styles */
-button {
-    background-size: contain; /* Ensures the background image fits within the button */
-    background-position: center; /* Centers the background image */
-    background-repeat: no-repeat; /* Prevents the background image from repeating */
-    border: none; /* Removes button border */
-    cursor: pointer; /* Changes cursor to pointer on hover */
-    width: 15vw; /* Sets the button width */
-    height: 15vh; /* Sets the button height */
-    transition: transform 0.3s ease, filter 0.2s ease; /* Adds smooth transitions for transform and filter properties */
-}
-/* Modo vertical*/
-@media (max-aspect-ratio: 1/1){
- .container-buttons{
-    grid-template-columns: repeat(2, 1fr);
- }
-
- 
-}
-
-/* Footer Styles */
 footer {
-    height: 10vh; /* Sets footer height to 15% of the viewport height */
-    background-color: #F8E48C; /* Light yellow background color for the footer */
-    display: flex; /* Uses flexbox for layout */
-    align-items: center; /* Centers items vertically */
-    justify-content: left; /* Centers items horizontally */
+    height: 10vh; 
+    background-color: #F8E48C; 
+    display: flex; 
+    align-items: center;
+    justify-content: left;
     padding-bottom:0 ;
     padding-left: 10px;
 }
@@ -157,18 +134,18 @@ footer {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
-    width: 15vw; /* Sets button width */
-    height: 10vh; /* Sets button height */
+    width: 15vw; 
+    height: 10vh;
     cursor: pointer;
 }
 
-
-/* ------------------------------------------------------------------------*/
-
-
-
-
-
-
-
-
+@media (max-width: 768px) {
+    .container-buttons {
+        flex-direction: column;  
+        gap: 1rem;
+    }
+    button {
+        width: 30vw;
+        height: 20vh;
+    }
+}

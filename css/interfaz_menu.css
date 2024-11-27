@@ -118,14 +118,14 @@ main {
 
     #gameTitle {
         
-        margin-top: -30px; /* Ajuste para elevar el recuadro */
+        margin-top: -30px;
         margin-bottom: 30px;
     }
 }
 
 @media (orientation: portrait) {
     #container-buttons {
-        grid-template-columns: 1fr; /* 1x2 cuando está en vertical */
+        grid-template-columns: 1fr;
         grid-template-rows: repeat(2, 1fr);
     }
     
@@ -137,8 +137,6 @@ main {
 
 }
 
-
-/* Footer */
 footer {
     background-color: #F8E48C;
     color: #FFF2F2;
