@@ -14,7 +14,6 @@ function check_login($con) {
         }
     }
 
-    //redirect to login
     header("Location: log-reg.php");
     die;
 

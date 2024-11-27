@@ -35,7 +35,7 @@ function confirmDeleteAccount() {
             .then((data) => {
                 if (data.success) {
                     alert(data.message);
-                    window.location.href="select_acc.php"; // Opcional: recargar la página después de eliminar
+                    window.location.href="select_acc.php";
                 } else {
                     alert(data.message || "Error al eliminar los datos del niño.");
                 }

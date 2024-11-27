@@ -11,7 +11,6 @@ $user_id = $_SESSION['user_id'];
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $form_type = $_POST['form_type'];
 
-    // Inicio de sesión
     if ($form_type == 'control-parental') {
         $user_password = md5($_POST['password']);
 
@@ -68,14 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         <main class="container d-flex justify-content-center align-items-center" style="min-height: 50vh;">
 
-            <!----------------------------- Form box ----------------------------------->
             <div class="form-box d-flex justify-content-center align-items-center">
 
                 <div class="col-md-6">
-                    <!------------------- login form -------------------------->
                     <div class="login-container card p-4 rounded" id="control-parental">
                         <form method="POST" action="control-parental.php">
-                            <input type="hidden" name="form_type" value="control-parental"> <!-- Campo oculto -->
+                            <input type="hidden" name="form_type" value="control-parental">
                             <div class="top text-center mb-4">
                                 <h3>Acceso a control parental</h3>
                                 <h4>Ingrese la contraseña de la cuenta</h4>

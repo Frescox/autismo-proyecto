@@ -4,19 +4,18 @@ function init() {
         .then(response => response.json())
         .then(data => {
             const userProfilePic = document.getElementById('userProfilePic');
-            // Verifica si la respuesta es exitosa y si hay una foto de perfil
             if (data.success && data.profile_pic) {
-                userProfilePic.src = data.profile_pic; // Usar la ruta de la imagen
+                userProfilePic.src = data.profile_pic;
             } else {
                 // Si no hay foto, usar la imagen predeterminada
-                userProfilePic.src = './images/profile_pic/qqq.png'; // Cambia la extensión a .png
+                userProfilePic.src = './images/qqq.png';
             }
-            userProfilePic.style.display = 'inline-block'; // Asegúrate de que se muestre la imagen
+            userProfilePic.style.display = 'inline-block';
         })
         .catch(error => {
             console.error('Error al cargar datos:', error);
             // En caso de error, usa la imagen predeterminada
-            document.getElementById('userProfilePic').src = './images/profile_pic/qqq.png'; // Cambia la extensión a .png
+            document.getElementById('userProfilePic').src = './images/qqq.png';
         });
 }
 
@@ -84,7 +83,7 @@ function closeDeletePopup() {
     document.getElementById('deletePopup').style.display = 'none';
 }
 
-// Mostrar el popup para confirmar la contraseña de administrador (sin funcionalidad)
+// Mostrar el popup para confirmar la contraseña de administrador
 function openPasswordPopup() {
     document.getElementById('passwordPopup').style.display = 'block';
 }
@@ -94,7 +93,7 @@ function closePasswordPopup() {
     document.getElementById('passwordPopup').style.display = 'none';
 }
 
-// Confirmar la contraseña para eliminar la cuenta (sin funcionalidad)
+// Confirmar la contraseña para eliminar la cuenta
 function confirmPassword() {
     const password = document.getElementById('adminPassword').value;
 

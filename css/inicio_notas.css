@@ -274,18 +274,18 @@ main {
 footer {
     background-color: #F8E48C;
     display: flex;
-    justify-content:  flex-start; /* Alinea elementos hacia la derecha */
+    justify-content:  flex-start;
     align-items: center;
     background-color: #F8E48C;
     height: 10vh;
     width: 100%;
     position: relative;
-    padding-left: 5vw; /* Añade algo de espacio al borde derecho */
+    padding-left: 5vw;
 }
 
 @media (max-aspect-ratio: 1/1) {
     .textInput {
-        font-size: 5vw; /* Ajusta el tamaño de la fuente dependiendo del ancho en relación a la altura */
+        font-size: 5vw;
         
     }
 
