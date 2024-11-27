@@ -43,8 +43,13 @@ header {
 }
 
 footer {
-    padding-left: 1.2%;
-    text-align: left;
+    background-color: #F8E48C;
+    color: #FFF2F2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 1.2%;
+    height: 10vh;
 }
 
 main p {
@@ -92,13 +97,13 @@ main {
 }
 
 .btnBack {
-    background-image: url('../images/botones-03.png');
-    background-color: #F8E48C;
+    background-image: url('../images/backImage.png');
+    background-color: transparent;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
-    width: 75px;
-    height: 45px;
+    width: 8vh;
+    height: 6vh;
     cursor: pointer;
 }
 

@@ -91,14 +91,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    filter: none;
-}
-
-button:active {
-    transform: none;
-}
-
 .btnStatistics {
     background-image: url('../images/icono 05.svg');
     background-size: contain;
@@ -121,12 +113,13 @@ button:active {
 }
 
 footer {
-    height: 10vh;
     background-color: #F8E48C;
+    color: #FFF2F2;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: left;  /* Flecha alineada a la izquierda */
-    padding-left: 20px;
+    padding: 2vh 1.2%;
+    height: 10vh;
 }
 
 footer p {
@@ -135,13 +128,13 @@ footer p {
 }
 
 .btnBack {
-    background-image: url('../images/botones-03.png');
-    background-color: #F8E48C;
+    background-image: url('../images/backImage.png');
+    background-color: transparent;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
-    width: 8vw;  /* Tamaño más pequeño de la flecha */
-    height: 8vh;  /* Tamaño más pequeño de la flecha */
+    width: 8vh;
+    height: 6vh;
     cursor: pointer;
 }
 
