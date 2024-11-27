@@ -1,3 +1,34 @@
+<?php
+session_start();
+include("connection.php");
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['uuid'])) {
+    die(json_encode(["success" => false, "message" => "Usuario no autenticado"]));
+}
+
+// Obtener el ID de usuario desde la sesión
+$user_id = $_SESSION['uuid'];
+
+// Consulta a la base de datos para obtener la imagen de perfil
+$sql = "SELECT profile_pic FROM child_users WHERE uuid = ?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("s", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Verificar si se encontraron los datos del niño
+if ($row = $result->fetch_assoc()) {
+    // Verificar si existe la imagen de perfil
+    $profilePic = $row['profile_pic'] ? $row['profile_pic'] : 'images/qqq.png';
+} else {
+    $profile_pic = !empty($child['profile_pic']) ? $child['profile_pic'] : './images/qqq.png';
+}
+
+$stmt->close();
+$con->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +45,21 @@
     <link rel="stylesheet" href="./CSS/interfaz_menu.css">
 
     <title>Menú</title>
+
+    <!-- Agregar CSS para la imagen de perfil -->
+    <style>
+        img.img-thumbnail {
+            width: 100px;          /* Tamaño fijo */
+            height: 100px;         /* Tamaño fijo */
+            border-radius: 50%;    /* Forma circular */
+            object-fit: cover;     /* Asegura que la imagen cubra el área sin deformarse */
+            margin-right: 10px;    /* Espacio a la derecha de la imagen */
+        }
+    </style>
 </head>
 <body>
     <header class="d-flex align-items-center p-3">
-        <img src="./images/qqq.png" alt="" id="img-thumbnail">
+        <img src="<?php echo htmlspecialchars($profilePic); ?>" alt="Foto de perfil" class="img-thumbnail">
         <h1 class="p-2">Bienvenido usuario infantil</h1>
     </header>
     <main>
