@@ -1,6 +1,5 @@
-/* Estilo para la ventana emergente */
 .modal {
-    display: none; /* Inicialmente oculta */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;

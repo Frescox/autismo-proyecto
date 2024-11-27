@@ -84,11 +84,65 @@ section p {
     margin: 10px 0;
 }
 
+#acerca-de-info {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 90%;
+    text-align: left;
+    color: #171616; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+#acerca-de-info h1 {
+    color: #8EAAF5;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+#acerca-de-info h2 {
+    color: #8EAAF5;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#acerca-de-info ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#acerca-de-info ul li {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#acerca-de-info ul li strong {
+    color: #8EAAF5;
+}
+
+#acerca-de-info p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#acerca-de-info footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #8EAAF5;
+}
+
+.team li {
+    margin-bottom: 10px;
+}
+
 footer {
     background-color: #F8E48C;
     color: #8EAAF5;
     text-align: center;
-    padding: 0px;
+    padding: 10px;
     position: fixed;
     align-items: center;
     justify-content: center;
@@ -122,20 +176,5 @@ footer {
     section {
         max-width: 100%;
         padding: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 25px;
-    }
-
-    nav a {
-        padding: 15px 20px;
-        font-size: 14px;
-    }
-
-    section p {
-        font-size: 14px;
     }
 }

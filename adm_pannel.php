@@ -52,14 +52,12 @@ $administradores = $con->query("SELECT user_id, user_name, user_lastname FROM tu
 <body>
     <div class="container">
         <h1 class="text-center my-4">Panel Administrativo</h1>
-        <!-- Navegación -->
         <div class="nav-buttons">
             <button class="btn btn-primary" onclick="showPanel(0)">Sin Permisos</button>
             <button class="btn btn-secondary" onclick="showPanel(1)">Con Permisos</button>
             <button class="btn btn-success" onclick="showPanel(2)">Administradores</button>
         </div>
         
-        <!-- Cuadros -->
         <div id="panel-0" class="panel active">
             <h3>Cuentas Sin Permisos</h3>
             <?php while ($row = $sin_permisos->fetch_assoc()): ?>
