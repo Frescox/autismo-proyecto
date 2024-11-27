@@ -135,7 +135,6 @@ function saveNotes() {
 function loadNotes() {
     consultarNombre();
     console.log('Notas cargadas');
-    niño.innerHTML = "Nota carro";
     const storedNotes = JSON.parse(localStorage.getItem('notes')) || [];
 
     container.innerHTML = '';
