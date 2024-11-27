@@ -70,7 +70,7 @@ if (!$result) {
     <main>
         <div id="gameTitle" class="d-flex align-items-center">
             <button class="right" id="btnBack" onclick="window.location.href = 'index.html';"></button>
-            <div class="p-2 flex-grow-1">
+            <div class="p-1 flex-grow-1">
                 <h1 class="left ms-5">Seleccione la cuenta que desea utilizar</h1>
             </div>
         </div>

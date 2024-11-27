@@ -9,7 +9,7 @@
 html, body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: white;
     text-align: center;
 }
@@ -60,7 +60,7 @@ header h1 {
 }
 .Title h1 {
     color: #8EAAF5; /* Color azul para el texto */
-    font-size: 5vh; /* Tamaño de fuente ajustable según el ancho de la pantalla */
+    font-size: 4vh; /* Tamaño de fuente ajustable según el ancho de la pantalla */
     padding: 1rem; /* Espaciado interno alrededor del título */
     border-radius: 8px; /* Bordes redondeados para el título */
     margin: 0; /* Sin margen para evitar separación innecesaria */
@@ -83,14 +83,17 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);    gap: 20px;
     justify-content: center;
+    padding-bottom: 30px;
  
 }
 
 
 /* Tarjetas de Estadísticas */
 .statistic-card {
+    display: flexbox;
+    overflow-y: auto;
     background-color: #FFFFFF;
-    padding: 20px;
+    padding: 10px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     color: #8EAAF5;
@@ -125,6 +128,13 @@ main {
 
 /* Modo vertical (pantalla más alta que ancha): 2x2 */
 @media (max-aspect-ratio: 1/1) {
+
+    header{
+        height: 15vh;
+    }
+    header h1{
+        font-size: 4vh;
+    }
     .container-statistics {
         grid-template-columns: repeat(1, 3fr);
     }
@@ -158,6 +168,10 @@ main {
     font-size: 3.2vw;
     margin: 5px 0; /* Añade un margen vertical entre las palabras */
 }
+
+
+
+
 
 }
 

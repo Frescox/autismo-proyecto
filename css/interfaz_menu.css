@@ -7,12 +7,15 @@ Estilos Globales
 }
 
 html, body {
-    height: 100%;
-    width: 100%;
-    background-color: #8EAAF5;
-    color: #FFF2F2;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Esto asegura que tanto el html como el body ocupen toda la altura de la ventana */
+    width: 100%; /* Asegura que el body ocupe el 100% del ancho */
+    overflow-x:hidden; 
+    background-color: white;
     text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 body {
@@ -22,17 +25,20 @@ body {
     background-color: #8EAAF5;
     text-align: center;
     color: #FFF2F2;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Header */
 header {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
     background-color: #F8E48C;
     color: #8EAAF5;
-    height: 15vh;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-weight: 700;
+    border-bottom: 1px solid #ddd;
 }
 
 header h1 {
@@ -63,11 +69,11 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 5px;
     width: 80%;
-    height: 8vh;
+    height: auto;
     border-radius: 10px;
-    margin-top: -10px; /* Ajuste para elevar el recuadro */
+   
     margin-bottom: 50px;
 }
 
@@ -147,11 +153,16 @@ img.img-thumbnail {
         
     }
 
+    #gameTitle h1 {
+        font-size: 3vh;
+        margin-left: 1rem;
+    }
+
 }
 
 @media (max-height:1028px) {
     #gameTitle{
-        margin-top: -20px;
+        margin-top: 10px;
         margin-bottom: 40px;
     }
     #btnLetters, #btnNotes {
@@ -173,7 +184,7 @@ img.img-thumbnail {
 
 @media (max-height:678px) {
     #gameTitle{
-        margin-top: -10px;
+        margin-top: 10px;
         margin-bottom: 40px;
     }
     #btnLetters, #btnNotes {

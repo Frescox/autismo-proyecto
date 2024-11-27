@@ -67,6 +67,11 @@ img.img-thumbnail {
     width: auto;
 }
 
+#userProfilePic{
+    height: 13vh;
+    width: auto;
+}
+
 main {
     flex: 1;
     display: flex;
