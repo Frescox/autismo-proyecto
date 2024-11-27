@@ -137,7 +137,7 @@ img.img-thumbnail {
 
 @media (orientation: portrait) {
     #container-buttons {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1x2 cuando está en vertical */
         grid-template-rows: repeat(2, 1fr);
     }
     
@@ -216,3 +216,24 @@ img.img-thumbnail {
 }
 
 
+/* Footer */
+footer {
+    background-color: #F8E48C;
+    color: #FFF2F2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 1.2%;
+    height: 10vh;
+}
+
+#btnBack {
+    background-image: url('../images/backImage.png');
+    background-color: transparent;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: none;
+    width: 8vh;
+    height: 6vh;
+    cursor: pointer;
+}
