@@ -270,6 +270,16 @@ label {
         cursor: pointer;
         font-size: 18px;
         height: 40px;
+        width: 110px;
+    }
+
+    .filter-container {
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben */
+        gap: 5px; 
+    }
+
+    #start-date, #end-date {
+        width: 200%; /* Los inputs ocupan el 100% en pantallas más pequeñas */
     }
 }
 
@@ -384,6 +394,6 @@ label {
         /* Añadir margen inferior para separar las palabras */
     }
     #start-date, #end-date {
-        width: 80%; /* Los inputs ocupan el 100% en pantallas más pequeñas */
+        width: 90%; /* Los inputs ocupan el 100% en pantallas más pequeñas */
     }
 }
