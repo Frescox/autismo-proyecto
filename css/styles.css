@@ -1,3 +1,22 @@
+* {
+    font-family: "Dosis", sans-serif;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Esto asegura que tanto el html como el body ocupen toda la altura de la ventana */
+    width: 100%; /* Asegura que el body ocupe el 100% del ancho */
+    overflow-x:hidden; /* Evita el desplazamiento por desbordamiento */
+    background-color: white;
+    text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+
 body {
     font-family: "Dosis", sans-serif;
     margin: 0;
@@ -67,10 +86,13 @@ nav a:active {
 section {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    margin: 20px auto;
+    padding-bottom: 30px;
+    margin: 20px;
+    margin-bottom: 25px;
     border-radius: 8px;
-    max-width: 90%;
+    max-width: 100%;
     text-align: left;
+    align-self: center;
 }
 
 section h1 {
@@ -84,6 +106,17 @@ section p {
     margin: 10px 0;
 }
 
+#acerca-de-info{
+    color: #171616;
+    margin-bottom: 40px;
+}
+
+h2{
+    color: #34479b;
+}
+
+
+
 footer {
     background-color: #F8E48C;
     color: #8EAAF5;
@@ -96,46 +129,37 @@ footer {
     width: 100%;
 }
 
-@media (max-width: 450px) {
+
+@media (max-height: 400px) {
+
+}
+
+@media (orientation: portrait) {
     header {
-        flex-direction: column;
-        text-align: center;
+        height: 30vh;
     }
 
-    header img.logo {
-        margin-left: 0;
-    }
-
-    header h1 {
-        font-size: 16px;
-        margin-right: 0;
-    }
-
-    nav {
-        flex-direction: column;
+    header h1{
+        font-size: 5vw;
     }
 
     nav a {
-        padding: 8px 12px;
+        font-size: 6vw;
+        padding: 5px 10px;
+        
     }
 
-    section {
-        max-width: 100%;
-        padding: 12px;
+    section h1 {
+        font-size: 7vw;
     }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 25px;
-    }
-
-    nav a {
-        padding: 15px 20px;
-        font-size: 14px;
-    }
-
+    
     section p {
-        font-size: 14px;
+        color: #171616;
+        font-size: 4vw;
+    
     }
+        
+
+
 }
+

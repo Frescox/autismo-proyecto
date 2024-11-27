@@ -222,6 +222,11 @@ main {
         width: 12vw;
         height: 12vw;
     }
+
+    .word-section {
+        width: calc(70% - 20px);
+    }
+    
     button {
         width: 15vw;
         height: 15vw;
