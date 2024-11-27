@@ -45,17 +45,6 @@ $con->close();
     <link rel="stylesheet" href="./CSS/interfaz_menu.css">
 
     <title>Menú</title>
-
-    <!-- Agregar CSS para la imagen de perfil -->
-    <style>
-        img.img-thumbnail {
-            width: 100px;          /* Tamaño fijo */
-            height: 100px;         /* Tamaño fijo */
-            border-radius: 50%;    /* Forma circular */
-            object-fit: cover;     /* Asegura que la imagen cubra el área sin deformarse */
-            margin-right: 10px;    /* Espacio a la derecha de la imagen */
-        }
-    </style>
 </head>
 <body>
     <header class="d-flex align-items-center p-3">
@@ -68,7 +57,7 @@ $con->close();
                 <h1 class="ms-5">Juegos</h1>
             </div>
             <div class="p-2 mx-auto">
-                <button id="btnConf" class="btn btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas1" aria-controls="offcanvasExample">
+                <button id="btnConf" class="btn btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas1" aria-controls="offcanvasExample">
                     <i class="bi bi-sliders2"></i>
                 </button>
             </div>

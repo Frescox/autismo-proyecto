@@ -50,8 +50,7 @@ img {
     justify-content: center;
     font-size: 4vh;
     color: #FBE48C;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    font-weight: bold;
+    font-weight: 700;
     background-color: transparent;
     height: 7vh;
 }

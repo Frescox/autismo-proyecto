@@ -65,3 +65,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
 }
+
+footer p{
+    margin-top: 1rem;
+}
