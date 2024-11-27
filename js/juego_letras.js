@@ -242,5 +242,5 @@ window.addEventListener('beforeunload', () => {
 });
 
 function terminarJuego() {
-    window.location.href = "interfaz_menu.html";
+    window.location.href = "interfaz_menu.php";
 }

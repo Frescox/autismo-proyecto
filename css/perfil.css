@@ -1,3 +1,4 @@
+/* General */
 body {
     margin: 0;
     padding: 0;
@@ -69,6 +70,7 @@ main {
     color: #8EAAF5;
 }
 
+/* Botones principales */
 .btnAddPhotos {
     background-image: url('../images/icono 09.svg');
     background-color: #8EAAF5;
@@ -82,7 +84,7 @@ main {
 
 .btnDeleteAccount {
     background-image: url('../images/icono 10.svg');
-    background-color: transparent;
+    background-color: transparent; /* Sin fondo rojo */
     background-size: 100% 100%;
     border: none;
     width: 10rem;
@@ -136,21 +138,20 @@ main {
 /* Estilos para el contenedor de previsualización de la imagen */
 .photo-space {
     width: 100%;
-    height: 200px; /* Mantener una altura fija */
+    height: 200px;
     background-color: #F0F0F0;
     border: 2px dashed #8EAAF5;
     margin-bottom: 20px;
     position: relative;
-    overflow: hidden; /* Asegura que la imagen no se desborde */
+    overflow: hidden;
 }
 
-/* Estilo de la imagen para ajustarse al espacio de previsualización */
 #photoPreview {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Esto hace que la imagen cubra el área del contenedor, cortando las partes que no caben */
-    display: none; /* Por defecto, la imagen está oculta */
-    object-position: center; /* Centra la imagen en el contenedor */
+    object-fit: cover;
+    display: none;
+    object-position: center;
 }
 
 .btnCustomPhoto, .btnCancel {
@@ -176,7 +177,7 @@ main {
 }
 
 /* Estilo específico para el botón "Eliminar Cuenta" en el popup */
-.popup .btnDeleteAccount {
+.popup .btnPopupDelete {
     background-color: #FF4B4B; /* Rojo para advertencia */
     color: #FFFFFF;
     font-weight: bold;
@@ -186,8 +187,18 @@ main {
     margin: 10px;
     border-radius: 5px;
     font-size: 16px;
-    background-image: none; /* Quitar cualquier imagen de fondo */
-    background-repeat: none;
+    background-image: none; /* Sin ícono */
+}
+
+.popup .btnPopupCancel {
+    background-color: #8EAAF5;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 .popup .btnConfirmPassword {
@@ -202,17 +213,14 @@ main {
 }
 
 @media (max-width: 767px) {
-
     header {
         font-size: 16px; 
         padding: 8px 0;
     }
-    
     footer {
         font-size: 20px; 
         padding: 5px 0; 
     }
-
     main {
         height: 70vh;
     }
@@ -220,13 +228,9 @@ main {
         width: 8rem;
         height: 8rem;
     }
-
-
 }
 
 @media (max-height: 660px) {
-
-    
     header {
         font-size: 16px; 
         padding: 8px 0; 
@@ -235,14 +239,11 @@ main {
         font-size: 20px; 
         padding: 5px 0; 
     }
-
     main {
         height: 70vh;
     }
-    .btnPersonalData, .btnAddPhotos, .btnScore, .btnDeleteAccount {
+    .btnAddPhotos, .btnDeleteAccount {
         width: 5rem;
         height: 5rem;
     }
-
-
 }

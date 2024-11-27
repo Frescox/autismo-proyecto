@@ -3,14 +3,27 @@ function init() {
     fetch('get_user_data.php')
         .then(response => response.json())
         .then(data => {
+            const userProfilePic = document.getElementById('userProfilePic');
+            // Verifica si la respuesta es exitosa y si hay una foto de perfil
             if (data.success && data.profile_pic) {
-                const userProfilePic = document.getElementById('userProfilePic');
                 userProfilePic.src = data.profile_pic; // Usar la ruta de la imagen
-                userProfilePic.style.display = 'inline-block'; // Asegurarse de que se muestre la imagen
+            } else {
+                // Si no hay foto, usar la imagen predeterminada
+                userProfilePic.src = './images/profile_pic/qqq.png'; // Cambia la extensión a .png
             }
+            userProfilePic.style.display = 'inline-block'; // Asegúrate de que se muestre la imagen
         })
-        .catch(error => console.error('Error al cargar datos:', error));
+        .catch(error => {
+            console.error('Error al cargar datos:', error);
+            // En caso de error, usa la imagen predeterminada
+            document.getElementById('userProfilePic').src = './images/profile_pic/qqq.png'; // Cambia la extensión a .png
+        });
 }
+
+
+// Llamada a init() para cargar la imagen de perfil al cargar la página
+window.onload = init;
+
 
 // Mostrar el popup para seleccionar una foto
 function openPhotoPopup() {

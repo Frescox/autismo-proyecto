@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/admin.css">
     <title>Menú</title>
+
 </head>
-<body>
+<body onload="loadProfilePic();">
     <header>
-        <p>Logo</p>
-        <h1>Administrador</h1>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <img id="userProfilePic" src="" alt="Foto de perfil" style="width: 100px; height: 100px; border-radius: 50%; display: none; margin-right: 10px;">
+            <h1>Administrador</h1>
+        </div>
     </header>
     <main>
         <div class="Title">
@@ -35,8 +38,10 @@
         </div>
     </main>
     <footer>
-        <button class="btnBack" onclick="window.location.href = 'interfaz_menu.html';"></button>
+        <button class="btnBack" onclick="window.location.href = 'interfaz_menu.php';"></button>
     </footer>
+
     <script src="./js/verif_perm.js"></script>
+    <script src="./js/perfil.js"></script>
 </body>
 </html>
