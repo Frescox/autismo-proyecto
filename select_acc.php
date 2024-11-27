@@ -4,6 +4,11 @@ session_start();
 include("connection.php");
 include("functions.php");
 
+if(isset($_SESSION['uuid'])){
+    $_SESSION['uuid'] = null;
+    header("Location: index.html");
+}
+
 // Obtener el user_id del padre/tutor desde la sesión
 $tutor_id = $_SESSION['user_id'];
 

@@ -6,61 +6,48 @@ include("functions.php");
 
 $sin_permisos = $con->query("SELECT user_id, user_name, user_lastname FROM tutor_users WHERE has_perm = 0");
 $con_permisos = $con->query("SELECT user_id, user_name, user_lastname FROM tutor_users WHERE has_perm = 1 AND is_adm = 0");
-$administradores = $con->query("SELECT user_id, user_name, user_lastname FROM tutor_users WHERE is_adm = 1");
+$administradores = $con->query("SELECT user_id, user_name, user_lastname FROM tutor_users WHERE is_adm = 1 AND user_id != 4044");
 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrativo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body { background-color: #f5f5f5; }
-        .panel {
-            opacity: 0;
-            visibility: hidden;
-            transition: transform 0.5s ease, opacity 1s ease;
-            position: absolute; 
-            width: 100%;
-        }
-
-        .panel.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-            position: relative;
-        }
-
-        .panel.left {
-            transform: translateX(-100%);
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .panel.right {
-            transform: translateX(100%);
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .nav-buttons { text-align: center; margin: 20px 0; }
-    </style>
+    <link rel="stylesheet" href="./css/interfaz_menu.css">
+    <link rel="stylesheet" href="./css/adm_pannel.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="text-center my-4">Panel Administrativo</h1>
-        <div class="nav-buttons">
-            <button class="btn btn-primary" onclick="showPanel(0)">Sin Permisos</button>
-            <button class="btn btn-secondary" onclick="showPanel(1)">Con Permisos</button>
-            <button class="btn btn-success" onclick="showPanel(2)">Administradores</button>
+    <!-- Header -->
+    <header class="d-flex align-items-center p-3">
+        <h1 class="p-2">Panel Administrativo</h1>
+    </header>
+    <h1 class="ms-3">Gestión de Usuarios</h1>
+    <div class="d-flex justify-content-center gap-3 my-4">
+        <button class="btn btn-primary" onclick="showPanel(0)">Sin Permisos</button>
+        <button class="btn btn-secondary" onclick="showPanel(1)">Con Permisos</button>
+        <button class="btn btn-success" onclick="showPanel(2)">Administradores</button>
+    </div>
+    <!-- Main Content -->
+    <main class="container my-4">
+        <!-- Navegación de Paneles -->
+
+        <div id="gameTitle" class="d-flex align-items-center justify-content-between">
         </div>
-        
+
         <div id="panel-0" class="panel active">
             <h3>Cuentas Sin Permisos</h3>
-            <?php while ($row = $sin_permisos->fetch_assoc()): ?>
+            <?php while ($row = $sin_permisos->fetch_assoc()):
+                if ($row['user_id'] == 4044) {
+                    continue; // Omite esta iteración del bucle
+                }
+            ?>
                 <div class="card my-2">
                     <div class="card-body">
                         <h5 class="card-title"><?= decryptData($row['user_name']) . " " . decryptData($row['user_lastname']) ?></h5>
@@ -69,7 +56,8 @@ $administradores = $con->query("SELECT user_id, user_name, user_lastname FROM tu
                 </div>
             <?php endwhile; ?>
         </div>
-        
+
+
         <div id="panel-1" class="panel">
             <h3>Cuentas Con Permisos</h3>
             <?php while ($row = $con_permisos->fetch_assoc()): ?>
@@ -82,7 +70,7 @@ $administradores = $con->query("SELECT user_id, user_name, user_lastname FROM tu
                 </div>
             <?php endwhile; ?>
         </div>
-        
+
         <div id="panel-2" class="panel">
             <h3>Administradores</h3>
             <?php while ($row = $administradores->fetch_assoc()): ?>
@@ -94,26 +82,33 @@ $administradores = $con->query("SELECT user_id, user_name, user_lastname FROM tu
                 </div>
             <?php endwhile; ?>
         </div>
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <button id="btnBack" onclick="window.location.href = 'interfaz_menu.php';"></button>
+    </footer>
 
     <script>
-        
         let currentPanel = 0;
 
-function showPanel(index) {
-    // Ocultar el panel actual
-    const current = document.getElementById(`panel-${currentPanel}`);
-    current.classList.remove('active');
-    current.classList.add(currentPanel > index ? 'right' : 'left');  // Transiciones de salida
+        function showPanel(index) {
+            // Validar si el índice está dentro del rango
+            if (index < 0 || index > 2) return;
 
-    // Mostrar el panel seleccionado
-    const next = document.getElementById(`panel-${index}`);
-    next.classList.remove('left', 'right');  // Eliminar clases anteriores
-    next.classList.add('active');  // Hacer visible el siguiente panel
+            // Ocultar el panel actual
+            const current = document.getElementById(`panel-${currentPanel}`);
+            current.classList.remove('active');
+            current.classList.add(currentPanel > index ? 'right' : 'left');
 
-    // Actualizar el índice del panel actual
-    currentPanel = index;
-}
+            // Mostrar el panel seleccionado
+            const next = document.getElementById(`panel-${index}`);
+            next.classList.remove('left', 'right');
+            next.classList.add('active');
+
+            // Actualizar el índice del panel actual
+            currentPanel = index;
+        }
 
 
 
@@ -135,4 +130,5 @@ function showPanel(index) {
         }
     </script>
 </body>
+
 </html>

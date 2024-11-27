@@ -1,0 +1,58 @@
+.panel {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    z-index: 0;
+}
+
+.panel.active {
+    display: block;
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 1;
+}
+
+.panel.left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.panel.right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+/* Panel Administrativo - Ajustes adicionales */
+.panel {
+    display: none;
+}
+.panel.active {
+    display: block;
+}
+
+/* Ajuste de botones */
+button {
+    font-family: "Dosis", sans-serif;
+    font-weight: 600;
+}
+
+main.container {
+    position: relative;
+    min-height: 400px; /* Ajusta según el contenido */
+    overflow: hidden; /* Evita que los paneles fuera del área sean visibles */
+}
+
+/* Responsividad específica */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 4vw;
+    }
+
+    .card {
+        font-size: 0.9rem;
+    }
+}
