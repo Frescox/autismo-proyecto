@@ -8,6 +8,22 @@ window.onload = function () {
     fetchUuidFromSession();
 };
 
+function consultarNombre() {
+    fetch('getChildName.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.nombre) {
+                document.getElementById('text').textContent = `Control parental de ${data.nombre}`;
+            } else {
+                document.getElementById('text').textContent = data.error;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('text').textContent = 'Error al consultar el nombre';
+        });
+}
+
 // Obtener el UUID del usuario desde la sesión
 function fetchUuidFromSession() {
     fetch('get_uuid.php')

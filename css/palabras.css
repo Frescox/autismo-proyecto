@@ -41,6 +41,21 @@
     justify-content: space-around;
 }
 
+img.img-thumbnail {
+    width: 100px;          /* Tamaño fijo */
+    height: 100px;         /* Tamaño fijo */
+    border-radius: 50%;    /* Forma circular */
+    object-fit: cover;     /* Asegura que la imagen cubra el área sin deformarse */
+    margin-right: 10px;    /* Espacio a la derecha de la imagen */
+    background-color: #FFFFFF;
+    padding: 4px;
+}
+
+#img-thumbnail {
+    background-color: #FFFFFF;
+}
+
+
 .btnCancel, .btnConfirm {
     background-color: #FFCC80;
     color: #8EAAF5;

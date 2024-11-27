@@ -58,18 +58,7 @@ img.img-thumbnail {
 }
 
 #img-thumbnail {
-    height: 13vh;
     background-color: #FFFFFF;
-}
-
-#userProfilePic{
-    height: 13vh;
-    width: auto;
-}
-
-#userProfilePic{
-    height: 13vh;
-    width: auto;
 }
 
 main {
@@ -153,6 +142,13 @@ button:active {
 
 .btnEditProfile {
     background-image: url('../images/icono 08.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnNotas {
+    background-image: url('../images/notepadLogo.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
