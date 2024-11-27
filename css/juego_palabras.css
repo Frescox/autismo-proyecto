@@ -1,5 +1,6 @@
 * {
     font-family: "Dosis", sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -132,30 +133,24 @@ main {
 }
 
 footer {
-    background-color: #FBE48C;
-    color: white;
-    align-items: center;
+    background-color: #F8E48C;
+    color: #FFF2F2;
     display: flex;
-    height: 9vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 1.2%;
+    height: 10vh;
 }
 
 .BtnGoBack1 {
-    display: flex;
-    background-image: url("../images/botones-03.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 15vh;
-    height: 7vh;
-    align-items: center;
-    position: absolute;
-    justify-content: right;
-    z-index: 1;
-    transform: translate(10%, 0%);
-    border: none;
+    background-image: url('../images/backImage.png');
     background-color: transparent;
-    transition: filter 0.3s ease, transform 0.2s ease;
-    margin-left: 0%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: none;
+    width: 8vh;
+    height: 6vh;
+    cursor: pointer;
 }
 
 .changeWord {
@@ -176,15 +171,6 @@ footer {
     position: absolute;
     right: 0;
     transform: translate(-4vh, 0%);
-}
-
-.BtnGoBack1:hover, .changeWord:hover {
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
-}
-
-.BtnGoBack1:active {
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    transform: translate(-10%, 0%) scale(0.95);
 }
 
 .changeWord:active {

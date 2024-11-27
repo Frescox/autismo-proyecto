@@ -50,6 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/transicion.css">
 </head>
@@ -61,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <img src="./images/logo.png" alt="Logo de Sonrisas del Autismo" class="logo">
         <h1>Sonrisas del Autismo</h1>
         <nav>
-            <a href="./interfaz_menu.html">Regresar</a>
+            <a href="./interfaz_menu.php">Regresar</a>
         </nav>
     </header>
 
@@ -100,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </div>
 
     <footer>
-        <p>Derechos reservados &copy; 2024</p>
+        <p>&copy; 2024 <strong>Sonrisas del Autismo</strong>. Todos los derechos reservados.</p>
     </footer>
 
     <script src="./js/verif_perm.js"></script>
