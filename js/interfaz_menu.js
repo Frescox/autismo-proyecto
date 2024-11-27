@@ -79,6 +79,7 @@ function register() {
 // Función para inicializar configuraciones al cargar la página
 function init() {
     let colorGuardado;
+    consultarNombre();
     fetch('get_conf.php')
         .then(respuesta => respuesta.json())
         .then(data => {
@@ -112,6 +113,22 @@ function init() {
 
         })
         .catch(error => console.error('Error:', error));
+}
+
+function consultarNombre() {
+    fetch('getChildName.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.nombre) {
+                document.getElementById('text').textContent = `¡Bienvenido, ${data.nombre}!`;
+            } else {
+                document.getElementById('text').textContent = data.error;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('text').textContent = 'Error al consultar el nombre';
+        });
 }
 
 window.onload = init;

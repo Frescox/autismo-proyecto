@@ -4,7 +4,17 @@ include("connection.php");
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['uuid'])) {
-    die(json_encode(["success" => false, "message" => "Usuario no autenticado"]));
+    header("Location: index.html");
+}
+
+if (isset($_POST['logout'])) {
+    // Verifica si la sesión tiene un UUID definido
+    if (isset($_SESSION['uuid'])) {
+        $_SESSION['uuid'] = null; // Limpia el UUID de la sesión
+    }
+    // Redirige al usuario a la página de inicio
+    header("Location: index.html");
+    exit();
 }
 
 // Obtener el ID de usuario desde la sesión
@@ -42,14 +52,14 @@ $con->close();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./CSS/interfaz_menu.css">
+    <link rel="stylesheet" href="./css/interfaz_menu.css">
 
     <title>Menú</title>
 </head>
 <body>
     <header class="d-flex align-items-center p-3">
         <img src="<?php echo htmlspecialchars($profilePic); ?>" alt="Foto de perfil" class="img-thumbnail">
-        <h1 class="p-2">Bienvenido usuario infantil</h1>
+        <h1 class="p-2" id = "text">Bienvenido</h1>
     </header>
     <main>
         <div id="gameTitle" class="d-flex align-items-center">
@@ -105,7 +115,9 @@ $con->close();
         </div>
     </main>
     <footer>
-        <button id="btnBack" onclick="window.location.href = 'index.html';"></button>
+    <form method="POST" action="">
+        <button type="submit" name="logout" id="btnBack"></button>
+    </form>
     </footer>
 
     <script src="./js/verif_perm.js"></script>

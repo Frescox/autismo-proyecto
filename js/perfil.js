@@ -1,5 +1,6 @@
 // Cargar la foto de perfil al cargar la página
 function init() {
+    consultarNombre();
     fetch('get_user_data.php')
         .then(response => response.json())
         .then(data => {
@@ -19,6 +20,21 @@ function init() {
         });
 }
 
+function consultarNombre() {
+    fetch('getChildName.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.nombre) {
+                document.getElementById('text').textContent = `Control parental de ${data.nombre}`;
+            } else {
+                document.getElementById('text').textContent = data.error;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('text').textContent = 'Error al consultar el nombre';
+        });
+}
 
 // Llamada a init() para cargar la imagen de perfil al cargar la página
 window.onload = init;
