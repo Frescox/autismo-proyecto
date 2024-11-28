@@ -35,7 +35,7 @@ $administradores = $con->query("SELECT user_id, user_name, user_lastname FROM tu
         <button class="btn btn-success" onclick="showPanel(2)">Administradores</button>
     </div>
     <!-- Main Content -->
-    <main class="container my-4">
+    <main class="container my-4 overflow-auto" style="height: 100vh;">
         <!-- Navegación de Paneles -->
 
         <div id="gameTitle" class="d-flex align-items-center justify-content-between">
@@ -52,6 +52,7 @@ $administradores = $con->query("SELECT user_id, user_name, user_lastname FROM tu
                     <div class="card-body">
                         <h5 class="card-title"><?= decryptData($row['user_name']) . " " . decryptData($row['user_lastname']) ?></h5>
                         <button class="btn btn-primary" onclick="confirmAction('¿Otorgar permisos de usuario?', 'updatePermission.php', { userId: <?= $row['user_id'] ?>, action: 'grant_user' })">Otorgar Permisos</button>
+                        <button class="btn btn-danger" onclick="confirmAction('¿Desea eliminar la solicitud?', 'updatePermission.php', { userId: <?= $row['user_id'] ?>, action: 'remove_user' })">Denegar Permisos</button>
                     </div>
                 </div>
             <?php endwhile; ?>
