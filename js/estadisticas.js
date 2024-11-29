@@ -1,3 +1,45 @@
+// Cargar la foto de perfil al cargar la página
+window.onload = function () {
+    init();
+};
+
+function init() {
+    consultarNombre();
+    fetch('get_user_data.php')
+        .then(response => response.json())
+        .then(data => {
+            const userProfilePic = document.getElementById('userProfilePic');
+            if (data.success && data.profile_pic) {
+                userProfilePic.src = data.profile_pic;
+            } else {
+                // Si no hay foto, usar la imagen predeterminada
+                userProfilePic.src = './images/qqq.png';
+            }
+            userProfilePic.style.display = 'inline-block';
+        })
+        .catch(error => {
+            console.error('Error al cargar datos:', error);
+            // En caso de error, usa la imagen predeterminada
+            document.getElementById('userProfilePic').src = './images/qqq.png';
+        });
+}
+
+function consultarNombre() {
+    fetch('getChildName.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.nombre) {
+                document.getElementById('text').textContent = `Estadisticas de ${data.nombre}`;
+            } else {
+                document.getElementById('text').textContent = data.error;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('text').textContent = 'Error al consultar el nombre';
+        });
+}
+
 async function cargarEstadisticas() {
     try {
         // Realizar la solicitud al backend

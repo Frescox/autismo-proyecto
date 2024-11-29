@@ -13,6 +13,9 @@
     align-items: center;
     z-index: 1000;
 }
+header h1 {
+    font-size: 5vw; 
+}
 
 .modal-content {
     background-color: #FFF2F2;
@@ -91,27 +94,22 @@ header {
 
 footer {
     background-color: #F8E48C;
-    color: #fff2f200;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
+    color: #FFF2F2;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    padding-left: 20px;
-    position: relative; /* Mantener dentro del flujo */
-    bottom: 0; /* Garantizar que se mantenga en la base */
+    padding: 2vh 1.2%;
+    height: 10vh;
 }
 
 .btnBack {
     background-image: url('../images/botones-03.png');
-    background-color: #F8E48C;
+    background-color: transparent;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border: none;
-    width: 75px;
-    height: 45px;
+    width: 8vh;
+    height: 6vh;
     cursor: pointer;
 }
 
@@ -161,6 +159,12 @@ main {
     margin-bottom: 20px;
     width: 100%;
     border-radius: 5px;
+}
+
+.title {
+    background-color: #FFFFFF;
+    color: #8EAAF5;
+    margin-bottom: 20px;
 }
 
 .empty-space {
@@ -300,11 +304,6 @@ label {
         height: 12vw;
     }
 
-    .btnBack {
-        width: 10vw;
-        height: 6vw;
-    }
-
     .empty-space {
         width: 95%;
         height: 100%;
@@ -325,11 +324,6 @@ label {
     button {
         width: 15vw;
         height: 15vw;
-    }
-
-    .btnBack {
-        width: 12vw;
-        height: 8vw;
     }
 
     .empty-space {
@@ -358,11 +352,6 @@ label {
     button {
         width: 70%;
         height: auto;
-    }
-
-    .btnBack {
-        width: 20vw;
-        height: 10vw;
     }
 
     p {

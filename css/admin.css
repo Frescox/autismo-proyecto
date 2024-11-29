@@ -36,7 +36,7 @@ header {
     height: 15vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 20px;
 }
 
@@ -62,14 +62,8 @@ img.img-thumbnail {
     background-color: #FFFFFF;
 }
 
-#userProfilePic{
-    height: 13vh;
-    width: auto;
-}
-
-#userProfilePic{
-    height: 13vh;
-    width: auto;
+header h1 {
+    font-size: 5vw; 
 }
 
 main {

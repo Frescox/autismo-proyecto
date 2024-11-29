@@ -5,6 +5,7 @@ let notes = [];
 // Función para obtener el UUID de la sesión cuando se carga la página
 window.onload = function () {
     fetchUuidFromSession();
+    init();
 };
 
 // Obtener el UUID del usuario desde la sesión
@@ -82,4 +83,42 @@ function filterNotes() {
     filteredNotes.forEach(note => {
         addNoteToUI(note);
     });
+}
+
+
+function consultarNombre() {
+    fetch('getChildName.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.nombre) {
+                document.getElementById('text').textContent = `Notas de ${data.nombre}`;
+            } else {
+                document.getElementById('text').textContent = data.error;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('text').textContent = 'Error al consultar el nombre';
+        });
+}
+
+function init() {
+    consultarNombre();
+    fetch('get_user_data.php')
+        .then(response => response.json())
+        .then(data => {
+            const userProfilePic = document.getElementById('userProfilePic');
+            if (data.success && data.profile_pic) {
+                userProfilePic.src = data.profile_pic;
+            } else {
+                // Si no hay foto, usar la imagen predeterminada
+                userProfilePic.src = './images/qqq.png';
+            }
+            userProfilePic.style.display = 'inline-block';
+        })
+        .catch(error => {
+            console.error('Error al cargar datos:', error);
+            // En caso de error, usa la imagen predeterminada
+            document.getElementById('userProfilePic').src = './images/qqq.png';
+        });
 }
