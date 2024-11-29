@@ -1,4 +1,9 @@
 // Cargar la foto de perfil al cargar la página
+window.onload = function () {
+    fetchUuidFromSession();
+    init();
+};
+
 function init() {
     consultarNombre();
     fetch('get_user_data.php')
@@ -25,7 +30,7 @@ function consultarNombre() {
         .then(response => response.json())
         .then(data => {
             if (data.nombre) {
-                document.getElementById('text').textContent = `Control parental de ${data.nombre}`;
+                document.getElementById('text').textContent = `Cuenta de ${data.nombre}`;
             } else {
                 document.getElementById('text').textContent = data.error;
             }
