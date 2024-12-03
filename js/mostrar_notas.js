@@ -62,7 +62,6 @@ function addNoteToUI(note) {
     container.appendChild(noteSection);
 }
 
-// Filtrar notas por fechas
 function filterNotes() {
     const startDate = document.getElementById('start-date').value;
     const endDate = document.getElementById('end-date').value;
@@ -72,9 +71,17 @@ function filterNotes() {
         return;
     }
 
+    // Convertir las fechas en formato yyyy-mm-dd
+    const startDateObj = new Date(startDate);
+    const endDateObj = new Date(endDate);
+    
+    startDateObj.setHours(0, 0, 0, 0);
+    endDateObj.setHours(23, 59, 59, 999);
+
     const filteredNotes = notes.filter(note => {
         const noteDate = new Date(note.note_date);
-        return noteDate >= new Date(startDate) && noteDate <= new Date(endDate);
+        noteDate.setHours(0, 0, 0, 0); 
+        return noteDate >= startDateObj && noteDate <= endDateObj;
     });
 
     const container = document.querySelector('.empty-space');
@@ -84,7 +91,6 @@ function filterNotes() {
         addNoteToUI(note);
     });
 }
-
 
 function consultarNombre() {
     fetch('getChildName.php')

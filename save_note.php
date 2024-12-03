@@ -33,7 +33,7 @@ $check_note_result = mysqli_query($con, $check_note_query);
 
 if (mysqli_num_rows($check_note_result) > 0) {
     $update_query = "UPDATE child_notes 
-                     SET note = '$currentNote', note_date = NOW() 
+                     SET note = '$currentNote', note_date = CURDATE() 
                      WHERE id = (SELECT id FROM child_notes 
                                  WHERE child_id = '$child_id' AND note = '$oldNote' 
                                  ORDER BY note_date DESC LIMIT 1)";
@@ -44,7 +44,7 @@ if (mysqli_num_rows($check_note_result) > 0) {
         echo "Error al actualizar la nota: " . mysqli_error($con);
     }
 } else {
-    $insert_query = "INSERT INTO child_notes (child_id, note, note_date) VALUES ('$child_id', '$currentNote', NOW())";
+    $insert_query = "INSERT INTO child_notes (child_id, note, note_date) VALUES ('$child_id', '$currentNote', CURDATE())";
     if (mysqli_query($con, $insert_query)) {
         echo "Nota insertada con éxito.";
     } else {
