@@ -92,25 +92,37 @@ main {
 .container-buttons {
     display: flex;
     justify-content: center;  /* Increased space between buttons */
-    gap: 3rem;  /* Increased gap between buttons */
+    gap: 2rem;  /* Increased gap between buttons */
     padding: 1rem;
-    width: 80%;  /* Ensure the buttons container takes up most of the width */
+    width: auto;
+    margin-left: -10px;
 }
 
 .button-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
 }
 
-button {
+#button1 {
     background-color: #8EAAF5;
     width: 10vw;  /* Botones más pequeños */
     height: 10vw;  /* Botones más pequeños */
     border: none;
     cursor: pointer;
 }
+
+#button4 {
+    background-color: #8EAAF5;
+    width: 11vw;  /* Botones más pequeños */
+    height: 11vw;  /* Botones más pequeños */
+    border: none;
+    cursor: pointer;
+    margin-top: -0.5vw;
+    padding: -5px;
+    margin-left: -7px;
+}
+
 
 p{
     color: white;
