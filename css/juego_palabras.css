@@ -158,7 +158,7 @@ footer {
     align-items: center;
     justify-content: center;
     background-color: #FFCC80;
-    color: #5c84f5;
+    color: #7598f9;
     border: none;
     border-radius: 15px;
     cursor: pointer;
@@ -166,10 +166,9 @@ footer {
     right: 0;
     transform: translate(-4vh, 0%);
     font-weight: bold;
-    font-size: calc(1.2vw + 0.8vh); /* Escala adaptable */
-    width: calc(8vw + 50px); /* Escala relativa */
-    height: calc(4vh + 20px); /* Escala relativa */
-    opacity: 0.6;
+    font-size: calc(1.2vw + 0.8vh); 
+    width: calc(8vw + 50px); 
+    height: calc(4vh + 20px); 
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
     transition: filter 0.3s ease, transform 0.2s ease;
 }

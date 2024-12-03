@@ -6,9 +6,9 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%; /* Esto asegura que tanto el html como el body ocupen toda la altura de la ventana */
-    width: 100%; /* Asegura que el body ocupe el 100% del ancho */
-    overflow: hidden; /* Evita el desplazamiento por desbordamiento */
+    height: 100%; 
+    width: 100%; 
+    overflow: hidden; 
     background-color: white;
     text-align: center;
     flex-direction: column;
@@ -33,7 +33,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 10vh; /* Cambié la altura a un valor más amplio */
+    height: 10vh; 
 }
 
 main {
@@ -132,30 +132,30 @@ main {
 
 .note {
     position: absolute;
-    width: 70vw; /* Ajusta el ancho entre 300px y 600px según el ancho de la pantalla */
-    height: 50vh; /* Ajusta la altura entre 300px y 600px según el alto de la pantalla */
-    display: flex;                      /* Hace que el contenedor use Flexbox */
-    align-items: center;                /* Alinea el contenido verticalmente al centro */
-    justify-content: center;            /* Alinea el contenido horizontalmente al centro */
-    background-color: lightgreen;       /* Aplica un color de fondo verde claro */
-    border-radius: 20px;                /* Redondea las esquinas con un radio de 20px */
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Transiciones suaves para transformaciones y opacidad */
-    transform: translateX(100%);        /* Posiciona el elemento fuera de la pantalla hacia la derecha */
-    opacity: 0.5;                       /* Aplica una opacidad del 50% */
+    width: 70vw; 
+    height: 50vh; 
+    display: flex;                    
+    align-items: center;             
+    justify-content: center;         
+    background-color: lightgreen;      
+    border-radius: 20px;             
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; 
+    transform: translateX(100%);       
+    opacity: 0.5;                       
 }
 
 .note.active {
-    transform: translateX(-10%);           /* Devuelve el elemento a la posición inicial */
-    opacity: 1;                         /* Restablece la opacidad al 100% */
+    transform: translateX(-10%);         
+    opacity: 1;                     
 }
 
 .textInput {
     font-family: "Dosis", sans-serif;
     border-radius: 20px;
-    font-size: 5vh; /* Ajustar según se necesite */
+    font-size: 5vh; 
     background-image: url("../images/image.png");
-    background-size: 100% auto; /* Ajusta para que la imagen se alinee bien */
-    background-repeat: repeat-y; /* Repite la imagen en el eje vertical */
+    background-size: 100% auto; 
+    background-repeat: repeat-y;
     overflow-y: auto;
     width: 100%;
     height: 100%;
@@ -233,17 +233,17 @@ main {
 
 .save {
     display: flex;
-    background-image: url("../images/cheque.png");
+    background-image: url("../images/cheque2.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 11%;
-    height: 13%;
+    width: 15%;
+    height: 16%;
     align-items: center;
     position: absolute;
     justify-content: center;
     z-index: 1;
-    transform: translate(130%, -170%);
+    transform: translate(130%, -140%);
     border: none;
     background-color: transparent;
     transition: filter 0.3s ease, transform 0.1s ease;
@@ -251,18 +251,17 @@ main {
 
 .noSave {
     display: flex;
-    background-image: url("../images/rechazado.png");
+    background-image: url("../images/borrar_real.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     width: 11%;
-    height: 13%;
+    height: 11%;
     align-items: center;
     position: absolute;
     justify-content: center;
     z-index: 1;
-   
-    transform: translate(-150%, -170%);
+    transform: translate(-150%, -200%);
     border: none;
     background-color: transparent;
     transition: filter 0.3s ease, transform 0.1s ease;
