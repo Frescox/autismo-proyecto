@@ -26,6 +26,7 @@ body {
     text-align: center;
     color: #FFF2F2;
     overflow-x: hidden;
+    scrollbar-width: none;
 }
 
 /* Header */
@@ -188,18 +189,18 @@ img.img-thumbnail {
         margin-bottom: 40px;
     }
     #btnLetters, #btnNotes {
-        width: 6.5rem; /* Tamaño uniforme */
-        height: 20%; /* Tamaño uniforme */
+        width: 6.5rem;
+        height: 20%; 
     }
     #btnConf {
         height: 2.2rem;
         width: 2.2rem;
     }
     img.img-thumbnail{
-        width: 70px;          /* Tamaño fijo */
-        height: 70px;         /* Tamaño fijo */
-        border-radius: 50%;    /* Forma circular */
-        object-fit: cover;     /* Asegura que la imagen cubra el área sin deformarse */
+        width: 70px;      
+        height: 70px;        
+        border-radius: 50%;   
+        object-fit: cover;     
         margin-right: 10px; 
     }
 }
@@ -210,18 +211,18 @@ img.img-thumbnail {
         margin-bottom: 40px;
     }
     #btnLetters, #btnNotes {
-        width: 4rem; /* Tamaño uniforme */
-        height: 20%; /* Tamaño uniforme */
+        width: 4rem; 
+        height: 20%; 
     }
     #btnConf {
         height: 1.8rem;
         width: 1.8rem;
     }
     img.img-thumbnail{
-        width: 48px;          /* Tamaño fijo */
-        height: 48px;         /* Tamaño fijo */
-        border-radius: 50%;    /* Forma circular */
-        object-fit: cover;     /* Asegura que la imagen cubra el área sin deformarse */
+        width: 48px;         
+        height: 48px;        
+        border-radius: 50%;   
+        object-fit: cover;    
         margin-right: 10px; 
     }
 }

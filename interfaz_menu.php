@@ -119,7 +119,16 @@ $con->close();
         <button type="submit" name="logout" id="btnBack"></button>
     </form>
     </footer>
-
+    <script>
+    let atras = document.getElementById('btnBack');
+    
+    atras.addEventListener('click', () => {
+        localStorage.removeItem('notes');
+        localStorage.removeItem('notesTimestamp');
+        localStorage.removeItem('currentElement');
+        console.log('Notas eliminadas del localStorage');
+    });
+    </script>
     <script src="./js/verif_perm.js"></script>
     <script src="./js/interfaz_menu.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
