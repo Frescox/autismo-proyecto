@@ -53,7 +53,7 @@ async function cargarNuevaPalabra() {
         sesionIniciada = true; // Marcar la sesión como iniciada
     }
 
-    const palabraAleatoria = obtenerPalabraAleatoria();
+    const palabraAleatoria = obtenerPalabraAleatoria().toLowerCase();
     palabraActual = palabraAleatoria.toLowerCase();
     palabraDesordenada = desordenarPalabra(palabraAleatoria);
     respuestaUsuario = [];
