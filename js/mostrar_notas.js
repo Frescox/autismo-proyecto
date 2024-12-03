@@ -75,13 +75,12 @@ function filterNotes() {
     const startDateObj = new Date(startDate);
     const endDateObj = new Date(endDate);
     
-    // Asegurarse de que solo se comparen las fechas (sin la parte de la hora)
     startDateObj.setHours(0, 0, 0, 0);
-    endDateObj.setHours(23, 59, 59, 999); // Este ajuste para la fecha final asegura que se incluyan todas las notas de ese día
+    endDateObj.setHours(23, 59, 59, 999);
 
     const filteredNotes = notes.filter(note => {
         const noteDate = new Date(note.note_date);
-        noteDate.setHours(0, 0, 0, 0); // Asegurarse de que solo se compare la fecha, no la hora
+        noteDate.setHours(0, 0, 0, 0); 
         return noteDate >= startDateObj && noteDate <= endDateObj;
     });
 
